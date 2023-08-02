@@ -15,6 +15,9 @@ public:
     void setShipId(int shipId);
     void setShipName(std::string shipName);
 
+    void insertShipPrototype(Ship* ship);
+    void deleteShipPrototype(Ship* ship);
+
 protected:
     virtual Ship* clone() = 0;
 };
