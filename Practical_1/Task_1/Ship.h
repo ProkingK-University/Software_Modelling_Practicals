@@ -4,12 +4,10 @@
 #include <string>
 
 class Ship {
-
-    public:
-        std::string shipName;
-        int shipId;
-
-    protected:
-        virtual Ship* clone() = 0;
+public:
+    std::string shipName;
+    int shipId;
+protected:
+    virtual Ship* clone() = 0;
 };
 #endif
