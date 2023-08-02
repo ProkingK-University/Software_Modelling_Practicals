@@ -18,8 +18,8 @@ public:
     std::string* getItems();
 
     void setCapacity(int capacity);
-    void setItems(std::string items);
     void setCurrentLoad(int currentLoad);
+    void setItems(std::string* items, int size);
 
     std::string toString();
 
