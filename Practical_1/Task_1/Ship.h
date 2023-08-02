@@ -12,11 +12,10 @@ public:
     int getShipId();
     std::string getShipName();
 
-    void setShip(int shipId);
+    void setShipId(int shipId);
     void setShipName(std::string shipName);
 
 protected:
-
     virtual Ship* clone() = 0;
 };
 #endif
