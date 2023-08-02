@@ -1,6 +1,8 @@
 #ifndef SHIP_H
 #define SHIP_H
 
+#include <string>
+
 class Ship {
 
     public:
