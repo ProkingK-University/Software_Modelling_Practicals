@@ -1,6 +1,4 @@
-# Software Modelling (COS 214)
-
-## 📚 Software Modelling Repository (COS 214) 🖥️
+# 📚 Software Modelling Repository (COS 214) 🖥️
 
 Welcome to the repository! 🎉 
 This GitHub repository serves as the central hub for all the practicals related to the Software Modelling module. 
