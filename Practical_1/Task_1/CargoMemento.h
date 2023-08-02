@@ -5,22 +5,27 @@
 
 #include "CargoShip.h";
 
-
 class CargoMemento {
 public:
     int shipId;
     int version;
+
     int getShipId();
     int getVersion();
-    std::string getShipName();
     std::string* getItems();
-    void getCurrentLoad(int currentLoad);
+    std::string getShipName();
+    int getCurrentLoad();
+    
     CargoMemento(std::string shipName, int shipId, int capacity, int currentLoad, std::string* items);
+    
 private:
-    std::string shipName;
-    std::string* items;
-    int currentLoad;
+    friend class cargoShip;
+
     int capacity;
+    int currentLoad;
+    
+    std::string* items;
+    std::string shipName;
 };
 
 #endif
