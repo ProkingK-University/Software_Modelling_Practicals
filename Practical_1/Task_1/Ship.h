@@ -4,14 +4,19 @@
 #include <string>
 
 class Ship {
+
 public:
-    std::string shipName;
     int shipId;
-    std::string getShipName();
-    void setShipName(std::string shipName);
+    std::string shipName;
+    
     int getShipId();
+    std::string getShipName();
+
     void setShip(int shipId);
+    void setShipName(std::string shipName);
+
 protected:
+
     virtual Ship* clone() = 0;
 };
 #endif
