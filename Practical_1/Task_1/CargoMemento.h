@@ -5,7 +5,6 @@
 
 #include "CargoShip.h";
 
-
 class CargoMemento {
 public:
     int shipId;
@@ -15,11 +14,13 @@ public:
     int getVersion();
     std::string* getItems();
     std::string getShipName();
-    void getCurrentLoad(int currentLoad);
+    int getCurrentLoad();
     
     CargoMemento(std::string shipName, int shipId, int capacity, int currentLoad, std::string* items);
     
 private:
+    friend class cargoShip;
+
     int capacity;
     int currentLoad;
     
