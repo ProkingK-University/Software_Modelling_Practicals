@@ -4,28 +4,26 @@
 #include <iostream>
 
 void protoTypeTesting();
-//void mementoTesting();
+void mementoTesting();
 //void finalTesting();
-void cloningUnitializedObjectsTesting();
+void cloningUnitializedObjectTesting();
 void cloningOneObjectTesting();
 void cloningTwoObjectsTesting();
-// void protoTypeRegistrationAndManagement();
-// void deepCopyTesting();
-// void invalidStateTesting();
+void invalidStateTesting();
 // void partialRestorationTesting();
 
 int main() 
 {
-    protoTypeTesting();
-    //mementoTesting();
+    //protoTypeTesting();
+    mementoTesting();
     //finalTesting();
     return 0;
 }
 
 void protoTypeTesting() 
 {
-    //cloningUnitializedObjectTesting();
-    //cloningOneObjectTesting();
+    cloningUnitializedObjectTesting();
+    cloningOneObjectTesting();
     cloningTwoObjectsTesting();
 }
 
@@ -103,17 +101,12 @@ void cloningOneObjectTesting()
     std::cout << std::endl;
 }
 
-void cloningTwoObjectsTesting() {
+void cloningTwoObjectsTesting() 
+{
     std::cout << "<----CREATE NEW CARGO SHIP 1---->" << std::endl;
     CargoShip* cargoShip1 = new CargoShip();
-    cargoShip1->setShipId(0);
-    cargoShip1->setShipName("Container Ship");
-    std::cout << std::endl;
-
-    std::cout << "<----CREATE NEW CARGO SHIP 2---->" << std::endl;
-    CargoShip* cargoShip2 = new CargoShip();
     cargoShip1->setShipId(1);
-    cargoShip1->setShipName("Chemical Tanker");
+    cargoShip1->setShipName("Container Ship");
     std::cout << std::endl;
 
     std::cout << "<----CLONING CARGO SHIP 1---->" << std::endl;
@@ -122,8 +115,8 @@ void cloningTwoObjectsTesting() {
     std::cout << "DONE!" << std::endl;
     std::cout << std::endl;
 
-    std::cout << "<----CLONING CARGO SHIP 2---->" << std::endl;
-    CargoShip* cloneCargoShip2 = (CargoShip*) cargoShip2->clone();
+    std::cout << "<----CLONING CARGO SHIP 1---->" << std::endl;
+    CargoShip* cloneCargoShip2 = (CargoShip*) cargoShip1->clone();
     std::cout << "LOADING...." << std::endl;
     std::cout << "DONE!" << std::endl;
     std::cout << std::endl;
@@ -138,20 +131,20 @@ void cloningTwoObjectsTesting() {
     std::cout << "Original Ship Load: " << cargoShip1->getCurrentLoad() << std::endl;
     std::cout << "Cloned Ship Load: " << cloneCargoShip1->getCurrentLoad() << std::endl;
     std::cout << "Original Ship Items: " << cargoShip1->getItems() << std::endl;
-    std::cout << "Cloned Ship Items: " << cargoShip1->getItems() << std::endl;
+    std::cout << "Cloned Ship Items: " << cloneCargoShip1->getItems() << std::endl;
     std::cout << std::endl;
     
-    std::cout << "<----TESTING CLONING FOR CARGO SHIP 2---->" << std::endl;
-    std::cout << "Original Ship Id: " << cargoShip2->getShipId() << std::endl;
+    std::cout << "<----TESTING CLONING FOR CARGO SHIP 1---->" << std::endl;
+    std::cout << "Original Ship Id: " << cargoShip1->getShipId() << std::endl;
     std::cout << "Cloned Ship id: " << cloneCargoShip2->getShipId() << std::endl;
-    std::cout << "Original Ship Name: " << cargoShip2->getShipName() << std::endl;
+    std::cout << "Original Ship Name: " << cargoShip1->getShipName() << std::endl;
     std::cout << "Cloned Ship Name: " << cloneCargoShip2->getShipName() << std::endl;
-    std::cout << "Original Ship Capacity: " << cargoShip2->getCapacity() << std::endl;
+    std::cout << "Original Ship Capacity: " << cargoShip1->getCapacity() << std::endl;
     std::cout << "Cloned Ship Capacity: " << cloneCargoShip2->getCapacity() << std::endl;
-    std::cout << "Original Ship Load: " << cargoShip2->getCurrentLoad() << std::endl;
+    std::cout << "Original Ship Load: " << cargoShip1->getCurrentLoad() << std::endl;
     std::cout << "Cloned Ship Load: " << cloneCargoShip2->getCurrentLoad() << std::endl;
-    std::cout << "Original Ship Items: " << cargoShip2->getItems() << std::endl;
-    std::cout << "Cloned Ship Items: " << cargoShip2->getItems() << std::endl;
+    std::cout << "Original Ship Items: " << cargoShip1->getItems() << std::endl;
+    std::cout << "Cloned Ship Items: " << cloneCargoShip2->getItems() << std::endl;
     std::cout << std::endl;
 
     std::cout << "<----ADDING TRAITS TO CLONED VERSION OF CARGO SHIP 1---->" << std::endl;
@@ -163,10 +156,10 @@ void cloningTwoObjectsTesting() {
     cloneCargoShip1->addItem("Item 3");
 
     std::cout << "<----ADDING TRAITS TO CLONED VERSION OF CARGO SHIP 1---->" << std::endl;
-    cloneCargoShip1->setCapacity(4);
-    cloneCargoShip1->setCurrentLoad(1);
-    cloneCargoShip1->setItems(cargoShip1->getCapacity());
-    cloneCargoShip1->addItem("Item 1");
+    cloneCargoShip2->setCapacity(4);
+    cloneCargoShip2->setCurrentLoad(1);
+    cloneCargoShip2->setItems(cargoShip1->getCapacity());
+    cloneCargoShip2->addItem("Item 1");
 
     std::cout << "<----TESTING CLONING FOR CARGO SHIP 1 (UPDATED)---->" << std::endl;
     std::cout << "Original Ship Id: " << cargoShip1->getShipId() << std::endl;
@@ -178,20 +171,20 @@ void cloningTwoObjectsTesting() {
     std::cout << "Original Ship Load: " << cargoShip1->getCurrentLoad() << std::endl;
     std::cout << "Cloned Ship Load: " << cloneCargoShip1->getCurrentLoad() << std::endl;
     std::cout << "Original Ship Items: " << cargoShip1->getItems() << std::endl;
-    std::cout << "Cloned Ship Items: " << cargoShip1->getItems() << std::endl;
+    std::cout << "Cloned Ship Items: " << cloneCargoShip1->getItems() << std::endl;
     std::cout << std::endl;
     
-    std::cout << "<----TESTING CLONING FOR CARGO SHIP 2 (UPDATED)---->" << std::endl;
-    std::cout << "Original Ship Id: " << cargoShip2->getShipId() << std::endl;
+    std::cout << "<----TESTING CLONING FOR CARGO SHIP 1 (UPDATED)---->" << std::endl;
+    std::cout << "Original Ship Id: " << cargoShip1->getShipId() << std::endl;
     std::cout << "Cloned Ship id: " << cloneCargoShip2->getShipId() << std::endl;
-    std::cout << "Original Ship Name: " << cargoShip2->getShipName() << std::endl;
+    std::cout << "Original Ship Name: " << cargoShip1->getShipName() << std::endl;
     std::cout << "Cloned Ship Name: " << cloneCargoShip2->getShipName() << std::endl;
-    std::cout << "Original Ship Capacity: " << cargoShip2->getCapacity() << std::endl;
+    std::cout << "Original Ship Capacity: " << cargoShip1->getCapacity() << std::endl;
     std::cout << "Cloned Ship Capacity: " << cloneCargoShip2->getCapacity() << std::endl;
-    std::cout << "Original Ship Load: " << cargoShip2->getCurrentLoad() << std::endl;
+    std::cout << "Original Ship Load: " << cargoShip1->getCurrentLoad() << std::endl;
     std::cout << "Cloned Ship Load: " << cloneCargoShip2->getCurrentLoad() << std::endl;
-    std::cout << "Original Ship Items: " << cargoShip2->getItems() << std::endl;
-    std::cout << "Cloned Ship Items: " << cargoShip2->getItems() << std::endl;
+    std::cout << "Original Ship Items: " << cargoShip1->getItems() << std::endl;
+    std::cout << "Cloned Ship Items: " << cloneCargoShip2->getItems() << std::endl;
     std::cout << std::endl;
 
     std::cout << "<----DELETING SHIPS---->" << std::endl;
@@ -199,33 +192,16 @@ void cloningTwoObjectsTesting() {
     std::cout << "DELETED CARGO SHIP 1..." << std::endl;
     delete cloneCargoShip1;
     std::cout << "DELETED CLONED SHIP 1..." << std::endl;
-    delete cargoShip2;
-    std::cout << "DELETED CARGO SHIP 2..." << std::endl;
     delete cloneCargoShip2;
     std::cout << "DELETED CLONED SHIP 2..." << std::endl;
     std::cout << std::endl;
 }
 
-
-
-
-// /*
-// Test the registration and management of prototype objects in the prototype
-// manager (if used). Ensure that prototypes are registered correctly and that
-// the prototype manager can handle concurrent access and modification to the
-// prototype registry.
-// */
-// void protoTypeRegistrationAndManagement() 
-// {
-
-// }
-
-// void mementoTesting() 
-// {
-//     deepCopyTesting();
-//     invalidStateTesting();
-//     partialRestorationTesting();
-// }
+void mementoTesting() 
+{
+    invalidStateTesting();
+    //partialRestorationTesting();
+}
 
 // /*
 // Check if the Memento is performing a deep copy of the originator's state rather

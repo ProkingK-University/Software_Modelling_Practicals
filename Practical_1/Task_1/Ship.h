@@ -8,7 +8,7 @@ class Ship {
 public:
     int shipId;
     std::string shipName;
-    
+
     int getShipId();
     std::string getShipName();
 
