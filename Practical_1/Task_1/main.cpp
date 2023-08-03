@@ -23,8 +23,8 @@ int main()
 
 void protoTypeTesting() 
 {
-    circularReferenceTesting();
-    //cloningUnitializedObjectsTesting();
+    //circularReferenceTesting();
+    cloningUnitializedObjectsTesting();
     //protoTypeRegistrationAndManagement();
 }
 
@@ -67,26 +67,11 @@ void circularReferenceTesting()
     std::cout << "Cloned Ship Items: " << cargoShip1->getItems() << std::endl;
     std::cout << std::endl;
     
-
-
-    // std::cout << "<----TEST IF CLONING WORKS--->" << std::endl;
-    // CargoShip* c = static_cast<Ship*>(clonedShip);
-    // // Check if the clonedShip is indeed a CargoShip object
-    // CargoShip* castedClonedShip = dynamic_cast<CargoShip*>(clonedShip);
-    // if (castedClonedShip) {
-    //     std::cout << "Cloned Ship is a CargoShip." << std::endl;
-    //     // Test some CargoShip specific functions
-    //     castedClonedShip->addItem("Item3");
-    //     castedClonedShip->removeItem("Item2");
-    // } else {
-    //     std::cout << "Cloned Ship is not a CargoShip." << std::endl;
-    // }
-
-    // // Don't forget to clean up memory
-    // delete clonedShip;
-
-    
-    
+    std::cout << "<----DELETING SHIPS---->" << std::endl;
+    delete cargoShip1;
+    std::cout << "DELETED CARGO SHIP 1..." << std::endl;
+    delete cloneCargoShip1;
+    std::cout << "DELETED CLONED SHIP..." << std::endl;
 }
 
 /*
@@ -94,11 +79,37 @@ Attempt to clone objects that have not been fully initialized or contain null
 values. The prototype should create a valid copy without errors or issues.
 */
 
+void cloningUnitializedObjectsTesting() 
+{
+    std::cout << "<----CREATE NEW CARGO SHIP 1 THAT IS UNINITIALIZED---->" << std::endl;
+    CargoShip* cargoShip1 = new CargoShip();
+    std::cout << std::endl;
 
-// void cloningUnitializedObjectsTesting() 
-// {
+    std::cout << "<----CLONING CARGO SHIP 1---->" << std::endl;
+    CargoShip* cloneCargoShip1 = (CargoShip*) cargoShip1->clone();
+    std::cout << "LOADING...." << std::endl;
+    std::cout << "DONE!" << std::endl;
+    std::cout << std::endl;
 
-// }
+    std::cout << "<----TESTING CLONING---->" << std::endl;
+    std::cout << "Original Ship Id: " << cargoShip1->getShipId() << std::endl;
+    std::cout << "Cloned Ship id: " << cloneCargoShip1->getShipId() << std::endl;
+    std::cout << "Original Ship Name: " << cargoShip1->getShipName() << std::endl;
+    std::cout << "Cloned Ship Name: " << cloneCargoShip1->getShipName() << std::endl;
+    std::cout << "Original Ship Capacity: " << cargoShip1->getCapacity() << std::endl;
+    std::cout << "Cloned Ship Capacity: " << cloneCargoShip1->getCapacity() << std::endl;
+    std::cout << "Original Ship Load: " << cargoShip1->getCurrentLoad() << std::endl;
+    std::cout << "Cloned Ship Load: " << cloneCargoShip1->getCurrentLoad() << std::endl;
+    std::cout << "Original Ship Items: " << cargoShip1->getItems() << std::endl;
+    std::cout << "Cloned Ship Items: " << cargoShip1->getItems() << std::endl;
+    std::cout << std::endl;
+    
+    std::cout << "<----DELETING SHIPS---->" << std::endl;
+    delete cargoShip1;
+    std::cout << "DELETED CARGO SHIP 1..." << std::endl;
+    delete cloneCargoShip1;
+    std::cout << "DELETED CLONED SHIP..." << std::endl;
+}
 
 
 // /*
