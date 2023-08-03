@@ -99,21 +99,22 @@ Ship *CargoShip::clone()
     newCargoShip->setCapacity(this->getCapacity());
     newCargoShip->setCurrentLoad(this->getCurrentLoad());
     newCargoShip->setItems(this->getItems(), this->getCurrentLoad());
+    return newCargoShip;
 }
 
-CargoMemento CargoShip::save(int saveId)
-{
-    return CargoMemento(shipName, shipId, capacity, currentLoad, items, saveId);
-}
+// CargoMemento CargoShip::save(int saveId)
+// {
+//     return CargoMemento(shipName, shipId, capacity, currentLoad, items, saveId);
+// }
 
-void CargoShip::restore(CargoMemento restorePoint)
-{
-    setShipId(restorePoint.getShipId());
-    setShipName(restorePoint.getShipName());
-    setCapacity(restorePoint.getCapacity());
-    setCurrentLoad(restorePoint.getCurrentLoad());
-    setItems(restorePoint.getItems(), restorePoint.getCurrentLoad());
-}
+// void CargoShip::restore(CargoMemento restorePoint)
+// {
+//     setShipId(restorePoint.getShipId());
+//     setShipName(restorePoint.getShipName());
+//     setCapacity(restorePoint.getCapacity());
+//     setCurrentLoad(restorePoint.getCurrentLoad());
+//     setItems(restorePoint.getItems(), restorePoint.getCurrentLoad());
+// }
 
 CargoShip::~CargoShip()
 {

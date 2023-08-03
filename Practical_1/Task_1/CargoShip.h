@@ -4,7 +4,6 @@
 #include <iostream>
 
 #include "Ship.h"
-#include "CargoMemento.h"
 
 class CargoShip : public Ship
 {
@@ -27,8 +26,8 @@ public:
     void removeItem(std::string item);
 
     Ship* clone();
-    CargoMemento save(int saveId);
-    void restore(CargoMemento restorePoint);
+    //CargoMemento save(int saveId);
+    //void restore(CargoMemento restorePoint);
 
     //friend std::ostream &operator<<(std::ostream &os, const CargoShip &ship);
 
