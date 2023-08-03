@@ -36,57 +36,56 @@ infinite loop.
 */
 void circularReferenceTesting() 
 {
-    std::cout << "<----CREATE ORIGINAL CARGO SHIP 1---->" << std::endl;
-    CargoShip originalShip1;
-    originalShip1.setCapacity(3);
-    originalShip1.setCurrentLoad(0);
-    originalShip1.setItems(originalShip1.getCapacity());
-    originalShip1.addItem("Item 1");
-    originalShip1.addItem("Item 2");
-    originalShip1.setShipId(1);
-    originalShip1.setShipName("Cruise Ship");
-    std::cout << std::endl << std::endl;
+    std::cout << "<----CREATE NEW CARGO SHIP 1---->" << std::endl;
+    CargoShip* cargoShip1 = new CargoShip();
+    cargoShip1->setShipId(1);
+    cargoShip1->setShipName("Ship");
+    cargoShip1->setCapacity(5);
+    cargoShip1->setCurrentLoad(3);
+    cargoShip1->setItems(cargoShip1->getCapacity());
+    cargoShip1->addItem("Item 1");
+    cargoShip1->addItem("Item 2");
+    cargoShip1->addItem("Item 3");
+    std::cout << std::endl;
 
-    std::cout << "<----CLONE CARGO SHIP 1---->" << std::endl;
-    Ship* clonedShip = originalShip1.clone();
-    std::cout << std::endl << std::endl;
+    std::cout << "<----CLONING CARGO SHIP 1---->" << std::endl;
+    CargoShip* cloneCargoShip1 = (CargoShip*) cargoShip1->clone();
+    std::cout << "LOADING...." << std::endl;
+    std::cout << "DONE!" << std::endl;
+    std::cout << std::endl;
 
-    std::cout << "<----VERTIFY THE STATE OF THE CLONED SHIP---->" << std::endl;
-    std::cout << "Original Ship ID: " << originalShip1.getShipId() << std::endl;
-    std::cout << "Original Ship Name: " << originalShip1.getShipName() << std::endl;
-    std::cout << "Cloned Ship ID: " << clonedShip->getShipId() << std::endl;
-    std::cout << "Cloned Ship Name: " << clonedShip->getShipName() << std::endl;
+    std::cout << "<----TESTING CLONING---->" << std::endl;
+    std::cout << "Original Ship Id: " << cargoShip1->getShipId() << std::endl;
+    std::cout << "Cloned Ship id: " << cloneCargoShip1->getShipId() << std::endl;
+    std::cout << "Original Ship Name: " << cargoShip1->getShipName() << std::endl;
+    std::cout << "Cloned Ship Name: " << cloneCargoShip1->getShipName() << std::endl;
+    std::cout << "Original Ship Capacity: " << cargoShip1->getCapacity() << std::endl;
+    std::cout << "Cloned Ship Capacity: " << cloneCargoShip1->getCapacity() << std::endl;
+    std::cout << "Original Ship Load: " << cargoShip1->getCurrentLoad() << std::endl;
+    std::cout << "Cloned Ship Load: " << cloneCargoShip1->getCurrentLoad() << std::endl;
+    std::cout << "Original Ship Items: " << cargoShip1->getItems() << std::endl;
+    std::cout << "Cloned Ship Items: " << cargoShip1->getItems() << std::endl;
+    std::cout << std::endl;
+    
 
-    // Check if the clonedShip is indeed a CargoShip object
-    CargoShip* castedClonedShip = dynamic_cast<CargoShip*>(clonedShip);
-    if (castedClonedShip) {
-        std::cout << "Cloned Ship is a CargoShip." << std::endl;
-        // Test some CargoShip specific functions
-        castedClonedShip->addItem("Item3");
-        castedClonedShip->removeItem("Item2");
-    } else {
-        std::cout << "Cloned Ship is not a CargoShip." << std::endl;
-    }
 
-    // Don't forget to clean up memory
-    delete clonedShip;
+    // std::cout << "<----TEST IF CLONING WORKS--->" << std::endl;
+    // CargoShip* c = static_cast<Ship*>(clonedShip);
+    // // Check if the clonedShip is indeed a CargoShip object
+    // CargoShip* castedClonedShip = dynamic_cast<CargoShip*>(clonedShip);
+    // if (castedClonedShip) {
+    //     std::cout << "Cloned Ship is a CargoShip." << std::endl;
+    //     // Test some CargoShip specific functions
+    //     castedClonedShip->addItem("Item3");
+    //     castedClonedShip->removeItem("Item2");
+    // } else {
+    //     std::cout << "Cloned Ship is not a CargoShip." << std::endl;
+    // }
 
-    // CargoShip* cargoShip2 = new CargoShip();
-    // cargoShip2->setShipId(1);
-    // cargoShip2->setShipName("Ashley's Cargo Ship");
-    // cargoShip2->setCapacity(4);
-    // cargoShip2->setItems(cargoShip2->getCapacity());
-    // cargoShip2->addItem("Item1");
-    // cargoShip2->addItem("Item2");
-    // cargoShip2->addItem("Item3");
+    // // Don't forget to clean up memory
+    // delete clonedShip;
 
-    // Ship* cloneShip1 = cargoShip1->clone();
-    // Ship* cloneShip2 = cargoShip2->clone();
-    // std::cout << "Ship Id:" << cloneShip1->getShipId() << std::endl;
-    // std::cout << "Ship Name: " << cloneShip1->getShipName() << std::endl;
-
-    // std::cout << "Ship Id:" << cloneShip2->getShipId() << std::endl;
-    // std::cout << "Ship Name: " << cloneShip2->getShipName() << std::endl;
+    
     
 }
 

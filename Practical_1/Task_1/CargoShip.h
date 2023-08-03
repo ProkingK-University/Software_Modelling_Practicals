@@ -25,7 +25,7 @@ public:
     void addItem(std::string item);
     void removeItem(std::string item);
 
-    Ship* clone();
+    virtual Ship* clone();
     //CargoMemento save(int saveId);
     //void restore(CargoMemento restorePoint);
 
