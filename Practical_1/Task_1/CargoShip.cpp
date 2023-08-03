@@ -97,10 +97,16 @@ Ship *CargoShip::clone()
 
 CargoMemento CargoShip::save(int saveId)
 {
+    return CargoMemento(shipName, shipId, capacity, currentLoad, items, saveId);
 }
 
 void CargoShip::restore(CargoMemento restorePoint)
 {
+    setShipId(restorePoint.getShipId());
+    setShipName(restorePoint.getShipName());
+    setCapacity(restorePoint.getCapacity());
+    setCurrentLoad(restorePoint.getCurrentLoad());
+    setItems(restorePoint.getItems(), restorePoint.getCurrentLoad());
 }
 
 CargoShip::~CargoShip()
