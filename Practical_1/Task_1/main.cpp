@@ -36,50 +36,58 @@ infinite loop.
 */
 void circularReferenceTesting() 
 {
-    CargoShip* cargoShip = new CargoShip();
-    cargoShip->setCapacity(1000);
-    cargoShip->setCurrentLoad(500);
-    cargoShip->addItem("Item1");
-    cargoShip->addItem("Item2");
-    cargoShip->addItem("Item3");
+    std::cout << "<----CREATE ORIGINAL CARGO SHIP 1---->" << std::endl;
+    CargoShip originalShip1;
+    originalShip1.setCapacity(3);
+    originalShip1.setCurrentLoad(0);
+    originalShip1.setItems(originalShip1.getCapacity());
+    originalShip1.addItem("Item 1");
+    originalShip1.addItem("Item 2");
+    originalShip1.setShipId(1);
+    originalShip1.setShipName("Cruise Ship");
+    std::cout << std::endl << std::endl;
 
-    Ship* cloneShip = cargoShip->clone();
+    std::cout << "<----CLONE CARGO SHIP 1---->" << std::endl;
+    Ship* clonedShip = originalShip1.clone();
+    std::cout << std::endl << std::endl;
 
-    std::cout << static_cast<void*>(cloneShip);
+    std::cout << "<----VERTIFY THE STATE OF THE CLONED SHIP---->" << std::endl;
+    std::cout << "Original Ship ID: " << originalShip1.getShipId() << std::endl;
+    std::cout << "Original Ship Name: " << originalShip1.getShipName() << std::endl;
+    std::cout << "Cloned Ship ID: " << clonedShip->getShipId() << std::endl;
+    std::cout << "Cloned Ship Name: " << clonedShip->getShipName() << std::endl;
 
+    // Check if the clonedShip is indeed a CargoShip object
+    CargoShip* castedClonedShip = dynamic_cast<CargoShip*>(clonedShip);
+    if (castedClonedShip) {
+        std::cout << "Cloned Ship is a CargoShip." << std::endl;
+        // Test some CargoShip specific functions
+        castedClonedShip->addItem("Item3");
+        castedClonedShip->removeItem("Item2");
+    } else {
+        std::cout << "Cloned Ship is not a CargoShip." << std::endl;
+    }
 
+    // Don't forget to clean up memory
+    delete clonedShip;
 
-//    // Create a Ship object
-//     Ship* ship;
-//     ship->setShipId(1001);
-//     ship->setShipName("Sample Ship");
+    // CargoShip* cargoShip2 = new CargoShip();
+    // cargoShip2->setShipId(1);
+    // cargoShip2->setShipName("Ashley's Cargo Ship");
+    // cargoShip2->setCapacity(4);
+    // cargoShip2->setItems(cargoShip2->getCapacity());
+    // cargoShip2->addItem("Item1");
+    // cargoShip2->addItem("Item2");
+    // cargoShip2->addItem("Item3");
 
-//     // Create a CargoShip object
-//     CargoShip cargoShip(2001, "Cargo Ship 1", 10);
+    // Ship* cloneShip1 = cargoShip1->clone();
+    // Ship* cloneShip2 = cargoShip2->clone();
+    // std::cout << "Ship Id:" << cloneShip1->getShipId() << std::endl;
+    // std::cout << "Ship Name: " << cloneShip1->getShipName() << std::endl;
 
-//     // Add items to the cargo ship
-//     cargoShip.addItem("Item1");
-//     cargoShip.addItem("Item2");
-//     cargoShip.addItem("Item3");
-
-//     // Print the details of the cargo ship
-//     std::cout << cargoShip;
-
-//     // Create a CargoMemento to save the cargo ship state
-//     CargoMemento memento = cargoShip.save(1);
-
-//     // Modify the cargo ship
-//     cargoShip.removeItem("Item2");
-//     cargoShip.setShipName("Modified Cargo Ship");
-
-//     // Print the details of the modified cargo ship
-//     std::cout << cargoShip;
-
-//     // Restore the cargo ship to the saved state
-//     cargoShip.restore(memento);
-
-//     // Print the details of the restored cargo ship
-//     std::cout << cargoShip;
+    // std::cout << "Ship Id:" << cloneShip2->getShipId() << std::endl;
+    // std::cout << "Ship Name: " << cloneShip2->getShipName() << std::endl;
+    
 }
 
 /*

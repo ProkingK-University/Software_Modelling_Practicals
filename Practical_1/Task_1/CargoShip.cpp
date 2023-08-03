@@ -34,15 +34,20 @@ void CargoShip::setCurrentLoad(int currentLoad)
     this->currentLoad = currentLoad;
 }
 
-void CargoShip::setItems(std::string *items, int size)
+void CargoShip::setItems(int size)
 {
     this->items = new std::string[size];
-
-    for (int i = 0; i < size; i++)
-    {
-        this->items[i] = items[i];
-    }
 }
+
+// void CargoShip::setItems(std::string *items, int size)
+// {
+//     this->items = new std::string[size];
+
+//     for (int i = 0; i < size; i++)
+//     {
+//         this->items[i] = items[i];
+//     }
+// }
 
 void CargoShip::addItem(const std::string item)
 {
@@ -79,26 +84,28 @@ void CargoShip::removeItem(const std::string item)
     std::cout << "Item not found: " << item << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &os, const CargoShip &ship)
-{
-    os << "Ship " << ship.shipId << ": " << ship.shipName << '\n';
-    os << "load: " << ship.currentLoad << "/" << ship.capacity << '\n';
-    os << "Items:\n";
+// std::ostream &operator<<(std::ostream &os, const CargoShip &ship)
+// {
+//     os << "Ship " << ship.shipId << ": " << ship.shipName << '\n';
+//     os << "load: " << ship.currentLoad << "/" << ship.capacity << '\n';
+//     os << "Items:\n";
 
-    for (int i = 0; i < ship.currentLoad; i++)
-    {
-        os << "item " << i + 1 << ": " << ship.items[i] << '\n';
-    }
+//     for (int i = 0; i < ship.currentLoad; i++)
+//     {
+//         os << "item " << i + 1 << ": " << ship.items[i] << '\n';
+//     }
 
-    return os;
-}
+//     return os;
+// }
 
 Ship *CargoShip::clone()
 {
     CargoShip* newCargoShip = new CargoShip();
     newCargoShip->setCapacity(this->getCapacity());
     newCargoShip->setCurrentLoad(this->getCurrentLoad());
-    newCargoShip->setItems(this->getItems(), this->getCurrentLoad());
+    newCargoShip->setItems(this->getCurrentLoad());
+    newCargoShip->setShipId(this->getShipId());
+    newCargoShip->setShipName(this->getShipName());
     return newCargoShip;
 }
 
@@ -116,7 +123,7 @@ Ship *CargoShip::clone()
 //     setItems(restorePoint.getItems(), restorePoint.getCurrentLoad());
 // }
 
-CargoShip::~CargoShip()
-{
-    delete[] items;
-}
+// CargoShip::~CargoShip()
+// {
+//     delete[] items;
+// }

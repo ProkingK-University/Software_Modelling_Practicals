@@ -20,7 +20,7 @@ public:
 
     void setCapacity(int capacity);
     void setCurrentLoad(int currentLoad);
-    void setItems(std::string* items, int size);
+    void setItems(int size);
 
     void addItem(std::string item);
     void removeItem(std::string item);
@@ -31,7 +31,7 @@ public:
 
     //friend std::ostream &operator<<(std::ostream &os, const CargoShip &ship);
 
-    ~CargoShip();
+    //~CargoShip();
 };
 
 #endif
