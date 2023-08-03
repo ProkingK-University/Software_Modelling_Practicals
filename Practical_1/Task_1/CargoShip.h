@@ -1,17 +1,19 @@
 #ifndef CARGOSHIP_H
 #define CARGOSHIP_H
 
+#include <iostream>
+
 #include "Ship.h"
 #include "CargoMemento.h"
 
-class CargoShip
+class CargoShip : public Ship
 {
 public:
     int capacity;
     int currentLoad;
     std::string* items;
 
-    CargoShip(int capacity);
+    CargoShip(int id, int name, int capacity);
 
     int getCapacity();
     int getCurrentLoad();
@@ -21,11 +23,14 @@ public:
     void setCurrentLoad(int currentLoad);
     void setItems(std::string* items, int size);
 
-    std::string toString();
+    void addItem(std::string item);
+    void removeItem(std::string item);
 
     Ship* clone();
     CargoMemento save(int saveId);
     void restore(CargoMemento restorePoint);
+
+    friend std::ostream &operator<<(std::ostream &os, const CargoShip &ship);
 
     ~CargoShip();
 };
