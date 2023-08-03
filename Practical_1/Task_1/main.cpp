@@ -9,7 +9,8 @@ void mementoTesting();
 void cloningUnitializedObjectTesting();
 void cloningOneObjectTesting();
 void cloningTwoObjectsTesting();
-void invalidStateTesting();
+void deepCopyTesting();
+//void invalidStateTesting();
 // void partialRestorationTesting();
 
 int main() 
@@ -199,19 +200,15 @@ void cloningTwoObjectsTesting()
 
 void mementoTesting() 
 {
-    invalidStateTesting();
+    deepCopyTesting();
+    //invalidStateTesting();
     //partialRestorationTesting();
 }
 
-// /*
-// Check if the Memento is performing a deep copy of the originator's state rather
-// than a shallow copy. Changes made to the original object should not affect the
-// state stored in the Memento.
-// */
-// void deeptCopyTesting() 
-// {
-
-// }
+void deepCopyTesting() 
+{
+    
+}
 
 // /*
 // Attempt to restore the originator's state from an invalid or corrupted Memento.

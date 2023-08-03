@@ -39,15 +39,15 @@ void CargoShip::setItems(int size)
     this->items = new std::string[size];
 }
 
-// void CargoShip::setItems(std::string *items, int size)
-// {
-//     this->items = new std::string[size];
+void CargoShip::setItems(std::string *items, int size)
+{
+    this->items = new std::string[size];
 
-//     for (int i = 0; i < size; i++)
-//     {
-//         this->items[i] = items[i];
-//     }
-// }
+    for (int i = 0; i < size; i++)
+    {
+        this->items[i] = items[i];
+    }
+}
 
 void CargoShip::addItem(const std::string item)
 {
@@ -109,19 +109,19 @@ Ship *CargoShip::clone()
     return newCargoShip;
 }
 
-// CargoMemento CargoShip::save(int saveId)
-// {
-//     return CargoMemento(shipName, shipId, capacity, currentLoad, items, saveId);
-// }
+CargoMemento CargoShip::save(int saveId)
+{
+    return CargoMemento(shipName, shipId, capacity, currentLoad, items, saveId);
+}
 
-// void CargoShip::restore(CargoMemento restorePoint)
-// {
-//     setShipId(restorePoint.getShipId());
-//     setShipName(restorePoint.getShipName());
-//     setCapacity(restorePoint.getCapacity());
-//     setCurrentLoad(restorePoint.getCurrentLoad());
-//     setItems(restorePoint.getItems(), restorePoint.getCurrentLoad());
-// }
+void CargoShip::restore(CargoMemento restorePoint)
+{
+    setShipId(restorePoint.getShipId());
+    setShipName(restorePoint.getShipName());
+    setCapacity(restorePoint.getCapacity());
+    setCurrentLoad(restorePoint.getCurrentLoad());
+    setItems(restorePoint.getItems(), restorePoint.getCurrentLoad());
+}
 
 // CargoShip::~CargoShip()
 // {
