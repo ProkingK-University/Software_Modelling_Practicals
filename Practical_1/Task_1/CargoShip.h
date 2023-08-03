@@ -13,7 +13,7 @@ public:
     int currentLoad;
     std::string* items;
 
-    CargoShip(int id, int name, int capacity);
+    //CargoShip(int id, int name, int capacity);
 
     int getCapacity();
     int getCurrentLoad();
@@ -30,7 +30,7 @@ public:
     CargoMemento save(int saveId);
     void restore(CargoMemento restorePoint);
 
-    friend std::ostream &operator<<(std::ostream &os, const CargoShip &ship);
+    //friend std::ostream &operator<<(std::ostream &os, const CargoShip &ship);
 
     ~CargoShip();
 };

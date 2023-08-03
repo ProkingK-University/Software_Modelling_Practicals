@@ -2,6 +2,8 @@
 #include "CargoShip.h"
 #include "Ship.h"
 
+#include <iostream>
+
 void protoTypeTesting();
 void mementoTesting();
 void finalTesting();
@@ -35,7 +37,50 @@ infinite loop.
 */
 void circularReferenceTesting() 
 {
-    
+    CargoShip* cargoShip = new CargoShip();
+    cargoShip->setCapacity(1000);
+    cargoShip->setCurrentLoad(500);
+    cargoShip->addItem("Item1");
+    cargoShip->addItem("Item2");
+    cargoShip->addItem("Item3");
+
+    Ship* cloneShip = cargoShip->clone();
+
+    std::cout << static_cast<void*>(cloneShip);
+
+
+
+//    // Create a Ship object
+//     Ship* ship;
+//     ship->setShipId(1001);
+//     ship->setShipName("Sample Ship");
+
+//     // Create a CargoShip object
+//     CargoShip cargoShip(2001, "Cargo Ship 1", 10);
+
+//     // Add items to the cargo ship
+//     cargoShip.addItem("Item1");
+//     cargoShip.addItem("Item2");
+//     cargoShip.addItem("Item3");
+
+//     // Print the details of the cargo ship
+//     std::cout << cargoShip;
+
+//     // Create a CargoMemento to save the cargo ship state
+//     CargoMemento memento = cargoShip.save(1);
+
+//     // Modify the cargo ship
+//     cargoShip.removeItem("Item2");
+//     cargoShip.setShipName("Modified Cargo Ship");
+
+//     // Print the details of the modified cargo ship
+//     std::cout << cargoShip;
+
+//     // Restore the cargo ship to the saved state
+//     cargoShip.restore(memento);
+
+//     // Print the details of the restored cargo ship
+//     std::cout << cargoShip;
 }
 
 /*

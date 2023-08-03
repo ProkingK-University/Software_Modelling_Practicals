@@ -1,13 +1,13 @@
 #include "CargoShip.h"
 
-CargoShip::CargoShip(int id, int name, int capacity)
-{
-    shipId = id;
-    shipName = name;
-    currentLoad = 0;
-    this->capacity = capacity;
-    items = new std::string[capacity];
-}
+// CargoShip::CargoShip(int id, int name, int capacity)
+// {
+//     shipId = id;
+//     shipName = name;
+//     currentLoad = 0;
+//     this->capacity = capacity;
+//     items = new std::string[capacity];
+// }
 
 int CargoShip::getCapacity()
 {
@@ -95,6 +95,10 @@ std::ostream &operator<<(std::ostream &os, const CargoShip &ship)
 
 Ship *CargoShip::clone()
 {
+    CargoShip* newCargoShip = new CargoShip();
+    newCargoShip->setCapacity(this->getCapacity());
+    newCargoShip->setCurrentLoad(this->getCurrentLoad());
+    newCargoShip->setItems(this->getItems(), this->getCurrentLoad());
 }
 
 CargoMemento CargoShip::save(int saveId)
