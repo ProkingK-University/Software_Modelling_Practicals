@@ -5,18 +5,20 @@
 
 #include "CargoShip.h";
 
-class CargoMemento {
+class CargoMemento 
+{
 public:
     int shipId;
     int version;
 
     int getShipId();
     int getVersion();
+    int getCapacity();
     std::string* getItems();
     std::string getShipName();
     int getCurrentLoad();
     
-    CargoMemento(std::string shipName, int shipId, int capacity, int currentLoad, std::string* items);
+    CargoMemento(std::string shipName, int shipId, int capacity, int currentLoad, std::string* items, int version);
     
 private:
     friend class cargoShip;
