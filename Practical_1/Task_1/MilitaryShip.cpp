@@ -107,9 +107,9 @@ Ship *MilitaryShip::clone()
     return new MilitaryShip(*this);
 }
 
-MilitaryShip MilitaryShip::save(int saveId)
+MilitaryMemento MilitaryShip::save(int saveId)
 {
-    return MilitaryMemento(shipName, shipId, capacity, currentLoad, weapons, saveId);
+    return MilitaryMemento(shipName, shipId, capacity, currentLoad, saveId, weapons);
 }
 
 void MilitaryShip::restore(MilitaryMemento restorePoint)

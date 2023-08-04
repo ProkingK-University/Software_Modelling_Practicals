@@ -109,7 +109,7 @@ Ship *CargoShip::clone()
 
 CargoMemento CargoShip::save(int saveId)
 {
-    return CargoMemento(shipName, shipId, capacity, currentLoad, items, saveId);
+    return CargoMemento(shipName, shipId, capacity, currentLoad, saveId, items);
 }
 
 void CargoShip::restore(CargoMemento restorePoint)
