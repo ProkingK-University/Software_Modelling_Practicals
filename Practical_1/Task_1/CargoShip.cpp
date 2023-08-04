@@ -1,13 +1,13 @@
 #include "CargoShip.h"
 
-// CargoShip::CargoShip(int id, int name, int capacity)
-// {
-//     shipId = id;
-//     shipName = name;
-//     currentLoad = 0;
-//     this->capacity = capacity;
-//     items = new std::string[capacity];
-// }
+CargoShip::CargoShip(int id, int name, int capacity)
+{
+    shipId = id;
+    shipName = name;
+    currentLoad = 0;
+    this->capacity = capacity;
+    items = new std::string[capacity];
+}
 
 int CargoShip::getCapacity()
 {
@@ -123,7 +123,7 @@ void CargoShip::restore(CargoMemento restorePoint)
     setItems(restorePoint.getItems(), restorePoint.getCurrentLoad());
 }
 
-// CargoShip::~CargoShip()
-// {
-//     delete[] items;
-// }
+CargoShip::~CargoShip()
+{
+    delete[] items;
+}

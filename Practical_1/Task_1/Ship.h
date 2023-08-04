@@ -6,6 +6,8 @@
 class Ship {
 
 public:
+    Ship(int shipId, std::string shipName);
+
     int shipId;
     std::string shipName;
 

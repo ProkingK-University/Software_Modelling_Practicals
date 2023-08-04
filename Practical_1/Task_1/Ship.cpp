@@ -1,5 +1,10 @@
 #include "Ship.h"
 
+Ship::Ship(int shipId, std::string shipName) {
+    this->shipId = shipId;
+    this->shipName = shipName;
+}
+
 int Ship::getShipId() {
     return shipId;
 }

@@ -13,7 +13,7 @@ public:
     int currentLoad;
     std::string* items;
 
-    //CargoShip(int id, int name, int capacity);
+    CargoShip(int id, int name, int capacity);
 
     int getCapacity();
     int getCurrentLoad();
@@ -33,7 +33,7 @@ public:
 
     //friend std::ostream &operator<<(std::ostream &os, const CargoShip &ship);
 
-    //~CargoShip();
+    ~CargoShip();
 };
 
 #endif
