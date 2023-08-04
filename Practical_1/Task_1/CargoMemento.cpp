@@ -1,40 +1,11 @@
 #include "CargoMemento.h"
 
-int CargoMemento::getShipId() 
+CargoMemento::CargoMemento(std::string shipName, int shipId, int capacity, int currentLoad, int version, std::string* items) : ShipMemento(shipName, shipId, capacity, currentLoad, version)
 {
-    return shipId;
+    this->items = items;
 }
 
-int CargoMemento::getVersion() 
-{
-    return version;
-}
-
-int CargoMemento::getCapacity() 
-{
-    return capacity;
-}
-
-std::string* CargoMemento::getItems() 
+std::string* CargoMemento::getItems()
 {
     return items;
-}
-
-std::string CargoMemento::getShipName() 
-{
-    return shipName;
-}
-
-int CargoMemento::getCurrentLoad() 
-{
-    return currentLoad;
-}
-
-CargoMemento::CargoMemento(std::string shipName, int shipId, int capacity, int currentLoad, std::string* items, int version) 
-{
-    this->shipName = shipName;
-    this->shipId = shipId;
-    this->currentLoad = currentLoad;
-    this->items = items;
-    this->version = version;
 }
