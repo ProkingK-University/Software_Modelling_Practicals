@@ -1,12 +1,17 @@
 #include "CargoShip.h"
 
-CargoShip::CargoShip(int id, int name, int capacity)
+CargoShip::CargoShip(int id, std::string name, int capacity) : Ship(id, name)
 {
-    shipId = id;
-    shipName = name;
     currentLoad = 0;
     this->capacity = capacity;
     items = new std::string[capacity];
+}
+
+CargoShip::CargoShip(const CargoShip &cargoShip) : Ship(shipId, shipName)
+{
+    capacity = cargoShip.capacity;
+    currentLoad = cargoShip.currentLoad;
+    setItems(cargoShip.items, cargoShip.currentLoad, cargoShip.capacity);
 }
 
 int CargoShip::getCapacity()
@@ -34,16 +39,13 @@ void CargoShip::setCurrentLoad(int currentLoad)
     this->currentLoad = currentLoad;
 }
 
-void CargoShip::setItems(int size)
+void CargoShip::setItems(std::string *items, int currentSize, int capacity)
 {
-    this->items = new std::string[size];
-}
+    this->capacity = capacity;
+    this->currentLoad = currentSize;
+    this->items = new std::string[capacity];
 
-void CargoShip::setItems(std::string *items, int size)
-{
-    this->items = new std::string[size];
-
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < currentSize; i++)
     {
         this->items[i] = items[i];
     }
@@ -84,29 +86,25 @@ void CargoShip::removeItem(const std::string item)
     std::cout << "Item not found: " << item << std::endl;
 }
 
-// std::ostream &operator<<(std::ostream &os, const CargoShip &ship)
-// {
-//     os << "Ship " << ship.shipId << ": " << ship.shipName << '\n';
-//     os << "load: " << ship.currentLoad << "/" << ship.capacity << '\n';
-//     os << "Items:\n";
+std::string CargoShip::toString()
+{
+    std::string output;
 
-//     for (int i = 0; i < ship.currentLoad; i++)
-//     {
-//         os << "item " << i + 1 << ": " << ship.items[i] << '\n';
-//     }
+    output += "Ship " + std::to_string(shipId) + ": " + shipName + '\n';
+    output += "load: " + std::to_string(currentLoad) + "/" + std::to_string(capacity) + '\n';
+    output += "Items:\n";
 
-//     return os;
-// }
+    for (int i = 0; i < currentLoad; i++)
+    {
+        output += "item " + std::to_string(i + 1) + ": " + items[i] + '\n';
+    }
+
+    return output;
+}
 
 Ship *CargoShip::clone()
 {
-    CargoShip* newCargoShip = new CargoShip();
-    newCargoShip->setCapacity(this->getCapacity());
-    newCargoShip->setCurrentLoad(this->getCurrentLoad());
-    newCargoShip->setItems(this->getCurrentLoad());
-    newCargoShip->setShipId(this->getShipId());
-    newCargoShip->setShipName(this->getShipName());
-    return newCargoShip;
+    return new CargoShip(*this);
 }
 
 CargoMemento CargoShip::save(int saveId)
@@ -116,11 +114,11 @@ CargoMemento CargoShip::save(int saveId)
 
 void CargoShip::restore(CargoMemento restorePoint)
 {
-    setShipId(restorePoint.getShipId());
-    setShipName(restorePoint.getShipName());
-    setCapacity(restorePoint.getCapacity());
-    setCurrentLoad(restorePoint.getCurrentLoad());
-    setItems(restorePoint.getItems(), restorePoint.getCurrentLoad());
+    shipId = restorePoint.getShipId();
+    shipName = restorePoint.getShipName();
+    capacity = restorePoint.getCapacity();
+    currentLoad = restorePoint.getCurrentLoad();
+    setItems(restorePoint.getItems(), currentLoad, capacity);
 }
 
 CargoShip::~CargoShip()
