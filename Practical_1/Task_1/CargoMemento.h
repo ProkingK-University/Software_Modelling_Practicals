@@ -18,10 +18,10 @@ public:
     std::string getShipName();
     int getCurrentLoad();
     
-    CargoMemento(std::string shipName, int shipId, int capacity, int currentLoad, std::string* items, int version);
+    CargoMemento(std::string shipName, int shipId, int capacity, int currentLoad, std::string* items);
     
 private:
-    friend class cargoShip;
+    friend class CargoShip;
 
     int capacity;
     int currentLoad;
