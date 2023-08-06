@@ -3,7 +3,10 @@
 
 #include <string>
 
-class Ship {
+class Ship
+{
+protected:
+    virtual Ship *clone() = 0;
 
 public:
     Ship(int shipId, std::string shipName);
@@ -16,8 +19,5 @@ public:
 
     void setShipId(int shipId);
     void setShipName(std::string shipName);
-
-protected:
-    virtual Ship* clone() = 0;
 };
 #endif
