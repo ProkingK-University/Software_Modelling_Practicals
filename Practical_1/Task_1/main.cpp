@@ -1,3 +1,4 @@
+#include <stack>
 #include "CargoShip.h"
 #include "MilitaryShip.h"
 
@@ -7,7 +8,8 @@ void testPrototype();
 
 int main()
 {
-    testShips();
+    //testShips();
+    testMemento();
 
     return 0;
 }
@@ -66,6 +68,51 @@ void testShips()
 
 void testMemento()
 {
+    std::stack<CargoMemento> cargoHistory;
+    std::stack<MilitaryMemento> militaryHistory;
+
+    CargoShip *cargoship = new CargoShip(1, "SS Pacific Star", 5);
+    cargoship->addItem("Boxes");
+    cargoship->addItem("Cargo");
+    cargoship->addItem("Crates");
+    cargoship->addItem("Containers");
+
+    MilitaryShip *militaryship = new MilitaryShip(2, "HMS Ark Royal", 4);
+    militaryship->addWeapon("Guns");
+    militaryship->addWeapon("Nuke");
+    militaryship->addWeapon("Torpedo");
+    militaryship->addWeapon("Missiles");
+
+    std::cout << cargoship->toString() << std::endl;
+    std::cout << militaryship->toString() << std::endl;
+
+    cargoHistory.push(cargoship->save(1));
+    militaryHistory.push(militaryship->save(1));
+
+    cargoship->setCapacity(10);
+    cargoship->setShipName("MV Golden Eagle");
+
+    std::string* weapons = new std::string[3];
+
+    weapons[0] = "Knives";
+    weapons[1] = "Big Guns";
+    weapons[2] = "Huge Nukes";
+
+    militaryship->setWeapons(weapons, 3, 3);
+
+    std::cout << cargoship->toString() << std::endl;
+    std::cout << militaryship->toString() << std::endl;
+
+    cargoship->restore(cargoHistory.top());
+    militaryship->restore(militaryHistory.top());
+
+    std::cout << cargoship->toString() << std::endl;
+    std::cout << militaryship->toString() << std::endl;
+
+    delete cargoship;
+    delete militaryship;
+
+    //termination error
 }
 
 void testPrototype()

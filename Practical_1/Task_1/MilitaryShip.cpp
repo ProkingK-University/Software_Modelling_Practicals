@@ -31,6 +31,22 @@ std::string *MilitaryShip::getWeapons()
 
 void MilitaryShip::setCapacity(int capacity)
 {
+    std::string* temp = new std::string[currentLoad];
+
+    for (int i = 0; i < currentLoad; i++)
+    {
+        temp[i] = weapons[i];
+    }
+    
+    weapons = new std::string[capacity];
+
+    for (int i = 0; i < currentLoad; i++)
+    {
+        weapons[i] = temp[i];
+    }
+
+    delete[] temp;
+    
     this->capacity = capacity;
 }
 

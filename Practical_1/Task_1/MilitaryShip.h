@@ -32,7 +32,7 @@ public:
     MilitaryMemento save(int saveId);
     void restore(MilitaryMemento restorePoint);
 
-    ~MilitaryShip();
+    virtual ~MilitaryShip();
 };
 
 #endif

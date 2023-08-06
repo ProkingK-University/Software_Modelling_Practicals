@@ -31,6 +31,22 @@ std::string *CargoShip::getItems()
 
 void CargoShip::setCapacity(int capacity)
 {
+    std::string* temp = new std::string[currentLoad];
+
+    for (int i = 0; i < currentLoad; i++)
+    {
+        temp[i] = items[i];
+    }
+    
+    items = new std::string[capacity];
+
+    for (int i = 0; i < currentLoad; i++)
+    {
+        items[i] = temp[i];
+    }
+
+    delete[] temp;
+    
     this->capacity = capacity;
 }
 

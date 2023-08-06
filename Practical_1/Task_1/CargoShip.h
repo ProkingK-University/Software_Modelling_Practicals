@@ -32,7 +32,7 @@ public:
     CargoMemento save(int saveId);
     void restore(CargoMemento restorePoint);
 
-    ~CargoShip();
+    virtual ~CargoShip();
 };
 
 #endif
