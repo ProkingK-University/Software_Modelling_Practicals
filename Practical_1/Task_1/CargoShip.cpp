@@ -80,6 +80,8 @@ void CargoShip::removeItem(const std::string item)
             currentLoad--;
 
             std::cout << "Item removed: " << item << std::endl;
+
+            return;
         }
     }
 

@@ -1,4 +1,55 @@
 #include "CargoShip.h"
+#include "MilitaryShip.h"
+
+void testShips();
+void testMemento();
+void testPrototype();
+
+int main()
+{
+    testShips();
+    
+    return 0;
+}
+
+void testShips()
+{
+    CargoShip cargoShip(1, "Cargo Vessel", 1000);
+
+    cargoShip.addItem("Boxes");
+    cargoShip.addItem("Crates");
+    cargoShip.addItem("Barrels");
+
+    std::cout << "Ship name: " << cargoShip.getShipName() << std::endl;
+    std::cout << "Capacity: " << cargoShip.getCapacity() << std::endl;
+    std::cout << "Current load: " << cargoShip.getCurrentLoad() << std::endl;
+
+    std::cout << "Items on board: ";
+
+    std::string *items = cargoShip.getItems();
+
+    for (int i = 0; i < cargoShip.getCurrentLoad(); i++)
+    {
+        std::cout << items[i] << " ";
+    }
+
+    std::cout << std::endl;
+
+    cargoShip.removeItem("Boxes");
+
+    std::cout << cargoShip.toString() << std::endl;
+}
+
+void testMemento()
+{
+}
+
+void testPrototype()
+{
+}
+
+/*
+#include "CargoShip.h"
 #include "Ship.h"
 
 #include <iostream>
@@ -13,7 +64,7 @@ void deepCopyTesting();
 //void invalidStateTesting();
 // void partialRestorationTesting();
 
-int main() 
+int main()
 {
     //protoTypeTesting();
     mementoTesting();
@@ -21,14 +72,14 @@ int main()
     return 0;
 }
 
-void protoTypeTesting() 
+void protoTypeTesting()
 {
     cloningUnitializedObjectTesting();
     cloningOneObjectTesting();
     cloningTwoObjectsTesting();
 }
 
-void cloningUnitializedObjectTesting() 
+void cloningUnitializedObjectTesting()
 {
     std::cout << "<----CREATE NEW CARGO SHIP 1 THAT IS UNINITIALIZED---->" << std::endl;
     CargoShip* cargoShip1 = new CargoShip();
@@ -52,7 +103,7 @@ void cloningUnitializedObjectTesting()
     std::cout << "Original Ship Items: " << cargoShip1->getItems() << std::endl;
     std::cout << "Cloned Ship Items: " << cargoShip1->getItems() << std::endl;
     std::cout << std::endl;
-    
+
     std::cout << "<----DELETING SHIPS---->" << std::endl;
     delete cargoShip1;
     std::cout << "DELETED CARGO SHIP 1..." << std::endl;
@@ -61,7 +112,7 @@ void cloningUnitializedObjectTesting()
     std::cout << std::endl;
 }
 
-void cloningOneObjectTesting() 
+void cloningOneObjectTesting()
 {
     std::cout << "<----CREATE NEW CARGO SHIP 1---->" << std::endl;
     CargoShip* cargoShip1 = new CargoShip();
@@ -93,7 +144,7 @@ void cloningOneObjectTesting()
     std::cout << "Original Ship Items: " << cargoShip1->getItems() << std::endl;
     std::cout << "Cloned Ship Items: " << cargoShip1->getItems() << std::endl;
     std::cout << std::endl;
-    
+
     std::cout << "<----DELETING SHIPS---->" << std::endl;
     delete cargoShip1;
     std::cout << "DELETED CARGO SHIP 1..." << std::endl;
@@ -102,7 +153,7 @@ void cloningOneObjectTesting()
     std::cout << std::endl;
 }
 
-void cloningTwoObjectsTesting() 
+void cloningTwoObjectsTesting()
 {
     std::cout << "<----CREATE NEW CARGO SHIP 1---->" << std::endl;
     CargoShip* cargoShip1 = new CargoShip();
@@ -134,7 +185,7 @@ void cloningTwoObjectsTesting()
     std::cout << "Original Ship Items: " << cargoShip1->getItems() << std::endl;
     std::cout << "Cloned Ship Items: " << cloneCargoShip1->getItems() << std::endl;
     std::cout << std::endl;
-    
+
     std::cout << "<----TESTING CLONING FOR CARGO SHIP 1---->" << std::endl;
     std::cout << "Original Ship Id: " << cargoShip1->getShipId() << std::endl;
     std::cout << "Cloned Ship id: " << cloneCargoShip2->getShipId() << std::endl;
@@ -174,7 +225,7 @@ void cloningTwoObjectsTesting()
     std::cout << "Original Ship Items: " << cargoShip1->getItems() << std::endl;
     std::cout << "Cloned Ship Items: " << cloneCargoShip1->getItems() << std::endl;
     std::cout << std::endl;
-    
+
     std::cout << "<----TESTING CLONING FOR CARGO SHIP 1 (UPDATED)---->" << std::endl;
     std::cout << "Original Ship Id: " << cargoShip1->getShipId() << std::endl;
     std::cout << "Cloned Ship id: " << cloneCargoShip2->getShipId() << std::endl;
@@ -198,14 +249,14 @@ void cloningTwoObjectsTesting()
     std::cout << std::endl;
 }
 
-void mementoTesting() 
+void mementoTesting()
 {
     deepCopyTesting();
     //invalidStateTesting();
     //partialRestorationTesting();
 }
 
-void deepCopyTesting() 
+void deepCopyTesting()
 {
 
 }
@@ -215,7 +266,7 @@ void deepCopyTesting()
 // The pattern should gracefully handle such situations and avoid crashing or
 // causing undefined behavior.
 // */
-// void invalidStateTesting() 
+// void invalidStateTesting()
 // {
 
 // }
@@ -225,12 +276,12 @@ void deepCopyTesting()
 // attributes or fields). Ensure that the Memento pattern handles partial
 // restoration correctly and maintains consistency.
 // */
-// void partialRestorationTesting() 
+// void partialRestorationTesting()
 // {
 
 // }
 
-// void finalTesting() 
+// void finalTesting()
 // {
 
 // }
