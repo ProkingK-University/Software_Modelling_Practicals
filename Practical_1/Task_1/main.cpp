@@ -16,6 +16,7 @@ int main()
 
 void testShips()
 {
+    std::cout << "Testing";
     std::cout << "======================= Test Cargo Ship =======================" << std::endl;
 
     CargoShip cargoShip(1, "Cargo Vessel", 1000);
