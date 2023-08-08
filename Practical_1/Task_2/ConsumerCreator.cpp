@@ -1,3 +1,5 @@
+#include "JSONConsumer.h"
+#include "ODataConsumer.h"
 #include "ConsumerCreator.h"
 
 ConsumerCreator::ConsumerCreator(std::string consumerType)
