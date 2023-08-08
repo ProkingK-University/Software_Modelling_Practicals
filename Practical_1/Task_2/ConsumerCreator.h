@@ -1,7 +1,7 @@
 #ifndef CONSUMERCREATOR_H
 #define CONSUMERCREATOR_H
 
-#include <string>
+#include <iostream>
 #include "Consumer.h"
 
 class ConsumerCreator
