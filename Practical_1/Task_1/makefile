@@ -1,19 +1,39 @@
-CC = g++
-CFLAGS = -std=c++11 -Wall
+ofiles = CargoMemento.o CargoShip.o main.o MilitaryMemento.o MilitaryShip.o Ship.o ShipMemento.o
+flags = g++ -std=c++11 -c -g
 
-TARGET = main
-SRCS = main.cpp Ship.cpp CargoShip.cpp MilitaryShip.cpp ShipMemento.cpp CargoMemento.cpp MilitaryMemento.cpp
-OBJS = $(SRCS:.cpp=.o)
+output: $(ofiles)
+	g++ -o output $(ofiles)
 
-.PHONY: all clean
+$(ofiles): CargoMemento.h CargoShip.h MilitaryMemento.h MilitaryShip.h Ship.h ShipMemento.h
 
-all: $(TARGET)
+CargoMemento.o: CargoMemento.cpp
+	$(flags) CargoMemento.cpp
 
-$(TARGET): $(OBJS)
-    $(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
+CargoShip.o: CargoShip.cpp
+	$(flags) CargoShip.cpp
 
-%.o: %.cpp
-    $(CC) $(CFLAGS) -c $< -o $@
+main.o: main.cpp
+	$(flags) main.cpp
+	
+MilitaryMemento.o: MilitaryMemento.cpp
+	$(flags) MilitaryMemento.cpp
+
+MilitaryShip.o: MilitaryShip.cpp
+	$(flags) MilitaryShip.cpp
+
+Ship.o: Ship.cpp
+	$(flags) Ship.cpp
+
+ShipMemento.o: ShipMemento.cpp
+	$(flags) ShipMemento.cpp
+
+make: run runv clean
+
+run:
+	./output
+
+runv:
+	valgrind --leak-check=full ./output
 
 clean:
-    rm -f $(OBJS) $(TARGET)
+	rm -f *.o output
