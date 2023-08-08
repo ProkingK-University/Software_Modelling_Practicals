@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -std=c++11 -Wall
 
-TARGET = main
+TARGET = output
 SRCS = main.cpp Consumer.cpp ODataConsumer.cpp JSONConsumer.cpp ConsumerCreator.cpp
 OBJS = $(SRCS:.cpp=.o)
 

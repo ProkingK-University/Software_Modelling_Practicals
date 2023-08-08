@@ -7,13 +7,13 @@ std::string ODataConsumer::parseData(std::string data)
     std::vector<std::string> lines = createVector(data);
 
     buildString(lines, index, 0, output);
-    
+
     return output;
 }
 
 void ODataConsumer::buildString(const std::vector<std::string> &lines, int &index, int level, std::string &result)
 {
-    while (index < lines.size())
+    while (index < (int) lines.size())
     {
         const std::string &line = lines[index];
 
