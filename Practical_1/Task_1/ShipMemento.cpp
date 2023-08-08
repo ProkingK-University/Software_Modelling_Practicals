@@ -29,6 +29,7 @@ ShipMemento::ShipMemento(std::string shipName, int shipId, int capacity, int cur
 {
     this->shipId = shipId;
     this->version = version;
+    this->capacity = capacity;
     this->shipName = shipName;
     this->currentLoad = currentLoad;
 }
