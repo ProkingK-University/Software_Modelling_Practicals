@@ -8,8 +8,10 @@ class Consumer
 {
 protected:
     void indent(std::string &result, int level);
-    virtual std::string parseData(std::string data) = 0;
     std::vector<std::string> createVector(std::string data);
+    
+    virtual std::string parseData(std::string data) = 0;
+    virtual void buildString(const std::vector<std::string>& lines, int& index, int level, std::string &result) = 0;
 
 public:
     std::string printData(std::string data);

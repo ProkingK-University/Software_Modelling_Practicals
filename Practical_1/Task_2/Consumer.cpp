@@ -15,7 +15,7 @@ void Consumer::indent(std::string &result, int level)
     }
 }
 
-std::vector<std::string> createVector(std::string data)
+std::vector<std::string> Consumer::createVector(std::string data)
 {
     std::string line;
     std::vector<std::string> lines;
