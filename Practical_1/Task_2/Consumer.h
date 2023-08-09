@@ -1,3 +1,4 @@
+
 #ifndef CONSUMER_H
 #define CONSUMER_H
 
@@ -7,7 +8,7 @@
 class Consumer
 {
 protected:
-    void indent(std::string &result, int level);
+    void indent(std::string& result, int level);
     std::vector<std::string> createVector(std::string data);
     
     virtual std::string parseData(std::string data) = 0;

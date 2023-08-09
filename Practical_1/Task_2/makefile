@@ -1,5 +1,5 @@
-flags = g++ -std=c++11 -c -g
 ofiles = Consumer.o JSONConsumer.o ODataConsumer.o ConsumerCreator.o main.o
+flags = g++ -std=c++11 -c -g
 
 output: $(ofiles)
 	g++ -o output $(ofiles)

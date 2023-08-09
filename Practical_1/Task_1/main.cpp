@@ -8,7 +8,7 @@ void testPrototype();
 
 int main()
 {
-    //testShips();
+    testShips();
     testMemento();
 
     return 0;
