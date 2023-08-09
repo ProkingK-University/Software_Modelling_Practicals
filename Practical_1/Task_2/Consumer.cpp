@@ -2,12 +2,7 @@
 
 #include <sstream>
 
-std::string Consumer::printData(std::string data)
-{
-    return parseData(data);
-}
-
-void Consumer::indent(std::string &result, int level)
+void Consumer::indent(std::string& result, int level)
 {
     for (int i = 0; i < level; i++)
     {
@@ -27,4 +22,9 @@ std::vector<std::string> Consumer::createVector(std::string data)
     }
 
     return lines;
+}
+
+std::string Consumer::printData(std::string data)
+{
+    return parseData(data);
 }
