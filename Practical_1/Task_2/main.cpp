@@ -2,20 +2,26 @@
 
 int main()
 {
+/*
     std::string xmlData = R"(
 <section>
-	cars
-	<section>
-		bmw
-		audi
-	</section>
-	buses
+    cars
+    <section>
+        bmw
+        audi
+    </section>
+    buses
 </section>
 )";
+*/
 
+std::string jsonData = "{\n\tCOS\n\t{\n\t\t110\n\t\t212\n\t}\n\tWTW\n}";
+std::string xmlData = "<section>\n\tcars\n\t<section>\n\t\tbmw\n\t\taudi\n\t</section>\n\tbuses\n</section>";
+
+/*
     std::string jsonData = R"(
 {
-	COS
+    COS
     {
         110
         212
@@ -23,6 +29,11 @@ int main()
     WTW
 }
 )";
+*/
+
+    std::cout << xmlData <<std::endl;
+    std::cout << jsonData <<std::endl;
+
 
     ConsumerCreator creator("OData");
     Consumer *xml = creator.createConsumer();

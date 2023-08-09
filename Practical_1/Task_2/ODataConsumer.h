@@ -6,7 +6,7 @@
 class ODataConsumer : public Consumer
 {
 private:
-    virtual void buildString(const std::vector<std::string> &lines, int &index, int level, std::string &result);
+    virtual void buildString(const std::vector<std::string> &lines, int &index, std::string &result);
 
 public:
     virtual std::string parseData(std::string data);

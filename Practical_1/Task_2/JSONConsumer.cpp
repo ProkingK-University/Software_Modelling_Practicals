@@ -6,12 +6,12 @@ std::string JSONConsumer::parseData(std::string data)
     std::string output;
     std::vector<std::string> lines = createVector(data);
 
-    buildString(lines, index, 0, output);
+    buildString(lines, index, output);
 
     return output;
 }
 
-void JSONConsumer::buildString(const std::vector<std::string> &lines, int &index, int level, std::string &result)
+void JSONConsumer::buildString(const std::vector<std::string> &lines, int &index, std::string &result)
 {
     while (index < (int) lines.size())
     {
@@ -25,13 +25,11 @@ void JSONConsumer::buildString(const std::vector<std::string> &lines, int &index
         {
             index++;
 
-            buildString(lines, index, level + 1, result);
+            buildString(lines, index, result);
         }
         else
         {
-            indent(result, level);
-
-            result += line + "\n";
+            result += line.substr(1) + "\n";
         }
 
         index++;

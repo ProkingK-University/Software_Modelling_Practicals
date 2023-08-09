@@ -1,19 +1,33 @@
-CC = g++
-CFLAGS = -std=c++11 -Wall
+flags = g++ -std=c++11 -c -g
+ofiles = Consumer.o JSONConsumer.o ODataConsumer.o ConsumerCreator.o main.o
 
-TARGET = output
-SRCS = main.cpp Consumer.cpp ODataConsumer.cpp JSONConsumer.cpp ConsumerCreator.cpp
-OBJS = $(SRCS:.cpp=.o)
+output: $(ofiles)
+	g++ -o output $(ofiles)
 
-.PHONY: all clean
+$(ofiles): Consumer.h JSONConsumer.h ODataConsumer.h ConsumerCreator.h
 
-all: $(TARGET)
+Consumer.o: Consumer.cpp
+	$(flags) Consumer.cpp
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
+JSONConsumer.o: JSONConsumer.cpp
+	$(flags) JSONConsumer.cpp
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+ODataConsumer.o: ODataConsumer.cpp
+	$(flags) ODataConsumer.cpp
+
+ConsumerCreator.o: ConsumerCreator.cpp
+	$(flags) ConsumerCreator.cpp
+
+main.o: main.cpp
+	$(flags) main.cpp
+
+make: run runv clean
+
+run:
+	./output
+
+runv:
+	valgrind --leak-check=full ./output
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f *.o output
