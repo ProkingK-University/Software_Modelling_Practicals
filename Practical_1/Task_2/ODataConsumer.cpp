@@ -11,7 +11,7 @@ std::string ODataConsumer::parseData(std::string data)
     return output;
 }
 
-void ODataConsumer::buildString(const std::vector<std::string> &lines, int &index, std::string &result)
+void ODataConsumer::buildString(const std::vector<std::string>& lines, int& index, std::string& result)
 {
     while (index < (int) lines.size())
     {

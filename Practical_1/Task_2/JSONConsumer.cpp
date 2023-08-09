@@ -11,7 +11,7 @@ std::string JSONConsumer::parseData(std::string data)
     return output;
 }
 
-void JSONConsumer::buildString(const std::vector<std::string> &lines, int &index, std::string &result)
+void JSONConsumer::buildString(const std::vector<std::string>& lines, int& index, std::string& result)
 {
     while (index < (int) lines.size())
     {
