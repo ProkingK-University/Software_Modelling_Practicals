@@ -9,6 +9,7 @@ protected:
     virtual Ship *clone() = 0;
 
 public:
+    Ship();
     Ship(int shipId, std::string shipName);
 
     int shipId;

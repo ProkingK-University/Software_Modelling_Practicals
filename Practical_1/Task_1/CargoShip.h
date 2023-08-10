@@ -13,6 +13,7 @@ public:
     int currentLoad;
     std::string* items;
 
+    CargoShip();
     CargoShip(const CargoShip& cargoShip);
     CargoShip(int id, std::string name, int capacity);
 

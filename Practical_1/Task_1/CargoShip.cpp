@@ -1,5 +1,9 @@
 #include "CargoShip.h"
 
+CargoShip::CargoShip(): Ship()
+{
+    
+}
 CargoShip::CargoShip(int id, std::string name, int capacity) : Ship(id, name)
 {
     currentLoad = 0;
