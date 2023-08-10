@@ -1,27 +1,35 @@
 #include "Ship.h"
 
-Ship::Ship() {
+Ship::Ship() 
+{
     this->shipId = 0;
-    this->shipName = "";
+    this->shipName = "Unknown";
 }
 
-Ship::Ship(int shipId, std::string shipName) {
+Ship::~Ship() {}
+
+Ship::Ship(int shipId, std::string shipName) 
+{
     this->shipId = shipId;
     this->shipName = shipName;
 }
 
-int Ship::getShipId() {
+int Ship::getShipId() 
+{
     return shipId;
 }
 
-std::string Ship::getShipName() {
+std::string Ship::getShipName() 
+{
     return shipName;
 }
 
-void Ship::setShipId(int shipId) {
+void Ship::setShipId(int shipId) 
+{
     this->shipId = shipId;
 }
 
-void Ship::setShipName(std::string shipName) {
+void Ship::setShipName(std::string shipName) 
+{
     this->shipName = shipName;
 }

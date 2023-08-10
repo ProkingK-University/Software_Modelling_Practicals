@@ -2,7 +2,9 @@
 
 CargoShip::CargoShip(): Ship()
 {
-    
+    this->currentLoad = 0;
+    this->capacity = 0;
+    this->items = nullptr;
 }
 CargoShip::CargoShip(int id, std::string name, int capacity) : Ship(id, name)
 {
@@ -126,7 +128,11 @@ std::string CargoShip::toString()
 
 Ship *CargoShip::clone()
 {
-    return new CargoShip(*this);
+    CargoShip* obj = new CargoShip();
+    obj->setItems(this->getItems(),this->getCurrentLoad(),this->getCapacity());
+    obj->setShipId(this->getShipId());
+    obj->setShipName(this->getShipName());
+    return obj;
 }
 
 CargoMemento CargoShip::save(int saveId)

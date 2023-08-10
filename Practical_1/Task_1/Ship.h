@@ -10,6 +10,7 @@ protected:
 
 public:
     Ship();
+    virtual ~Ship();
     Ship(int shipId, std::string shipName);
 
     int shipId;
