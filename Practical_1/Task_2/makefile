@@ -21,7 +21,7 @@ ConsumerCreator.o: ConsumerCreator.cpp
 main.o: main.cpp
 	$(flags) main.cpp
 
-make: run runv clean
+make:
 
 run:
 	./output
