@@ -3,17 +3,71 @@
 #include "JSONConsumer.h"
 #include "ODataConsumer.h"
 
-void testingInheritanceAndPolymorphism();
+void testingJSONConsumer();
+void testingXMLConsumer();
+void testingInvalidConsumer();
+void finalTesting();
+
 int main()
 {
-    //testingInheritanceAndPolymorphism();
+    testingJSONConsumer();
+    testingXMLConsumer();
+    testingInvalidConsumer();
+    finalTesting();
+    return 0;
+}
 
+void testingJSONConsumer()
+{
+    std::cout << "======================= Test JSON Consumer =======================" << std::endl;
+    std::string jsonData = "{\n\tCOS\n\t{\n\t\t110\n\t\t212\n\t}\n\tWTW\n}";
+    std::cout << jsonData << std::endl;
+    ConsumerCreator creator("JSON");
+    Consumer* jsonConsumer = creator.createConsumer();
+    if (jsonConsumer) {
+        std::cout << "JSON Consumer Output:" << std::endl;
+        std::string jsonOutput = jsonConsumer->printData(jsonData);
+        std::cout << jsonOutput << std::endl;
+        delete jsonConsumer;
+    }
+    std::cout << std::endl;
+}
+
+void testingXMLConsumer()
+{
+    std::cout << "======================= Test XML Consumer =======================" << std::endl;
+    std::string xmlData = "<section>\n\tcars\n\t<section>\n\t\tbmw\n\t\taudi\n\t</section>\n\tbuses\n</section>";
+    std::cout << xmlData << std::endl;
+    ConsumerCreator creator("XML");
+    Consumer* odataConsumer = creator.createConsumer();
+    if (odataConsumer) {
+        std::cout << "OData Consumer Output:" << std::endl;
+        std::string odataOutput = odataConsumer->printData(xmlData);
+        std::cout << odataOutput << std::endl;
+        delete odataConsumer;
+    }
+    std::cout << std::endl;
+}
+
+void testingInvalidConsumer()
+{
+    std::cout << "======================= Test INVALID Consumer =======================" << std::endl;
+    ConsumerCreator creator("Invalid");
+    Consumer* invalidConsumer = creator.createConsumer();
+    if (invalidConsumer) {
+        delete invalidConsumer;
+    }
+    std::cout << std::endl;
+}
+
+void finalTesting() {
+    std::cout << "======================= Final Testing =======================" << std::endl << std::endl;
+    std::cout << "======================= Test JSON Consumer =======================" << std::endl;
     std::string jsonData = "{\n\tCOS\n\t{\n\t\t110\n\t\t212\n\t}\n\tWTW\n}";
     std::string xmlData = "<section>\n\tcars\n\t<section>\n\t\tbmw\n\t\taudi\n\t</section>\n\tbuses\n</section>";
 
     std::cout << xmlData <<std::endl;
     std::cout << jsonData <<std::endl;
-
 
     ConsumerCreator creator("OData");
     Consumer *xml = creator.createConsumer();
@@ -29,19 +83,6 @@ int main()
     std::cout << "==========Printing JSON Output==========" <<std::endl;
     std::cout << json->printData(jsonData);
 
-    return 0;
-}
-
-void testingInheritanceAndPolymorphism() {
-    std::string xmlData = "<section>\n\tcars\n\t<section>\n\t\tbmw\n\t\taudi\n\t</section>\n\tbuses\n</section>";
-    std::string jsonData = "{\n\tCOS\n\t{\n\t\t110\n\t\t212\n\t}\n\tWTW\n}";
-
-    ODataConsumer subclass1Object;
-    JSONConsumer subclass2Object;
-
-    Consumer* consumerXML = &subclass1Object;
-    Consumer* consumerJSON = &subclass2Object;
-
-    consumerXML->printData(xmlData);
-    consumerJSON->printData(jsonData);
+    delete xml;
+    delete json;
 }
