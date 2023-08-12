@@ -14,5 +14,7 @@ class OpenGLPrimitive : public Primitive
 
         void setXCord(int xcord);
         void setYCord(int ycord);
+
+        std::string toString();
 };
 #endif

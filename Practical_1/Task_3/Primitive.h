@@ -17,7 +17,7 @@ class Primitive
         void setShape(std::string shape);
     
     protected:
-        std::string toString();
+        virtual std::string toString() = 0;
 };
 
 #endif

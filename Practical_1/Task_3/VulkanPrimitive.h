@@ -14,6 +14,8 @@ class VulkanPrimitive : public Primitive
 
         void setXCord(float xcord);
         void setYCord(float ycord);
+
+        std::string toString();
 };
 
 #endif

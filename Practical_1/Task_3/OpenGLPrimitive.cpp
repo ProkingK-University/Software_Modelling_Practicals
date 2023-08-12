@@ -19,3 +19,11 @@ void OpenGLPrimitive::setYCord(int ycord)
 {
     this->ycord = ycord;
 }
+
+std::string OpenGLPrimitive::toString()
+{
+    std::string openGLPrimitiveString = "OpenGL " + this->getShape() + ":\n";
+    openGLPrimitiveString += "\tX coordinate: " + std::to_string(this->getXCord()) + "\n";
+    openGLPrimitiveString += "\tX coordinate: " + std::to_string(this->getXCord()) + "\n";
+    return openGLPrimitiveString;
+}
