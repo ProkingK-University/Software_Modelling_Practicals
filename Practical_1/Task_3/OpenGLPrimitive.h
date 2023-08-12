@@ -9,6 +9,8 @@ class OpenGLPrimitive : public Primitive
         int xcord;
         int ycord;
 
+        OpenGLPrimitive();
+        
         int getXCord();
         int getYCord();
 

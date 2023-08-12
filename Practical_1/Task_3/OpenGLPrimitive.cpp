@@ -1,5 +1,11 @@
 #include "OpenGLPrimitive.h"
 
+OpenGLPrimitive::OpenGLPrimitive()
+{
+    xcord = 0;
+    ycord = 0;
+}
+
 int OpenGLPrimitive::getXCord()
 {
     return xcord;
