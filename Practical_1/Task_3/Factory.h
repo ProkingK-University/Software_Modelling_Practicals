@@ -8,7 +8,8 @@ class Factory
 {
     public:
         virtual Window* createWindow() = 0;
-        virtual Primitive* createPrimitive() = 0
+        virtual Primitive* createPrimitive() = 0;
+        virtual ~Factory();
 };
 
 #endif

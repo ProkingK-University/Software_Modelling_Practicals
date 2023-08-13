@@ -1,12 +1,13 @@
 #include "VulkanFactory.h"
 
-Window* OpenGLFactory::createWindow() 
+Window* VulkanFactory::createWindow() 
 {
-
+    Window* windowObject = new VulkanWindow();
+    return windowObject;
 }
 
-Primitive* OpenGLFactory::createPrimitive() 
+Primitive* VulkanFactory::createPrimitive() 
 {
-    Primitive* primitiveObject = new OpenGLPrimitive();
+    Primitive* primitiveObject = new VulkanPrimitive();
     return primitiveObject;
 }

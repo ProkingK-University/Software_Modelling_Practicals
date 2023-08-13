@@ -2,14 +2,15 @@
 #define VULKANFACTORY_H
 
 #include "Factory.h"
-#include "OpenGLWindow.h"
-#include "OpenGLPrimitive.h"
+#include "VulkanWindow.h"
+#include "VulkanPrimitive.h"
 
-class OpenGLFactory : public Factory
+class VulkanFactory : public Factory
 {
     public:
         Window* createWindow();
         Primitive* createPrimitive();
+
 };
 
 #endif

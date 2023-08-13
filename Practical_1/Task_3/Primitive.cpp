@@ -10,6 +10,11 @@ Primitive::Primitive(std::string shape)
     this->shape = shape;
 }
 
+Primitive::~Primitive()
+{
+    
+}
+
 std::string Primitive::getShape() {
     return shape;
 }
