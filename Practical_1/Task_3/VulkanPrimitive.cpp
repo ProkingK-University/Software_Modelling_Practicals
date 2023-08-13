@@ -22,8 +22,8 @@ void VulkanPrimitive::setYCord(float ycord)
 
 std::string VulkanPrimitive::toString()
 {
-    std::string openGLPrimitiveString = "OpenGL " + this->getShape() + ":\n";
-    openGLPrimitiveString += "\tX coordinate: " + std::to_string(this->getXCord()) + "\n";
-    openGLPrimitiveString += "\tX coordinate: " + std::to_string(this->getXCord()) + "\n";
-    return openGLPrimitiveString;
+    std::string VulkanPrimitiveString = "OpenGL " + this->getShape() + ":\n";
+    VulkanPrimitiveString += "\tX coordinate: " + std::to_string(this->getXCord()) + "\n";
+    VulkanPrimitiveString += "\tX coordinate: " + std::to_string(this->getXCord()) + "\n";
+    return VulkanPrimitiveString;
 }
