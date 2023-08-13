@@ -23,6 +23,3 @@ void Primitive::setShape(std::string shape) {
     this->shape = shape;
 }
 
-std::string Primitive::toString() {
-    
-}
