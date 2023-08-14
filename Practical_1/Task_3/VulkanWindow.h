@@ -9,7 +9,7 @@
 class VulkanWindow : public Window
 {
     public:
-        
+        VulkanWindow();
         ~VulkanWindow();
 
         VulkanPrimitive* primitives;

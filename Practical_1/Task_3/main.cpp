@@ -144,14 +144,14 @@ void testingVulkanFactory()
     std::cout << "======================= TESTING VULKANPRIMITIVE DONE! =======================" << std::endl << std::endl;
 
     std::cout << "======================= TESTING VULKANWINDOW =======================" << std::endl;
-    VulkanWindow* vulkanWindow = (VulkanWindow*) vulkanFactory->createPrimitive();
+    VulkanWindow* vulkanWindow = (VulkanWindow*) vulkanFactory->createWindow();
     vulkanWindow->setScreenHeight(100);
     vulkanWindow->setScreenWidth(300);
     vulkanWindow->setPrimitiveCapacity(vulkanWindowPrimitives);
-    // vulkanWindow->setPrimitiveCount(3);
-    // vulkanWindow->setPrimitiveCapacity(3);
-    // vulkanWindow->setPrimitives(primitives, vulkanWindow->getPrimitiveCapacity());
-    // std::cout << vulkanWindow->toString() << std::endl << std::endl;
+    vulkanWindow->setPrimitiveCount(3);
+    vulkanWindow->setPrimitiveCapacity(3);
+    vulkanWindow->setPrimitives(primitives, vulkanWindow->getPrimitiveCapacity());
+    std::cout << vulkanWindow->toString() << std::endl << std::endl;
 
     delete vulkanFactory;
     delete[] primitives;
