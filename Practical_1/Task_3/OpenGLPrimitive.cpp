@@ -1,9 +1,20 @@
 #include "OpenGLPrimitive.h"
 
-OpenGLPrimitive::OpenGLPrimitive()
+OpenGLPrimitive::OpenGLPrimitive() : Primitive()
 {
     xcord = 0;
     ycord = 0;
+}
+
+OpenGLPrimitive::OpenGLPrimitive(int xcord, int ycord, std::string shape) : Primitive(shape)
+{
+    this->xcord = xcord;
+    this->ycord = ycord;
+}
+
+OpenGLPrimitive::~OpenGLPrimitive()
+{
+
 }
 
 int OpenGLPrimitive::getXCord()

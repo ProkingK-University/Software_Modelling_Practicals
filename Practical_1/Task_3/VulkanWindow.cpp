@@ -33,11 +33,12 @@ void VulkanWindow::setPrimitives(VulkanPrimitive* primitives)
 
 std::string VulkanWindow::toString()
 {
-    std::string VulkanWindow = "OpenGL window " + std::to_string(this->getScreenWidth()) + "x";
-    VulkanWindow += std::to_string(this->getScreenHeight()) + ":";
+    std::string vulkanWindow = "OpenGL window " + std::to_string(this->getScreenWidth()) + "x";
+    vulkanWindow += std::to_string(this->getScreenHeight()) + ":";
     int size = this->getPrimitiveCount();
     for (int i = 0; i < size; i++)
     {
-        VulkanWindow += "\n\t\tPrimitive #" + std::to_string(i) + ": " + primitives[i].toString() + "\n";
+        vulkanWindow += "\n\t\tPrimitive #" + std::to_string(i) + ": " + primitives[i].toString() + "\n";
     }
+    return vulkanWindow;
 }

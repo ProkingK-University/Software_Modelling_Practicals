@@ -2,12 +2,10 @@
 
 Window* OpenGLFactory::createWindow() 
 {
-    Window* windowObject = new OpenGLWindow();
-    return windowObject;
+    return new OpenGLWindow();
 }
 
 Primitive* OpenGLFactory::createPrimitive() 
 {
-    Primitive* primitiveObject = new OpenGLPrimitive();
-    return primitiveObject;
+    return new OpenGLPrimitive();
 }

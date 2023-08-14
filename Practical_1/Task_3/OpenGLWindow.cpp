@@ -40,4 +40,5 @@ std::string OpenGLWindow::toString()
     {
         openGLWindow += "\n\t\tPrimitive #" + std::to_string(i) + ": " + primitives[i].toString() + "\n";
     }
+    return openGLWindow;
 }

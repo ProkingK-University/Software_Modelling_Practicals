@@ -1,5 +1,23 @@
 #include "VulkanPrimitive.h"
 
+
+VulkanPrimitive::VulkanPrimitive() : Primitive()
+{
+    xcord = 0.0;
+    ycord = 0.0;
+}
+
+VulkanPrimitive::VulkanPrimitive(float xcord, float ycord, std::string shape) : Primitive(shape)
+{
+    this->xcord = xcord;
+    this->ycord = ycord;
+}
+
+VulkanPrimitive::~VulkanPrimitive()
+{
+
+}
+
 float VulkanPrimitive::getXCord()
 {
     return xcord;
