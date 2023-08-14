@@ -3,14 +3,12 @@
 ## Design pattern used:
 ### Template Method
 
-## Template Method
+![Alt text](https://cdn.discordapp.com/attachments/1092393954856669235/1140722861124878336/Task_2.jpg)
 
 ### Classification:
 Behavioural
-
 ### Strategy:
 Inheritance
-
 ### Intent:
 Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. 
 Template Method lets subclasses redefine certain steps of an algorithm
