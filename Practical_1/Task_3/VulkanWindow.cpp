@@ -1,5 +1,10 @@
 #include "VulkanWindow.h"
 
+VulkanWindow::VulkanWindow() : Window()
+{
+    primitives = nullptr;
+}
+
 VulkanWindow::~VulkanWindow()
 {
     delete[] primitives;
