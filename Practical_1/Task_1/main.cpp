@@ -11,8 +11,8 @@ void cloningTwoObjectsTesting();
 
 int main()
 {
-    //testShips();
-    //testMemento();
+    testShips();
+    testMemento();
     testPrototype();
     return 0;
 }

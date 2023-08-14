@@ -9,6 +9,10 @@ class VulkanPrimitive : public Primitive
         float xcord;
         float ycord;
 
+        static int vulkanPrimitiveCounter;
+
+        VulkanPrimitive();
+        
         float getXCord();
         float getYCord();
 

@@ -1,5 +1,11 @@
 #include "OpenGLPrimitive.h"
 
+OpenGLPrimitive::OpenGLPrimitive() : Primitive()
+{
+    xcord = 0;
+    ycord = 0;
+}
+
 int OpenGLPrimitive::getXCord()
 {
     return xcord;
@@ -24,6 +30,6 @@ std::string OpenGLPrimitive::toString()
 {
     std::string openGLPrimitiveString = "OpenGL " + this->getShape() + ":\n";
     openGLPrimitiveString += "\tX coordinate: " + std::to_string(this->getXCord()) + "\n";
-    openGLPrimitiveString += "\tX coordinate: " + std::to_string(this->getXCord()) + "\n";
+    openGLPrimitiveString += "\tY coordinate: " + std::to_string(this->getYCord()) + "\n";
     return openGLPrimitiveString;
 }

@@ -1,13 +1,8 @@
 #include "OpenGLWindow.h"
 
-OpenGLWindow::OpenGLWindow()
+OpenGLWindow::OpenGLWindow() : Window()
 {
-    int size = this->getPrimitiveCount();
-    primitives = new OpenGLPrimitive[size];
-    for (int i = 0; i < size; i++) 
-    {
-        primitives[i] = OpenGLPrimitive();
-    }  
+    primitives = nullptr;
 }
 
 OpenGLWindow::~OpenGLWindow()
@@ -20,12 +15,11 @@ OpenGLPrimitive* OpenGLWindow::getPrimitives()
     return primitives;
 }
 
-void OpenGLWindow::setPrimitives(OpenGLPrimitive* primitives)
+void OpenGLWindow::setPrimitives(OpenGLPrimitive* primitives, int size)
 {
-    if (primitives != nullptr)
-    {
-        this->primitives = new OpenGLPrimitive[3];
-        for (int i = 0; i < 3; i++) {
+    if (primitives != nullptr) {
+        this->primitives = new OpenGLPrimitive[size];
+        for (int i = 0; i < size; i++) {
             this->primitives[i] = primitives[i];
         }
     }
@@ -43,7 +37,7 @@ std::string OpenGLWindow::toString()
     return openGLWindow;
 }
 
-void Window::setPrimitiveCount(int primitiveCount)
+void OpenGLWindow::setPrimitiveCount(int primitiveCount)
 {
     if (primitiveCount <= 3 || this->getPrimitiveCapacity() != 3)
     {
@@ -55,7 +49,20 @@ void Window::setPrimitiveCount(int primitiveCount)
     }
 }
 
-void Window::setPrimitiveCapacity(int primitiveCapacity)
+void OpenGLWindow::setPrimitiveCapacity(int primitiveCapacity)
 {
-    this->primitiveCapacity = primitiveCapacity;
+    if (primitiveCapacity <= 3) {
+        this->primitiveCapacity = primitiveCapacity;
+        int size = this->primitiveCapacity;
+        OpenGLPrimitive* tempPrimitives = new OpenGLPrimitive[size];
+        for (int i = 0; i < size; i++) 
+        {
+            tempPrimitives[i] = OpenGLPrimitive();
+        }
+        primitives = tempPrimitives;
+    }
+    else
+    {
+        std::cout << "ERROR: INVALID PRIMITIVE CAPACITY!" << std::endl;
+    }
 }

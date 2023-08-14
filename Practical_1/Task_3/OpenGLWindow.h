@@ -15,7 +15,7 @@ class OpenGLWindow : public Window
         OpenGLPrimitive* primitives;
 
         OpenGLPrimitive* getPrimitives();
-        void setPrimitives(OpenGLPrimitive* primitives);
+        void setPrimitives(OpenGLPrimitive* primitives, int size);
         
         std::string toString();
 
