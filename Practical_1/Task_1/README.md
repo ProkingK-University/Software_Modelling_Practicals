@@ -22,9 +22,7 @@ Caretaker: main
 | Participant         | Entity in application      |
 | :-----------------: | :------------------------: |
 | Prototype           | Ship                       |
-| :-----------------: | :------------------------: |
 | Concrete Prototypes | CargoShip and MilitaryShip |
-| :-----------------: | :------------------------: |
 | Client              | main()                     |
 
 ## Prototype
