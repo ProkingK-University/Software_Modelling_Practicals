@@ -27,7 +27,7 @@ std::string VulkanWindow::toString()
     int size = this->getPrimitiveCount();
     for (int i = 0; i < size; i++)
     {
-        VulkanWindow += "\n\t\tPrimitive #" + std::to_string(i) + ": " + primitives[i].toString() + "\n";
+        VulkanWindow += "\n\tPrimitive #" + std::to_string(i) + ": " + primitives[i].toString() + "\n";
     }
     return VulkanWindow;
 }
