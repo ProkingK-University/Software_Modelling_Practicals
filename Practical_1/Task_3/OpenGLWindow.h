@@ -4,6 +4,8 @@
 #include "Window.h"
 #include "OpenGLPrimitive.h"
 
+#include <iostream>
+
 class OpenGLWindow : public Window
 {
     public:
@@ -16,6 +18,9 @@ class OpenGLWindow : public Window
         void setPrimitives(OpenGLPrimitive* primitives);
         
         std::string toString();
+
+        void setPrimitiveCount(int primitiveCount);
+        void setPrimitiveCapacity(int primitveCapacity);
 };
 
 #endif

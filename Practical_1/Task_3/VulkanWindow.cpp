@@ -1,15 +1,5 @@
 #include "VulkanWindow.h"
 
-VulkanWindow::VulkanWindow()
-{
-    int size = this->getPrimitiveCount();
-    primitives = new VulkanPrimitive[size];
-    for (int i = 0; i < size; i++) 
-    {
-        primitives[i] = VulkanPrimitive();
-    }  
-}
-
 VulkanWindow::~VulkanWindow()
 {
     delete[] primitives;
@@ -22,6 +12,7 @@ VulkanPrimitive* VulkanWindow::getPrimitives()
 
 void VulkanWindow::setPrimitives(VulkanPrimitive* primitives)
 {
+    
     if (primitives != nullptr)
     {
         this->primitives = new VulkanPrimitive[9];

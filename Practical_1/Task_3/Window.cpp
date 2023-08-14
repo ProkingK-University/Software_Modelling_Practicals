@@ -60,3 +60,4 @@ void Window::setPrimitiveCapacity(int primitiveCapacity)
 {
     this->primitiveCapacity = primitiveCapacity;
 }
+

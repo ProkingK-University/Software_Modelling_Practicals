@@ -22,8 +22,8 @@ class Window
 
         void setScreenHeight(int screenHeight);
         void setScreenWidth(int screenWidth);
-        void setPrimitiveCount(int primitiveCount);
-        void setPrimitiveCapacity(int primitveCapacity);
+        virtual void setPrimitiveCount(int primitiveCount);
+        virtual void setPrimitiveCapacity(int primitveCapacity);
 
     protected:
         virtual std::string toString() = 0;

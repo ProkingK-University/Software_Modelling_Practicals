@@ -8,10 +8,6 @@ class OpenGLPrimitive : public Primitive
     public:
         int xcord;
         int ycord;
-
-        OpenGLPrimitive();
-        OpenGLPrimitive(int xcord, int ycord, std::string shape);
-        ~OpenGLPrimitive();
         
         int getXCord();
         int getYCord();

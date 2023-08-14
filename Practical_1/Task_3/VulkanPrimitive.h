@@ -9,10 +9,6 @@ class VulkanPrimitive : public Primitive
         float xcord;
         float ycord;
 
-        VulkanPrimitive();
-        VulkanPrimitive(float xcord, float ycord, std::string shape);
-        ~VulkanPrimitive();
-
         float getXCord();
         float getYCord();
 

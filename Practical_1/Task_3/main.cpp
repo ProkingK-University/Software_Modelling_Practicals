@@ -63,6 +63,8 @@ int main()
 
 void testingOpenGLFactory()
 {
+    int OpenGLWindowPrimitives = 3;
+    int VulkanWindowPrimitives = 9;
     std::cout << "======================= Creating OpenGLFactory Object =======================" << std::endl;
     Factory* openGLFactory = new OpenGLFactory();
     std::cout << "LOADING..." << std::endl;
@@ -123,6 +125,11 @@ void testingOpenGLFactory()
     std::cout << "======================= TESTING OPENGLPRIMITIVE DONE! =======================" << std::endl << std::endl;
 
     std::cout << "======================= TESTING OPENGLWINDOW =======================" << std::endl;
+    OpenGLWindow* openGLWindow = (OpenGLWindow*) openGLFactory->createWindow();
+    openGLWindow->setScreenHeight(100);
+    openGLWindow->setScreenWidth(300);
+    openGLWindow->setPrimitiveCapacity(OpenGLWindowPrimitives);
+
 
 
 

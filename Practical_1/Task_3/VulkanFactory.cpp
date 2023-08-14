@@ -2,12 +2,10 @@
 
 Window* VulkanFactory::createWindow() 
 {
-    Window* windowObject = new VulkanWindow();
-    return windowObject;
+   return new VulkanWindow();
 }
 
 Primitive* VulkanFactory::createPrimitive() 
 {
-    Primitive* primitiveObject = new VulkanPrimitive();
-    return primitiveObject;
+    return new VulkanPrimitive();
 }

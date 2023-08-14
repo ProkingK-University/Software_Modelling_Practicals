@@ -42,3 +42,20 @@ std::string OpenGLWindow::toString()
     }
     return openGLWindow;
 }
+
+void Window::setPrimitiveCount(int primitiveCount)
+{
+    if (primitiveCount <= 3 || this->getPrimitiveCapacity() != 3)
+    {
+        this->primitiveCount = primitiveCount;
+    }
+    else
+    {
+        std::cout << "ERROR: INVALID PRIMITIVE COUNT!" << std::endl;
+    }
+}
+
+void Window::setPrimitiveCapacity(int primitiveCapacity)
+{
+    this->primitiveCapacity = primitiveCapacity;
+}
