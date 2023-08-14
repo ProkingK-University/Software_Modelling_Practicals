@@ -18,6 +18,9 @@ without changing the algorithm’s structure.
 * AbstractClass: Consumer
 * ConcreteClass: JSONConsumer and ODataConsumer
 
+| Participant | Entity in application |
+| :
+
 ## Description
 The Template method was used to design and model a program that converts XML and JSON data into a python like indented format.
 The program has a Consumer class which acts as the AbstractClass, the JSONConsumer and ODataConsumer which inherit from the Consumer class
