@@ -19,6 +19,14 @@ Originator: CargoShip and MilitaryShip
 Memento: CargoMemento and MilitaryMemento
 Caretaker: main
 
+| Participant         | Entity in application      |
+| :-----------------: | :------------------------: |
+| Prototype           | Ship                       |
+| :-----------------: | :------------------------: |
+| Concrete Prototypes | CargoShip and MilitaryShip |
+| :-----------------: | :------------------------: |
+| Client              | main()                     |
+
 ## Prototype
 
 ### Classification:
