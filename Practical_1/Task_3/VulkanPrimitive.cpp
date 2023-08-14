@@ -33,6 +33,6 @@ std::string VulkanPrimitive::toString()
 {
     std::string VulkanPrimitiveString = "OpenGL " + this->getShape() + ":\n";
     VulkanPrimitiveString += "\tX coordinate: " + std::to_string(this->getXCord()) + "\n";
-    VulkanPrimitiveString += "\ty coordinate: " + std::to_string(this->getYCord()) + "\n";
+    VulkanPrimitiveString += "\tY coordinate: " + std::to_string(this->getYCord()) + "\n";
     return VulkanPrimitiveString;
 }

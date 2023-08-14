@@ -32,7 +32,7 @@ std::string OpenGLWindow::toString()
     int size = this->getPrimitiveCount();
     for (int i = 0; i < size; i++)
     {
-        openGLWindow += "\n\t\tPrimitive #" + std::to_string(i) + ": " + primitives[i].toString() + "\n";
+        openGLWindow += "\n\tPrimitive #" + std::to_string(i) + ": " + primitives[i].toString() + "\n";
     }
     return openGLWindow;
 }
