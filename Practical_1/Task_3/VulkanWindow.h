@@ -4,6 +4,8 @@
 #include "Window.h"
 #include "VulkanPrimitive.h"
 
+#include <iostream>
+
 class VulkanWindow : public Window
 {
     public:
@@ -13,10 +15,12 @@ class VulkanWindow : public Window
         VulkanPrimitive* primitives;
 
         VulkanPrimitive* getPrimitives();
-        void setPrimitives(VulkanPrimitive* primitives);
+        void setPrimitives(VulkanPrimitive* primitives, int size);
         
         std::string toString();
 
+        void setPrimitiveCount(int primitiveCount);
+        void setPrimitiveCapacity(int primitveCapacity);
 };
 
 #endif

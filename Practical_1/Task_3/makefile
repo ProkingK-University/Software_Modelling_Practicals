@@ -1,24 +1,48 @@
-# Compiler
-CXX = g++
-CXXFLAGS = -std=c++11 -Wall -Wextra
+ofiles = Factory.o main.o OpenGLFactory.o OpenGLPrimitive.o OpenGLWindow.o Primitive.o VulkanFactory.o VulkanPrimitive.o VulkanWindow.o Window.o
+flags = g++ -std=c++11 -c -g
 
-# Source files
-SOURCES = main.cpp Factory.cpp OpenGLFactory.cpp OpenGLPrimitive.cpp OpenGLWindow.cpp \
-          Primitive.cpp VulkanFactory.cpp VulkanPrimitive.cpp VulkanWindow.cpp Window.cpp
+output: $(ofiles)
+	g++ -o output $(ofiles)
 
-# Object files
-OBJECTS = $(SOURCES:.cpp=.o)
+$(ofiles): Factory.h OpenGLFactory.h OpenGLPrimitive.h OpenGLWindow.h Primitive.h VulkanFactory.h VulkanPrimitive.h VulkanWindow.h Window.h
 
-# Executable name
-EXECUTABLE = abstract_factory_demo
+Factory.o: Factory.cpp
+	$(flags) Factory.cpp
 
-all: $(EXECUTABLE)
+main.o: main.cpp
+	$(flags) main.cpp
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
+OpenGLFactory.o: OpenGLFactory.cpp
+	$(flags) OpenGLFactory.cpp
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+OpenGLPrimitive.o: OpenGLPrimitive.cpp
+	$(flags) OpenGLPrimitive.cpp
+
+OpenGLWindow.o: OpenGLWindow.cpp
+	$(flags) OpenGLWindow.cpp
+
+Primitive.o: Primitive.cpp
+	$(flags) Primitive.cpp
+
+VulkanFactory.o: VulkanFactory.cpp
+	$(flags) VulkanFactory.cpp
+
+VulkanPrimitive.o: VulkanPrimitive.cpp
+	$(flags) VulkanPrimitive.cpp
+
+VulkanWindow.o: VulkanWindow.cpp
+	$(flags) VulkanWindow.cpp
+
+Window.o: Window.cpp
+	$(flags) Window.cpp
+
+make:
+
+run:
+	./output
+
+runv:
+	valgrind --leak-check=full ./output
 
 clean:
-	rm -f $(OBJECTS) $(EXECUTABLE)
+	rm -f *.o output
