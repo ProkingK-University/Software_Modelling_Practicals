@@ -60,30 +60,30 @@ void SmartContract::removeCondition(std::string condition)
 
 std::string SmartContract::toString()
 {
-    std::string result = "";
+    std::string output = "";
     std::string state = smartState->getName();
 
-    result += "Contract " + name + ":\n";
-    result += "State: " + state + "\n";
+    output += "Contract " + name + ":\n";
+    output += "State: " + state + "\n";
     
     if (state == "Tentatively Accepted" || state == "Accepted")
     {
-        result += "Votes:\n";
+        output += "Votes:\n";
 
         for (const bool &vote : votes)
         {
-            result += vote + "\n";
+            output += vote + "\n";
         }
     }
 
-    result += "Conditions:\n";
+    output += "Conditions:\n";
 
     for (const std::string &condition : conditions)
     {
-        result += condition + "\n";
+        output += condition + "\n";
     }
 
-    return result;
+    return output;
 }
 
 SmartContract::~SmartContract()
