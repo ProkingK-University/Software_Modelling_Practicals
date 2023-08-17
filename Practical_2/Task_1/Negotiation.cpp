@@ -5,6 +5,11 @@ Negotiation::Negotiation(SmartContract* smartContract) : SmartState(smartContrac
 
 }
 
+std::string SmartState::getName()
+{
+    
+}
+
 void Negotiation::acceptContract()
 {
 

@@ -5,11 +5,14 @@
 
 class SmartState
 {
+private:
+    std::string name;
 protected:
     SmartContract* smartContract;
 public:
     SmartState(SmartContract* smartContract);
-
+    
+    virtual std::string getName() = 0;
     virtual void acceptContract() = 0;
     virtual void completeContract() = 0;
     virtual void rejectContract(std::string reason) = 0;

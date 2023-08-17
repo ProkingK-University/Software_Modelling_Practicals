@@ -8,7 +8,7 @@
 class SmartContract
 {
 private:
-    const std::string name;
+    std::string name;
     SmartState* smartState;
     std::vector<bool> votes;
     std::vector<std::string> conditions;
@@ -16,7 +16,7 @@ private:
     std::string toString();
 public:
     SmartContract(std::string name);
-    SmartContract(std::string name, std::vector<std::string> conditions);
+    SmartContract(std::string name, std::vector<std::string>& conditions);
 
     void view();
     void accept();

@@ -5,6 +5,11 @@ Accepted::Accepted(SmartContract* smartContract) : SmartState(smartContract)
 
 }
 
+std::string SmartState::getName()
+{
+    
+}
+
 void Accepted::acceptContract()
 {
 

@@ -8,6 +8,7 @@ class Negotiation : public SmartState
 public:
     Negotiation(SmartContract* smartContract);
 
+    virtual std::string getName();
     virtual void acceptContract();
     virtual void completeContract();
     virtual void rejectContract(std::string reason);

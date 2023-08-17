@@ -5,6 +5,11 @@ Tentatively::Tentatively(SmartContract* smartContract) : SmartState(smartContrac
 
 }
 
+std::string SmartState::getName()
+{
+    
+}
+
 void Tentatively::acceptContract()
 {
 

@@ -8,6 +8,7 @@ class Accepted : public SmartState
 public:
     Accepted(SmartContract* smartContract);
 
+    virtual std::string getName();
     virtual void acceptContract();
     virtual void completeContract();
     virtual void rejectContract(std::string reason);
