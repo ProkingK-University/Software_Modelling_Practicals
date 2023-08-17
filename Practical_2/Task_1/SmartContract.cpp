@@ -11,6 +11,11 @@ SmartContract::SmartContract(std::string name, std::vector<std::string> conditio
 
 }
 
+void SmartContract::view()
+{
+
+}
+
 void SmartContract::accept()
 {
 
@@ -42,6 +47,11 @@ void SmartContract::addCondition(std::string condition)
 }
 
 void SmartContract::removeCondition(std::string condition)
+{
+
+}
+
+std::string SmartContract::toString()
 {
 
 }
