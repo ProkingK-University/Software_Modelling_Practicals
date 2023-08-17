@@ -3,10 +3,10 @@
 
 #include "SmartState.h"
 
-class Completed : public SmartState
+class Accepted : public SmartState
 {
 public:
-    Completed(SmartContract* smartContract);
+    Accepted(SmartContract* smartContract);
 
     virtual void acceptContract();
     virtual void completeContract();
@@ -14,7 +14,7 @@ public:
     virtual void addCondition(std::string condition);
     virtual void removeCondition(std::string condition);
 
-    ~Completed();
+    ~Accepted();
 };
 
 #endif
