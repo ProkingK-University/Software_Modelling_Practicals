@@ -2,12 +2,12 @@
 
 Rejected::Rejected(SmartContract* smartContract) : SmartState(smartContract)
 {
-
+    this->name = name;
 }
 
-std::string SmartState::getName()
+std::string Rejected::getName()
 {
-    
+    return this->name;
 }
 
 void Rejected::acceptContract()
@@ -37,5 +37,5 @@ void Rejected::removeCondition(std::string condition)
 
 Rejected::~Rejected()
 {
-
+    delete smartContract;
 }

@@ -18,6 +18,9 @@ public:
     SmartContract(std::string name);
     SmartContract(std::string name, std::vector<std::string>& conditions);
 
+    void clearVotes();
+    bool getAgreeingParties();
+
     void view();
     void accept();
     void complete();

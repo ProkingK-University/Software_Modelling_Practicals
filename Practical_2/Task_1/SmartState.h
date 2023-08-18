@@ -4,10 +4,9 @@
 #include "SmartContract.h"
 
 class SmartState
-{
-private:
-    std::string name;
+{   
 protected:
+    std::string name;
     SmartContract* smartContract;
 public:
     SmartState(SmartContract* smartContract);

@@ -2,12 +2,12 @@
 
 Completed::Completed(SmartContract* smartContract) : SmartState(smartContract)
 {
-
+    this->name = name;
 }
 
-std::string SmartState::getName()
+std::string Completed::getName()
 {
-    
+    return this->name;
 }
 
 void Completed::acceptContract()
@@ -37,5 +37,5 @@ void Completed::removeCondition(std::string condition)
 
 Completed::~Completed()
 {
-
+    delete smartContract;
 }

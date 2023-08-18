@@ -16,6 +16,29 @@ SmartContract::SmartContract(std::string name, std::vector<std::string> &conditi
     this->conditions = conditions;
 }
 
+void SmartContract::clearVotes()
+{
+    votes.clear();
+}
+
+bool SmartContract::getAgreeingParties()
+{
+    int agreed = 0;
+    for (int i = 0; i < votes.size(); i++) 
+    {
+        if (votes[i] == 1)
+        {
+            agreed++;
+        }
+    }
+
+    if (agreed == votes.size()) 
+    {
+        return true;
+    }
+    return false;
+}
+
 void SmartContract::view()
 {
     std::cout << toString() << std::endl;

@@ -8,12 +8,12 @@ class Rejected : public SmartState
 public:
     Rejected(SmartContract* smartContract);
 
-    virtual std::string getName();
-    virtual void acceptContract();
-    virtual void completeContract();
-    virtual void rejectContract(std::string reason);
-    virtual void addCondition(std::string condition);
-    virtual void removeCondition(std::string condition);
+    std::string getName();
+    void acceptContract();
+    void completeContract();
+    void rejectContract(std::string reason);
+    void addCondition(std::string condition);
+    void removeCondition(std::string condition);
 
     ~Rejected();
 };
