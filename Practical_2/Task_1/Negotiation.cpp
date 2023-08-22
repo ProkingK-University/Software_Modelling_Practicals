@@ -18,7 +18,7 @@ void Negotiation::acceptContract()
 
 void Negotiation::completeContract()
 {
-    //TODO: Need to confirm wether we need to throw exceptions or use strings
+    std::cout << "Error: Unbale to complete contact as contract is currently in negotiation stage" << std::endl;
 }
 
 void Negotiation::rejectContract(std::string reason)

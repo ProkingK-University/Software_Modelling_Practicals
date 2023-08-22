@@ -27,7 +27,7 @@ void Tentatively::acceptContract()
 
 void Tentatively::completeContract()
 {
-    //TODO: Need to confirm wether we need to throw exceptions or use strings
+    std::cout << "Error: Unbale to complete contact as contract is currently in tentatively accepted stage" << std::endl;
 }
 
 void Tentatively::rejectContract(std::string reason)

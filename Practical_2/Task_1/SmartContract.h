@@ -1,8 +1,10 @@
 #ifndef SMARTCONTRACT_H
 #define SMARTCONTRACT_H
 
-#include<string>
+#include <string>
 #include <vector>
+#include <iostream>
+
 #include "SmartState.h"
 
 class SmartContract

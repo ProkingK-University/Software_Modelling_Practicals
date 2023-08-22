@@ -2,6 +2,7 @@
 #define ACCEPTED_H
 
 #include "SmartState.h"
+#include "Completed.h"
 
 class Accepted : public SmartState
 {

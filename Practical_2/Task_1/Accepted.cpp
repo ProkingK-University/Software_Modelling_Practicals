@@ -12,27 +12,37 @@ std::string Accepted::getName()
 
 void Accepted::acceptContract()
 {
-    //TODO: Need to confirm wether we need to throw exceptions or use strings
+    std::cout << "Error: Contract is already accepted" << std::endl;
 }
 
 void Accepted::completeContract()
 {
-    //TODO: Need to confirm wether we need to throw exceptions or use strings
+    bool acceptance = smartContract->getAgreeingParties();
+    if (acceptance == true) 
+    {
+        SmartState* state = new Accepted(smartContract); 
+        smartContract->setState(state);
+    }
+    else 
+    {
+        SmartState* state = new Completed(smartContract); 
+        smartContract->setState(state);
+    }
 }
 
 void Accepted::rejectContract(std::string reason)
 {
-    //TODO: Need to confirm wether we need to throw exceptions or use strings
+    std::cout << "Error: Contract is already accepted" << std::endl;
 }
 
 void Accepted::addCondition(std::string condition)
 {
-    //TODO: Need to confirm wether we need to throw exceptions or use strings
+    std::cout << "Error: Contract is already accepted" << std::endl;
 }
 
 void Accepted::removeCondition(std::string condition)
 {
-    //TODO: Need to confirm wether we need to throw exceptions or use strings
+    std::cout << "Error: Contract is already accepted" << std::endl;
 }
 
 Accepted::~Accepted()

@@ -32,7 +32,7 @@ void Rejected::addCondition(std::string condition)
 
 void Rejected::removeCondition(std::string condition)
 {
-
+    
 }
 
 Rejected::~Rejected()
