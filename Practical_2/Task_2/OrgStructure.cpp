@@ -14,3 +14,8 @@ void OrgStructure::add(Organisation* organisation)
 {
 
 }
+
+OrgStructure::~OrgStructure()
+{
+    
+}
