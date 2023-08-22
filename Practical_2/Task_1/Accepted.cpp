@@ -20,13 +20,17 @@ void Accepted::completeContract()
     bool acceptance = smartContract->getAgreeingParties();
     if (acceptance == true) 
     {
-        SmartState* state = new Accepted(smartContract); 
+        SmartState* state = new Completed(smartContract); 
         smartContract->setState(state);
+
+        std::cout << "All parties have agreed...switching to Completed state" << std::endl;
     }
     else 
     {
-        SmartState* state = new Completed(smartContract); 
+        SmartState* state = new Accepted(smartContract);
         smartContract->setState(state);
+
+        std::cout << "All parties have not agreed...switching to Accepted state" << std::endl;
     }
 }
 

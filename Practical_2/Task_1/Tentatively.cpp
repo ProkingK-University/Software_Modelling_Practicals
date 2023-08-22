@@ -31,7 +31,7 @@ void Tentatively::acceptContract()
 
 void Tentatively::completeContract()
 {
-    std::cout << "Error: Unbale to complete contact as contract is currently in tentatively accepted stage" << std::endl;
+    std::cout << "Error: Unable to complete contact as contract is currently in tentatively accepted stage" << std::endl;
 }
 
 void Tentatively::rejectContract(std::string reason)

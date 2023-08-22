@@ -20,7 +20,7 @@ void Negotiation::acceptContract()
 
 void Negotiation::completeContract()
 {
-    std::cout << "Error: Unbale to complete contact as contract is currently in negotiation stage" << std::endl;
+    std::cout << "Error: Unable to complete contact as contract is currently in negotiation stage" << std::endl;
 }
 
 void Negotiation::rejectContract(std::string reason)
