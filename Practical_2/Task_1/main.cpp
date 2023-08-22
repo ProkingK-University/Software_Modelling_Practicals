@@ -22,6 +22,14 @@ int main()
 
 void testingHandlingUnexpectedStateTransitions()
 {
+    std::cout << "======================= Handling Unexpected State Transitions =======================" << std::endl;
+    
+    SmartContract* etheriumContract = new SmartContract("Etherium");
+    etheriumContract->addCondition("Minimum spending amount: R200");
+    etheriumContract->addCondition("Maximum spending amount: R50000");
+    SmartState smartState(etheriumContract);
+    etheriumContract.setState()
+
 
 }
 
