@@ -14,6 +14,8 @@ void Negotiation::acceptContract()
 {
     SmartState* state = new Tentatively(smartContract); 
     smartContract->setState(state);
+
+    std::cout << "Contract has been Accepted...switching to Accepted state" << std::endl;
 }
 
 void Negotiation::completeContract()
@@ -25,6 +27,8 @@ void Negotiation::rejectContract(std::string reason)
 {
     SmartState* state = new Tentatively(smartContract);
     smartContract->setState(state);
+
+    std::cout << "Contract has been Rejected...switching to Rejected state" << std::endl;
 }
 
 void Negotiation::addCondition(std::string condition)
