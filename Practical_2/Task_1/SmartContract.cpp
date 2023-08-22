@@ -19,6 +19,8 @@ SmartContract::SmartContract(std::string name, std::vector<std::string> &conditi
 void SmartContract::clearVotes()
 {
     votes.clear();
+
+    std::cout << "Votes have been cleared" << std::endl;
 }
 
 bool SmartContract::getAgreeingParties()
@@ -57,6 +59,8 @@ void SmartContract::complete()
 void SmartContract::vote(bool vote)
 {
     votes.push_back(vote);
+
+    std::cout << "Voted: " << vote <<std::endl;
 }
 
 void SmartContract::reject(std::string reason)
@@ -67,11 +71,15 @@ void SmartContract::reject(std::string reason)
 void SmartContract::setState(SmartState *newState)
 {
     smartState = newState;
+
+    std::cout << "Contract state has changed to: " << newState->getName() << std::endl;
 }
 
 void SmartContract::addCondition(std::string condition)
 {
     conditions.push_back(condition);
+
+    std::cout << "Added condition: " << condition << std::endl;
 }
 
 void SmartContract::removeCondition(std::string condition)
@@ -79,6 +87,8 @@ void SmartContract::removeCondition(std::string condition)
     auto it = std::find(conditions.begin(), conditions.end(), condition);
 
     conditions.erase(it);
+
+    std::cout << "Removed condition: " << condition << std::endl;
 }
 
 std::string SmartContract::toString()

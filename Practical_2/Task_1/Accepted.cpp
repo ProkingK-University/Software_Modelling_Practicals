@@ -18,6 +18,7 @@ void Accepted::acceptContract()
 void Accepted::completeContract()
 {
     //TODO: Need to confirm wether we need to throw exceptions or use strings
+    std::cout << "Contract has been Completed...switching to Completed state" << std::endl;
 }
 
 void Accepted::rejectContract(std::string reason)

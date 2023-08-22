@@ -17,11 +17,15 @@ void Tentatively::acceptContract()
     {
         SmartState* state = new Accepted(smartContract); 
         smartContract->setState(state);
+
+        std::cout << "All parties have agreed...switching to the Accepted state" << std::endl;
     }
-    else 
+    else
     {
         SmartState* state = new Tentatively(smartContract); 
         smartContract->setState(state);
+
+        std::cout << "All parties have not agreed...remaining in Tentatively state" << std::endl;
     }
 }
 
@@ -34,6 +38,9 @@ void Tentatively::rejectContract(std::string reason)
 {
     SmartState* state = new Rejected(smartContract); 
     smartContract->setState(state);
+
+    std::cout << "Contract has been Rejected...switching to Rejected state" << std::endl;
+
 }
 
 void Tentatively::addCondition(std::string condition)
@@ -41,6 +48,8 @@ void Tentatively::addCondition(std::string condition)
     smartContract->clearVotes();
     SmartState* state = new Negotiation(smartContract); 
     smartContract->setState(state);
+
+    std::cout << "New condition has been added...switching to Negotiation state" << std::endl;
 }
 
 void Tentatively::removeCondition(std::string condition)
@@ -49,6 +58,8 @@ void Tentatively::removeCondition(std::string condition)
     smartContract->clearVotes();
     SmartState* state = new Negotiation(smartContract); 
     smartContract->setState(state);
+
+    std::cout << "New condition has been removed...switching to Negotiation state" << std::endl;
 }
 
 Tentatively::~Tentatively()
