@@ -6,7 +6,7 @@
 #include <iostream>
 
 #include "SmartState.h"
-
+class SmartState;
 class SmartContract
 {
 private:
