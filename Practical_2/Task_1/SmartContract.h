@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "SmartState.h"
+
 class SmartContract
 {
 private:
