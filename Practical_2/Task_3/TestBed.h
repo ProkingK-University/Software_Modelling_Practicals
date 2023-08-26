@@ -9,7 +9,10 @@ class TestBed : public Testable
 private:
     Test test;
 public:
+    TestBed(Test test);
+    
     Test getTest();
+    bool runTest();
     void setTest(Test test);
 };
 

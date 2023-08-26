@@ -4,7 +4,7 @@
 class Testable
 {
 public:
-    bool runTest();
+   virtual bool runTest() = 0;
 };
 
 #endif
