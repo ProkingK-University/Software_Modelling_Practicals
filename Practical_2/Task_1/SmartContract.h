@@ -5,7 +5,7 @@
 #include <vector>
 #include <iostream>
 
-#include "SmartState.h"
+class SmartState;
 
 class SmartContract
 {

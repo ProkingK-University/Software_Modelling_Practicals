@@ -2,21 +2,19 @@
 #define ACCEPTED_H
 
 #include "SmartState.h"
-#include "Completed.h"
 
 class Accepted : public SmartState
 {
 public:
-    Accepted(SmartContract* smartContract);
+    Accepted(SmartContract& smartContract);
 
     std::string getName();
-    void acceptContract();
-    void completeContract();
-    void rejectContract(std::string reason);
-    void addCondition(std::string condition);
-    void removeCondition(std::string condition);
 
-    ~Accepted();
+    void addCondition();
+    void rejectContract();
+    void acceptContract();
+    void removeCondition();
+    void completeContract();
 };
 
 #endif
