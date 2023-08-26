@@ -35,7 +35,6 @@ void testingExceptions()
 
     std::cout << "======================= Current Info About Etherium Contract =======================" << std::endl;
     std::cout << "Smart Contract Name: " << etheriumContract->getName() << std::endl;
-    /*
     std::vector<bool> currentVotes = etheriumContract->getVotes();
     std::string votesString = "";
     for (int i = 0; i < currentVotes.size(); i++)
@@ -47,7 +46,7 @@ void testingExceptions()
     std::string conditionsString = "";
     for (int i = 0; i < currentConditions.size(); i++)
     {
-        conditionsString += "Condition " + i + std::to_string(currentConditions[i]) + "/n";
+        conditionsString += "Condition " + i + currentConditions[i] + "/n";
     }
     std::cout << "Conditions: " << conditionsString;
 
@@ -85,7 +84,6 @@ void testingExceptions()
     std::cout << "======================= Testing Transition From Accepted to Rejected (EXCEPTION) =======================" << std::endl;
     etheriumContract->setState(rejectedState);
     std::cout << std::endl << std::endl;
-    */
 }
 
 
@@ -113,5 +111,7 @@ void dynamicStateChanges()
 
     smartContract->accept();
     smartContract->accept();
+    smartContract->complete();
+}   smartContract->accept();
     smartContract->complete();
 }

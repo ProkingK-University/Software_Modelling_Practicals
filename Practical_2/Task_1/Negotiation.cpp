@@ -7,7 +7,7 @@ Negotiation::Negotiation(SmartContract& smartContract) : SmartState(smartContrac
     this->name = "Negotiation";
 }
 
-std::string SmartState::getName()
+std::string Negotiation::getName()
 {
     return this->name;
 }

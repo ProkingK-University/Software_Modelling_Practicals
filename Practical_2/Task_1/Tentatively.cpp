@@ -10,15 +10,7 @@ Tentatively::Tentatively(SmartContract& smartContract) : SmartState(smartContrac
 
 std::string Tentatively::getName()
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    return this->name;
-=======
     return name;
->>>>>>> develop
-=======
-    return name;
->>>>>>> develop
 }
 
 void Tentatively::acceptContract()
