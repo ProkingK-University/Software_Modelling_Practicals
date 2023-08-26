@@ -13,8 +13,18 @@ SmartContract::SmartContract(std::string name)
 SmartContract::SmartContract(std::string name, std::vector<std::string> &conditions)
 {
     this->name = name;
-    smartState = new Negotiation(this);
+    smartState = new Negotiation(*this);
     this->conditions = conditions;
+}
+
+SmartContract::~SmartContract()
+{
+    delete smartState;
+}
+
+std::string SmartContract::getName()
+{
+    return name;
 }
 
 std::vector<bool> SmartContract::getVotes()
@@ -88,9 +98,33 @@ void SmartContract::reject(std::string reason)
 
 void SmartContract::setState(SmartState *newState)
 {
-    smartState = newState;
-
-    std::cout << "Contract state has changed to: " << newState->getName() << std::endl;
+    if (smartState->getName() == "Negotiation" && newState->getName() == "Completed")
+    {
+        smartState->completeContract();
+        delete smartState;
+    }
+    else if (smartState->getName() == "Tentatively Accepted" && newState->getName() == "Completed")
+    {
+        smartState->completeContract();
+        delete smartState;
+    }
+    else if (smartState->getName() == "Accepted" && newState->getName() == "Accepted")
+    {
+        smartState->acceptContract();
+        delete smartState;
+    }
+    else if (smartState->getName() == "Accepted" && newState->getName() == "Reject")
+    {
+        smartState->rejectContract();
+        delete smartState;
+    }
+    else
+    {
+        std::cout << "Contract has changed from " << smartState->getName() << " to ";
+        delete smartState; 
+        smartState = newState;
+        std::cout << smartState->getName() << std::endl;
+    }
 }
 
 void SmartContract::addCondition(std::string condition)
@@ -137,9 +171,4 @@ std::string SmartContract::toString()
     }
 
     return output;
-}
-
-SmartContract::~SmartContract()
-{
-    delete smartState;
 }

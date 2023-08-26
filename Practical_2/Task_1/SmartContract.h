@@ -19,6 +19,7 @@ private:
 public:
     SmartContract(std::string name);
     SmartContract(std::string name, std::vector<std::string>& conditions);
+    virtual ~SmartContract();
 
     std::string getName();
     std::vector<bool> getVotes();
@@ -34,8 +35,6 @@ public:
     void setState(SmartState* newState);
     void addCondition(std::string condition);
     void removeCondition(std::string condition);
-
-    ~SmartContract();
 };
 
 #endif
