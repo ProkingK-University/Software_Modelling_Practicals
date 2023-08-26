@@ -51,11 +51,11 @@ void testingExceptions()
     std::cout << "Conditions: " << conditionsString;
 
     std::cout << "======================= Creating Smart States =======================" << std::endl;
-    SmartState* negotiationState = new Negotiation(etheriumContract);
-    SmartState* tentativelyAcceptedState = new Tentatively(etheriumContract);
-    SmartState* acceptedState = new Accepted(etheriumContract);
-    SmartState* rejectedState = new Rejected(etheriumContract);
-    SmartState* completedState = new Completed(etheriumContract);
+    SmartState* negotiationState = new Negotiation(*etheriumContract);
+    SmartState* tentativelyAcceptedState = new Tentatively(*etheriumContract);
+    SmartState* acceptedState = new Accepted(*etheriumContract);
+    SmartState* rejectedState = new Rejected(*etheriumContract);
+    SmartState* completedState = new Completed(*etheriumContract);
     std::cout << "Loading..." << std::endl;
     std::cout << "Done!" << std::endl << std::endl;
 
@@ -112,6 +112,6 @@ void dynamicStateChanges()
     smartContract->accept();
     smartContract->accept();
     smartContract->complete();
-}   smartContract->accept();
+    smartContract->accept();
     smartContract->complete();
 }
