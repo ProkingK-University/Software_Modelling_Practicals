@@ -105,7 +105,7 @@ std::string SmartContract::toString()
 
         for (const bool &vote : votes)
         {
-            output += vote + "\n";
+            output += std::to_string(vote) + "\n";
         }
     }
 

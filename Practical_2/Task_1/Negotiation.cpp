@@ -15,7 +15,7 @@ void Negotiation::acceptContract()
     SmartState* state = new Tentatively(smartContract); 
     smartContract->setState(state);
 
-    std::cout << "Contract has been Accepted...switching to Accepted state" << std::endl;
+    std::cout << "Contract has been Tentatively Accepted...switching to Tentatively Accepted state" << std::endl;
 }
 
 void Negotiation::completeContract()
