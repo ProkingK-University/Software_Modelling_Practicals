@@ -1,6 +1,8 @@
+#include "Rejected.h"
 #include "Negotiation.h"
+#include "Tentatively.h"
 
-Negotiation::Negotiation(SmartContract* smartContract) : SmartState(smartContract)
+Negotiation::Negotiation(SmartContract& smartContract) : SmartState(smartContract)
 {
     this->name = "Negotiation";
 }
@@ -12,8 +14,7 @@ std::string Negotiation::getName()
 
 void Negotiation::acceptContract()
 {
-    SmartState* state = new Tentatively(smartContract); 
-    smartContract->setState(state);
+    smartContract.setState(new Tentatively(smartContract));
 
     std::cout << "Contract has been Tentatively Accepted...switching to Tentatively Accepted state" << std::endl;
 }
@@ -23,25 +24,9 @@ void Negotiation::completeContract()
     std::cout << "Error: Unable to complete contact as contract is currently in negotiation stage" << std::endl;
 }
 
-void Negotiation::rejectContract(std::string reason)
+void Negotiation::rejectContract()
 {
-    SmartState* state = new Tentatively(smartContract);
-    smartContract->setState(state);
+    smartContract.setState(new Rejected(smartContract));
 
     std::cout << "Contract has been Rejected...switching to Rejected state" << std::endl;
-}
-
-void Negotiation::addCondition(std::string condition)
-{
-    
-}
-
-void Negotiation::removeCondition(std::string condition)
-{
-
-}
-
-Negotiation::~Negotiation()
-{
-    delete smartContract;
 }

@@ -1,6 +1,7 @@
 #include "Accepted.h"
+#include "Completed.h"
 
-Accepted::Accepted(SmartContract* smartContract) : SmartState(smartContract)
+Accepted::Accepted(SmartContract& smartContract) : SmartState(smartContract)
 {
     this->name = "Accepted";
 }
@@ -17,39 +18,33 @@ void Accepted::acceptContract()
 
 void Accepted::completeContract()
 {
-    bool acceptance = smartContract->getAgreeingParties();
+    bool acceptance = smartContract.getAgreeingParties();
+    
     if (acceptance == true) 
     {
-        SmartState* state = new Completed(smartContract); 
-        smartContract->setState(state);
+        smartContract.setState(new Completed(smartContract));
 
         std::cout << "All parties have agreed...switching to Completed state" << std::endl;
     }
     else 
     {
-        SmartState* state = new Accepted(smartContract);
-        smartContract->setState(state);
+        smartContract.setState(new Accepted(smartContract));
 
         std::cout << "All parties have not agreed...switching to Accepted state" << std::endl;
     }
 }
 
-void Accepted::rejectContract(std::string reason)
+void Accepted::rejectContract()
 {
     std::cout << "Error: Contract is already accepted" << std::endl;
 }
 
-void Accepted::addCondition(std::string condition)
+void Accepted::addCondition()
 {
     std::cout << "Error: Contract is already accepted" << std::endl;
 }
 
-void Accepted::removeCondition(std::string condition)
+void Accepted::removeCondition()
 {
     std::cout << "Error: Contract is already accepted" << std::endl;
-}
-
-Accepted::~Accepted()
-{
-    delete smartContract;
 }

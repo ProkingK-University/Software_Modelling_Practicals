@@ -1,12 +1,9 @@
 #include "SmartState.h"
 
-SmartState::SmartState(SmartContract* smartContract)
-{
-    this->smartContract = smartContract;
-    this->name = "";
-}
+SmartState::SmartState(SmartContract& smartContract) : smartContract(smartContract) {}
 
-SmartState::~SmartState()
-{
-    delete smartContract;
-}
+void SmartState::addCondition() {}
+void SmartState::rejectContract() {}
+void SmartState::acceptContract() {}
+void SmartState::removeCondition() {}
+void SmartState::completeContract() {}
