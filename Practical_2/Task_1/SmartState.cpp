@@ -8,5 +8,5 @@ SmartState::SmartState(SmartContract* smartContract)
 
 SmartState::~SmartState()
 {
-    delete smartContract;
+    
 }

@@ -1,7 +1,9 @@
 #ifndef SMARTSTATE_H
 #define SMARTSTATE_H
 
-#include "SmartContract.h"
+#include <string>
+
+class SmartContract;  // Forward declaration
 
 class SmartState
 {   
@@ -17,8 +19,9 @@ public:
     virtual void rejectContract(std::string reason) = 0;
     virtual void addCondition(std::string condition) = 0;
     virtual void removeCondition(std::string condition) = 0;
+    void setState(SmartState* newState);
 
-   virtual ~SmartState();
+    virtual ~SmartState();
 };
 
 #endif
