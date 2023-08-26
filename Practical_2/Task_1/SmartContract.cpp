@@ -13,7 +13,13 @@ SmartContract::SmartContract(std::string name)
 SmartContract::SmartContract(std::string name, std::vector<std::string> &conditions)
 {
     this->name = name;
+    smartState = new Negotiation(this);
     this->conditions = conditions;
+}
+
+std::vector<bool> SmartContract::getVotes()
+{
+    return votes;
 }
 
 void SmartContract::clearVotes()
@@ -39,6 +45,16 @@ bool SmartContract::getAgreeingParties()
         return true;
     }
     return false;
+}
+
+std::vector<std::string> SmartContract::getConditions()
+{
+    return conditions;
+}
+
+std::string getCondition(std::vector<std::string> conditions, int index)
+{
+    return conditions[index];
 }
 
 void SmartContract::view()
