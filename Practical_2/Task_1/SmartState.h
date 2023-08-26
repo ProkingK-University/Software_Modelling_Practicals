@@ -21,6 +21,7 @@ public:
     
     virtual std::string getName() = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
     virtual void acceptContract() = 0;
     virtual void completeContract() = 0;
     virtual void rejectContract(std::string reason) = 0;
@@ -29,6 +30,8 @@ public:
     void setState(SmartState* newState);
 
     virtual ~SmartState();
+=======
+>>>>>>> develop
 =======
 >>>>>>> develop
 };
