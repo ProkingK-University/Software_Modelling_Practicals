@@ -12,6 +12,7 @@ private:
 public:
     Individual(int uniqueID, double costCenter, double costToCompany);
 
+    int getUniqueID();
     double getTotalExpenditure();
     double getExpenditureByCostCenter();
     void add(Organisation* organisation);

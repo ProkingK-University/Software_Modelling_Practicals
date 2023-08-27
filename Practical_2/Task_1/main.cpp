@@ -9,6 +9,11 @@
 #include <iostream>
 
 void testingExceptions();
+void testingTransitionFromNegationToCompleted();
+void testingTransitionFromTentativelyAcceptedToCompleted();
+void testingTransitionFromAcceptedToAccepted();
+void testingTransitionFromAcceptedToRejected();
+void testingAddingAndRemovingConditionsInAcceptedState();
 void dynamicStateChanges();
 
 int main()
@@ -20,72 +25,155 @@ int main()
 
 void testingExceptions()
 {
-    std::cout << "======================= Handling Exceptions =======================" << std::endl;
-    
-    std::cout << "======================= Creating Smart Contract =======================" << std::endl;
-    SmartContract* etheriumContract = new SmartContract("Etherium");
+    testingTransitionFromNegationToCompleted();
+    testingTransitionFromTentativelyAcceptedToCompleted();
+    testingTransitionFromAcceptedToAccepted();
+    testingTransitionFromAcceptedToRejected();
+    testingAddingAndRemovingConditionsInAcceptedState();
+}
+
+void testingTransitionFromNegationToCompleted()
+{
+    std::cout << "======================= TESTING NEGATION TO COMPLETED TRANSITION (EXCEPTION) =======================" << std::endl;
+
+    std::cout << "Creating Smart Contract" << std::endl;
+    SmartContract* contractA = new SmartContract("Contract-A");
     std::cout << "Loading..." << std::endl;
     std::cout << "Done!" << std::endl << std::endl;
 
-    std::cout << "======================= Adding Conditions To Existing Smart Contract =======================" << std::endl;
-    etheriumContract->addCondition("Minimum spending amount: R200");
-    etheriumContract->addCondition("Maximum spending amount: R50000");
+    std::cout << "Creating Necessary States For Testing" << std::endl;
+    SmartState* negotiationState = new Negotiation(*contractA);
+    SmartState* completedState = new Completed(*contractA);
     std::cout << "Loading..." << std::endl;
     std::cout << "Done!" << std::endl << std::endl;
 
-    std::cout << "======================= Current Info About Etherium Contract =======================" << std::endl;
-    std::cout << "Smart Contract Name: " << etheriumContract->getName() << std::endl;
-    std::vector<bool> currentVotes = etheriumContract->getVotes();
-    std::string votesString = "";
-    for (int i = 0; i < currentVotes.size(); i++)
-    {
-        votesString += "Vote " + i + std::to_string(currentVotes[i]) + "/n";
-    }
-    std::cout << "Votes: " << votesString;
-    std::vector<bool> currentConditions = etheriumContract->getVotes();
-    std::string conditionsString = "";
-    for (int i = 0; i < currentConditions.size(); i++)
-    {
-        conditionsString += "Condition " + i + currentConditions[i] + "\n";
-    }
-    std::cout << "Conditions: " << conditionsString;
+    std::cout << "Testing Transition From Negation to Completed (EXCEPTION)" << std::endl;
+    contractA->setState(completedState);
+    std::cout << std::endl << std::endl;
 
-    std::cout << "======================= Creating Smart States =======================" << std::endl;
-    SmartState* negotiationState = new Negotiation(*etheriumContract);
-    SmartState* tentativelyAcceptedState = new Tentatively(*etheriumContract);
-    SmartState* acceptedState = new Accepted(*etheriumContract);
-    SmartState* rejectedState = new Rejected(*etheriumContract);
-    SmartState* completedState = new Completed(*etheriumContract);
+    delete completedState;
+}
+
+void testingTransitionFromTentativelyAcceptedToCompleted()
+{
+    std::cout << "======================= TESTING TENTATIVELY ACCEPTED TO COMPLETED TRANSITION (EXCEPTION) =======================" << std::endl;
+
+    std::cout << "Creating Smart Contract" << std::endl;
+    SmartContract* contractB = new SmartContract("Contract-B");
     std::cout << "Loading..." << std::endl;
     std::cout << "Done!" << std::endl << std::endl;
 
-    std::cout << "======================= Current Info About Each Smart State =======================" << std::endl;
-    
-    std::cout << "======================= Testing Transition From Negotiation to Completed (EXCEPTION) =======================" << std::endl;
-    etheriumContract->setState(completedState);
+    std::cout << "Creating Necessary States For Testing" << std::endl;
+    SmartState* negotiationState = new Negotiation(*contractB);
+    SmartState* tentativelyAcceptedState = new Tentatively(*contractB);
+    SmartState* completedState = new Completed(*contractB);
+    std::cout << "Loading..." << std::endl;
+    std::cout << "Done!" << std::endl << std::endl;
+
+    std::cout << "Testing Transition From Tentatively Accepted to Completed (EXCEPTION)" << std::endl;
+    contractB->setState(tentativelyAcceptedState);
+    contractB->setState(completedState);
     std::cout << std::endl << std::endl;
 
-    std::cout << "======================= Testing Transition From Tentatively Accepted to Completed (EXCEPTION) =======================" << std::endl;
-    etheriumContract->setState(completedState);
+    delete completedState;
+}
+
+void testingTransitionFromAcceptedToAccepted()
+{
+    std::cout << "======================= TESTING ACCEPTED TO ACCEPTED TRANSITION (EXCEPTION) =======================" << std::endl;
+
+    std::cout << "Creating Smart Contract" << std::endl;
+    SmartContract* contractC = new SmartContract("Contract-C");
+    std::cout << "Loading..." << std::endl;
+    std::cout << "Done!" << std::endl << std::endl;
+
+    std::cout << "Adding Votes" << std::endl;
+    contractC->vote(true);
     std::cout << std::endl << std::endl;
 
-    std::cout << "======================= Adding Condition When Contract Is Already Completed (EXCEPTION) =======================" << std::endl;
-    etheriumContract->addCondition("Currency needs to be in Rands");
-    std::cout << std::endl << std::endl;
+    std::cout << "Creating Necessary States For Testing" << std::endl;
+    SmartState* negotiationState = new Negotiation(*contractC);
+    SmartState* tentativelyAcceptedState = new Negotiation(*contractC);
+    SmartState* acceptedState = new Accepted(*contractC);
+    std::cout << "Loading..." << std::endl;
+    std::cout << "Done!" << std::endl << std::endl;
 
-    std::cout << "======================= Adding Condition When Contract Is Already Completed (EXCEPTION) =======================" << std::endl;
-    etheriumContract->removeCondition("Maximum spending amount: R50000");
-    std::cout << std::endl << std::endl;
-
-    std::cout << "======================= Testing Transition From Accepted to Accepted (EXCEPTION) =======================" << std::endl;
-    etheriumContract->setState(acceptedState);
-    std::cout << std::endl << std::endl;
-
-    std::cout << "======================= Testing Transition From Accepted to Rejected (EXCEPTION) =======================" << std::endl;
-    etheriumContract->setState(rejectedState);
+    std::cout << "Testing Transition From Accepted to Accepted (EXCEPTION)" << std::endl;
+    contractC->setState(tentativelyAcceptedState);
+    contractC->setState(acceptedState);
+    contractC->setState(acceptedState);
     std::cout << std::endl << std::endl;
 }
 
+void testingTransitionFromAcceptedToRejected()
+{
+    std::cout << "======================= TESTING ACCEPTED TO REJECTED TRANSITION (EXCEPTION) =======================" << std::endl;
+
+    std::cout << "Creating Smart Contract" << std::endl;
+    SmartContract* contractD = new SmartContract("Contract-D");
+    std::cout << "\tLoading..." << std::endl;
+    std::cout << "\tDone!" << std::endl << std::endl;
+
+    std::cout << "Adding Votes" << std::endl;
+    contractD->vote(true);
+    std::cout << std::endl << std::endl;
+
+    std::cout << "Creating Necessary States For Testing" << std::endl;
+    SmartState* negotiationState = new Negotiation(*contractD);
+    SmartState* tentativelyAcceptedState = new Tentatively(*contractD);
+    SmartState* acceptedState = new Accepted(*contractD);
+    SmartState* rejectedState = new Rejected(*contractD);
+    std::cout << "Loading..." << std::endl;
+    std::cout << "Done!" << std::endl << std::endl;
+
+    std::cout << "Testing Transition From Accepted to Rejected (EXCEPTION)" << std::endl;
+    contractD->setState(tentativelyAcceptedState);
+    contractD->setState(acceptedState);
+    contractD->setState(rejectedState);
+    std::cout << std::endl << std::endl;
+
+    delete negotiationState;
+    delete rejectedState;
+}
+
+void testingAddingAndRemovingConditionsInAcceptedState()
+{
+    std::cout << "====== TESTING ADDING AND REMOVING CONDITIONS IN ACCEPTED STATE(EXCEPTION) =====" << std::endl;
+
+    std::cout << "Creating Smart Contract" << std::endl;
+    SmartContract* contractE = new SmartContract("Contract-E");
+    std::cout << "\tLoading..." << std::endl;
+    std::cout << "\tDone!" << std::endl << std::endl;
+
+    std::cout << "Adding Conditions to Existing Smart Contract" << std::endl;
+    contractE->addCondition("Minimum amount to purchase Etherium is R200");
+
+    std::cout << "Adding Votes" << std::endl;
+    contractE->vote(true);
+    std::cout << std::endl << std::endl;
+
+    std::cout << "Current Information About Smart Contract" << std::endl;
+    contractE->view();
+    std::cout << std::endl << std::endl;
+
+    std::cout << "Creating Necessary States For Testing" << std::endl;
+    SmartState* negotiationState = new Negotiation(*contractE);
+    SmartState* tentativelyAcceptedState = new Tentatively(*contractE);
+    SmartState* acceptedState = new Accepted(*contractE);
+    std::cout << "Loading..." << std::endl;
+    std::cout << "Done!" << std::endl << std::endl;
+
+    std::cout << "Testing Transition From Accepted to Rejected (EXCEPTION)" << std::endl;
+    contractE->setState(tentativelyAcceptedState);
+    contractE->setState(acceptedState);
+    contractE->addCondition("Maxiumum amount to purchase Etherium is R50000");
+    // TODO: HAVING AN ISSUE 
+    contractE->removeCondition("Minimum amount to purchase Etherium is R200");
+    
+    std::cout << std::endl << std::endl;
+
+    delete acceptedState;
+}
 
 void dynamicStateChanges()
 {

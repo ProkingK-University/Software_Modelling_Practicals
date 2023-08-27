@@ -10,7 +10,8 @@ protected:
     SmartContract& smartContract;
 public:
     SmartState(SmartContract& smartContract);
-
+    virtual ~SmartState();
+    
     virtual void addCondition();
     virtual void rejectContract();
     virtual void acceptContract();

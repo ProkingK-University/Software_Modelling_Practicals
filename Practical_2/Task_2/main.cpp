@@ -2,7 +2,9 @@
 #include "Individual.h"
 #include "OrgStructure.h"
 
-void testNestedObjects();
+void testingEmptyComposite();
+void testingSingleLeafNode();
+void testingNestingComposites();
 
 int main()
 {

@@ -2,7 +2,7 @@
 
 Rejected::Rejected(SmartContract& smartContract) : SmartState(smartContract)
 {
-    this->name = name;
+    this->name = "Rejected";
 }
 
 std::string Rejected::getName()
