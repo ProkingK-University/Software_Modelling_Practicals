@@ -113,7 +113,7 @@ void SmartContract::setState(SmartState *newState)
         smartState->acceptContract();
         delete smartState;
     }
-    else if (smartState->getName() == "Accepted" && newState->getName() == "Reject")
+    else if (smartState->getName() == "Accepted" && newState->getName() == "Rejected")
     {
         smartState->rejectContract();
         delete smartState;
