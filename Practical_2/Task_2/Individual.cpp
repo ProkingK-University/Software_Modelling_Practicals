@@ -7,6 +7,11 @@ Individual::Individual(int uniqueID, double costCenter, double costToCompany)
     this->costToCompany = costToCompany;
 }
 
+int Individual::getUniqueID()
+{
+    return uniqueID;
+}
+
 double Individual::getTotalExpenditure()
 {
     return costToCompany;
