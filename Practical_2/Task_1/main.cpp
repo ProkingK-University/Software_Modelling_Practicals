@@ -46,7 +46,7 @@ void testingExceptions()
     std::string conditionsString = "";
     for (int i = 0; i < currentConditions.size(); i++)
     {
-        conditionsString += "Condition " + i + currentConditions[i] + "/n";
+        conditionsString += "Condition " + i + currentConditions[i] + "\n";
     }
     std::cout << "Conditions: " << conditionsString;
 

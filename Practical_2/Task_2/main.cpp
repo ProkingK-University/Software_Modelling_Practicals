@@ -17,6 +17,8 @@ void testNestedObjects()
 
     Organisation* org1 = new OrgStructure();
     Organisation* org2 = new OrgStructure();
+    Organisation* org3 = new OrgStructure();
+
 
     Organisation* dude1 = new Individual(1, 10.0, 100.0);
     Organisation* dude2 = new Individual(2, 20.0, 200.0);
@@ -27,16 +29,18 @@ void testNestedObjects()
 
     org1->add(dude1);
     org1->add(dude2);
-    org1->add(dude3);
 
     organisation->add(org1);
-    organisation->add(dude4);
+    organisation->add(dude3);
 
-    org2->add(dude5);
-    org2->add(dude6);
+    org2->add(dude4);
+    org3->add(dude5);
+    org3->add(dude6);
+
+    org2->add(org3);
 
     organisation->add(org2);
 
-    std::cout << organisation->getExpenditureByCostCenter() << std::endl;
-    std::cout << organisation->getTotalExpenditure() << std::endl;
+    std::cout << "Total Expenditure By CostCenter: " << organisation->getExpenditureByCostCenter() << std::endl;
+    std::cout << "Total Expenditure: " << organisation->getTotalExpenditure() << std::endl;
 }
