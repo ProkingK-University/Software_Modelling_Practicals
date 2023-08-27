@@ -2,14 +2,12 @@
 #include "Individual.h"
 #include "OrgStructure.h"
 
-void testingEmptyComposite();
 void testingSingleLeafNode();
 void testingNestingComposites();
 void testingNestedObjects();
 
 int main()
 {
-    testingEmptyComposite();
     testingSingleLeafNode();
     testingNestingComposites();
     testingNestedObjects();
@@ -17,78 +15,57 @@ int main()
     return 0;
 }
 
-void testingEmptyComposite()
-{
-    // Create an individual
-    Individual* person = new Individual(1, 100.0, 150.0);
-
-    // Create an organization structure
-    OrgStructure* orgStructure = new OrgStructure();
-
-    // Add the individual to the organization structure
-    orgStructure->add(person);
-
-    // Calculate and display total expenditure of the individual
-    double totalExpenditure = person->getTotalExpenditure();
-    std::cout << "Individual's Total Expenditure: $" << totalExpenditure << std::endl;
-
-    // Calculate and display total expenditure of the organization structure
-    double totalOrgExpenditure = orgStructure->getTotalExpenditure();
-    std::cout << "Organization Structure's Total Expenditure: $" << totalOrgExpenditure << std::endl;
-
-    // Calculate and display expenditure by cost center of the individual
-    double costCenterExpenditure = person->getExpenditureByCostCenter();
-    std::cout << "Individual's Expenditure by Cost Center: $" << costCenterExpenditure << std::endl;
-
-    // Calculate and display expenditure by cost center of the organization structure
-    double orgCostCenterExpenditure = orgStructure->getExpenditureByCostCenter();
-    std::cout << "Organization Structure's Expenditure by Cost Center: $" << orgCostCenterExpenditure << std::endl;
-
-    // Clean up
-    delete orgStructure;
-    delete person;
-}
-
 void testingSingleLeafNode()
 {
-    // Creating an Individual
-    Individual individual(1, 1000.0, 5000.0);
+    std::cout << "======================= TESTING SINGLE LEAF NODE =======================" << std::endl;
 
-    // Testing the Individual's methods
-    std::cout << "Individual #" << individual.getUniqueID() << ":\n";
-    std::cout << "Total Expenditure: $" << individual.getTotalExpenditure() << "\n";
-    std::cout << "Expenditure by Cost Center: $" << individual.getExpenditureByCostCenter() << "\n";
+    Individual* person = new Individual(1, 100.0, 150.0);
+    Organisation* organisation = person;
+
+    double totalExpenditure = organisation->getTotalExpenditure();
+    std::cout << "Organisation/Individual's Total Expenditure: $" << totalExpenditure << std::endl;
+
+    double costCenterExpenditure = organisation->getExpenditureByCostCenter();
+    std::cout << "Organisation/Individual's Expenditure by Cost Center: $" << costCenterExpenditure << std::endl;
+
+    delete person;
+
+    std::cout << std::endl;
 }
 
 void testingNestingComposites()
 {
-    // Creating individual employees
+    std::cout << "======================= TESTING NESTED COMPOSITE NODES =======================" << std::endl;
+    
     Organisation* employee1 = new Individual(1, 101, 50000);
     Organisation* employee2 = new Individual(2, 102, 60000);
 
-    // Creating a composite structure for departments
     Organisation* department1 = new OrgStructure();
     Organisation* department2 = new OrgStructure();
 
-    // Adding individual employees to departments
     department1->add(employee1);
     department2->add(employee2);
 
-    // Adding departments to an overall organization structure
     Organisation* organization = new OrgStructure();
     organization->add(department1);
     organization->add(department2);
 
-    // Calculate and print total expenditure and expenditure by cost center
-    std::cout << "Total Expenditure: " << organization->getTotalExpenditure() << std::endl;
-    std::cout << "Expenditure by Cost Center: " << organization->getExpenditureByCostCenter() << std::endl;
+    std::cout << "Total Expenditure: $" << organization->getTotalExpenditure() << std::endl;
+    std::cout << "Expenditure by Cost Center: $" << organization->getExpenditureByCostCenter() << std::endl;
 
-    // Clean up memory
-    delete organization; // This will recursively delete all nested objects
+    delete organization;
+    delete employee1;
+    delete employee2;
+    delete department1;
+    delete department2;
+
+    std::cout << std::endl;
 }
 
 void testingNestedObjects()
 {
+    std::cout << "======================= TESTING NESTED OBJECTS =======================" << std::endl;
+
     Organisation* organisation = new OrgStructure();
 
     Organisation* org1 = new OrgStructure();
@@ -117,6 +94,19 @@ void testingNestedObjects()
 
     organisation->add(org2);
 
-    std::cout << "Total Expenditure By CostCenter: " << organisation->getExpenditureByCostCenter() << std::endl;
-    std::cout << "Total Expenditure: " << organisation->getTotalExpenditure() << std::endl;
+    std::cout << "Total Expenditure By CostCenter: $" << organisation->getExpenditureByCostCenter() << std::endl;
+    std::cout << "Total Expenditure: $" << organisation->getTotalExpenditure() << std::endl;
+
+    delete organisation;
+    delete org1;
+    delete org2;
+    delete org3;
+    delete dude1;
+    delete dude2;
+    delete dude3;
+    delete dude4;
+    delete dude5;
+    delete dude6;
+
+    std::cout << std::endl;
 }
