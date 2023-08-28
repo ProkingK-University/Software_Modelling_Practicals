@@ -45,9 +45,8 @@ void Tentatively::rejectContract()
 
 void Tentatively::addCondition(std::string condition)
 {
-    smartContract.getConditions().push_back(condition);
-    
     smartContract.clearVotes();
+    smartContract.add(condition);
     smartContract.setState(new Negotiation(smartContract));
 
     std::cout << "New condition has been added...switching to Negotiation state" << std::endl;
@@ -55,13 +54,8 @@ void Tentatively::addCondition(std::string condition)
 
 void Tentatively::removeCondition(std::string condition)
 {
-    std::vector<std::string> conditions = smartContract.getConditions();
-
-    auto it = std::find(conditions.begin(), conditions.end(), condition);
-
-    conditions.erase(it);
-
     smartContract.clearVotes();
+    smartContract.remove(condition);
     smartContract.setState(new Negotiation(smartContract));
 
     std::cout << "New condition has been removed...switching to Negotiation state" << std::endl;

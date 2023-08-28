@@ -31,6 +31,8 @@ public:
     void vote(bool vote);
     bool getAgreeingParties();
     void reject(std::string reason);
+    void add(std::string condition);
+    void remove(std::string condition);
     void setState(SmartState* newState);
     void addCondition(std::string condition);
     void removeCondition(std::string condition);

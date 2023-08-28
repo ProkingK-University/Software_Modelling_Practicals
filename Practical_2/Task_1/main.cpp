@@ -198,6 +198,8 @@ void dynamicStateChanges()
     smartContract->view();
 
     smartContract->accept();
+
+    //smartContract->vote(false);
     
     smartContract->view();
 

@@ -116,6 +116,18 @@ void SmartContract::setState(SmartState *newState)
     }
 }
 
+void SmartContract::add(std::string condition)
+{
+    conditions.push_back(condition);
+}
+
+void SmartContract::remove(std::string condition)
+{
+    auto it = std::find(conditions.begin(), conditions.end(), condition);
+
+    conditions.erase(it);
+}
+
 void SmartContract::addCondition(std::string condition)
 {
     smartState->addCondition(condition);

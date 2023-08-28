@@ -33,18 +33,14 @@ void Negotiation::rejectContract()
 
 void Negotiation::addCondition(std::string condition)
 {
-    smartContract.getConditions().push_back(condition);
+    smartContract.add(condition);
 
     std::cout << "Added condition: " << condition << std::endl;
 }
 
 void Negotiation::removeCondition(std::string condition)
 {
-    std::vector<std::string> conditions = smartContract.getConditions();
-
-    auto it = std::find(conditions.begin(), conditions.end(), condition);
-
-    conditions.erase(it);
-
+    smartContract.remove(condition);
+    
     std::cout << "Removed condition: " << condition << std::endl;
 }
