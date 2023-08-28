@@ -1,18 +1,21 @@
 #include "TestDecorator.h"
 
-TestDecorator::TestDecorator(TestBed internalTestBed) : internalTestBed(internalTestBed) {}
+TestDecorator::TestDecorator(TestBed* internalTestBed)
+{
+    this->internalTestBed = internalTestBed;
+}
 
-TestBed TestDecorator::getInternalTestBed()
+TestBed* TestDecorator::getInternalTestBed()
 {
     return internalTestBed;
 }
 
-void TestDecorator::setInternalTestBed(TestBed internalTestBed)
+void TestDecorator::setInternalTestBed(TestBed* internalTestBed)
 {
     this->internalTestBed = internalTestBed;
 }
 
 bool TestDecorator::runTest()
 {
-    return internalTestBed.runTest();
+    return internalTestBed->runTest();
 }

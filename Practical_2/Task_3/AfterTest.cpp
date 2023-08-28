@@ -1,6 +1,6 @@
 #include "AfterTest.h"
 
-AfterTest::AfterTest(TestBed internalTestBed, std::string output) : TestDecorator(internalTestBed)
+AfterTest::AfterTest(TestBed* internalTestBed, std::string output) : TestDecorator(internalTestBed)
 {
     this->output = output;
 }

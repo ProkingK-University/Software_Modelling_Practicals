@@ -9,7 +9,7 @@ private:
     std::string output;
 
 public:
-    BeforeTest(TestBed internalTestBed, std::string output);
+    BeforeTest(TestBed* internalTestBed, std::string output);
 
     bool runTest();
 };

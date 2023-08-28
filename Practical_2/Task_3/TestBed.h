@@ -7,13 +7,13 @@
 class TestBed : public Testable
 {
 private:
-    Test test;
+    Test* test;
 public:
-    TestBed(Test test);
+    TestBed(Test* test);
     
-    Test getTest();
+    Test* getTest();
     bool runTest();
-    void setTest(Test test);
+    void setTest(Test* test);
 };
 
 #endif

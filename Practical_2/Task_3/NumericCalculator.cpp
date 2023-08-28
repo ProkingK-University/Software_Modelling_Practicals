@@ -1,5 +1,6 @@
 #include <map>
 #include <iostream>
+#include <cstdlib>
 #include "NumericCalculator.h"
 
 double NumericCalculator::performCalculation()
@@ -20,10 +21,7 @@ double NumericCalculator::performCalculation()
     {
         if (isdigit(c))
         {
-            double num;
-
-            std::cin.putback(c);
-            std::cin >> num;
+            double num = atof(&c);
 
             operands.push(num);
         }
@@ -50,12 +48,11 @@ double NumericCalculator::performCalculation()
             operators.push(c);
         }
     }
-    // Pop any remaining operators and apply them
+
     while (!operators.empty()) {
         applyOperator(operands, operators);
     }
 
-    // The final result should be at the top of the operands stack
     return operands.top();
 }
 

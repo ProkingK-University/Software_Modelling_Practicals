@@ -1,6 +1,6 @@
 #include "BeforeTest.h"
 
-BeforeTest::BeforeTest(TestBed internalTestBed, std::string output) : TestDecorator(internalTestBed)
+BeforeTest::BeforeTest(TestBed* internalTestBed, std::string output) : TestDecorator(internalTestBed)
 {
     this->output = output;
 }
