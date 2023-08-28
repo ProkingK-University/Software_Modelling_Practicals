@@ -9,13 +9,13 @@
 class TestDecorator : public Testable
 {
 private:
-    TestBed* internalTestBed;
+    Testable* internalTestBed;
 public:
-    TestDecorator(TestBed* internalTestBed);
+    TestDecorator(Testable* internalTestBed);
     
     virtual bool runTest();
-    TestBed* getInternalTestBed();
-    void setInternalTestBed(TestBed* internalTestBed);
+    Testable* getInternalTestBed();
+    void setInternalTestBed(Testable* internalTestBed);
 };
 
 #endif

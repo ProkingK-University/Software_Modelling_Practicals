@@ -32,6 +32,6 @@ void numericTest()
     
     Test* numericTest = new NumericTest();
     TestBed* testBed = new TestBed(numericTest);
-    TestDecorator* testDecorator = new BeforeTest(testBed, "Starting Numeric Test...");
+    TestDecorator* testDecorator = new AfterTest(new BeforeTest(testBed, "Starting Numeric Test..."), "Numeric Test Finished!");
     testDecorator->runTest();
 }
