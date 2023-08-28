@@ -9,22 +9,21 @@ void booleanTest();
 void numericTest();
 
 int main() {
-    //booleanTest();
+    booleanTest();
     numericTest();
+    
     return 0;
 }
 
-/*void booleanTest()
+void booleanTest()
 {
     std::cout << "======================= EVERTHING BOOLEAN =======================" << std::endl;
     
     Test* booleanTest = new BooleanTest();
-    TestBed context(*booleanTest);
-
-    TestDecorator* concreteDecoratorB_1 = new BeforeTest(context, "Starting Boolean Test...");
-    context.runTest();
-    TestDecorator* concreteDecoratorA_1 = new AfterTest(context, "Boolean Test Finished!");
-}*/
+    TestBed* testBed = new TestBed(booleanTest);
+    TestDecorator* testDecorator = new AfterTest(new BeforeTest(testBed, "Starting Boolean Test..."), "Boolean Test Finished!");
+    testDecorator->runTest();
+}
 
 void numericTest()
 {

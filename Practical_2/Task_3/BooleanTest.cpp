@@ -1,11 +1,8 @@
-#include "BooleanTest.h" // Assuming you create a header file for BooleanTest class
+#include "BooleanTest.h"
 
 bool BooleanTest::executeTest()
 {
-    std::vector<std::pair<std::string, bool>> testCases = {
-        {"T && F || T", true},
-        {"F || T && F", false}
-    };
+    std::vector<std::pair<std::string, bool>> testCases = {{"T A F O T", true}, {"F O T A F", false}};
 
     bool allTestsPassed = true;
 
@@ -19,7 +16,8 @@ bool BooleanTest::executeTest()
 
         bool actual = calculator.performCalculation();
 
-         bool testPassed;
+        bool testPassed;
+
         if (actual == expected)
         {
             testPassed = true;
@@ -31,33 +29,34 @@ bool BooleanTest::executeTest()
 
         std::cout << "Input: " << input << std::endl;
         std::cout << "Expected Result: ";
-        if (expected) 
+        if (expected)
         {
             std::cout << "true";
-        } 
-        else 
+        }
+        else
         {
             std::cout << "false";
         }
         std::cout << std::endl;
 
         std::cout << "Actual Result: ";
-        if (actual) 
+        if (actual)
         {
             std::cout << "true";
-        } 
-        else 
+        }
+        else
         {
             std::cout << "false";
         }
         std::cout << std::endl;
 
         std::cout << "Test Status: ";
-        if (testPassed) 
+        if (testPassed)
         {
             std::cout << "Pass";
-        } 
-        else {
+        }
+        else
+        {
             std::cout << "Fail";
         }
         std::cout << std::endl;
