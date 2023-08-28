@@ -1,5 +1,10 @@
 #include "BooleanTest.h"
 
+BooleanTest::BooleanTest()
+{
+    calculator = new BooleanCalculator();
+}
+
 bool BooleanTest::executeTest()
 {
     std::vector<std::pair<std::string, bool>> testCases = {{"T A F O T", true}, {"F O T A F", false}};
@@ -11,10 +16,9 @@ bool BooleanTest::executeTest()
         std::string input = testCase.first;
         bool expected = testCase.second;
 
-        BooleanCalculator calculator;
-        calculator.setInputString(input);
+        calculator->setInputString(input);
 
-        bool actual = calculator.performCalculation();
+        bool actual = calculator->performCalculation();
 
         bool testPassed;
 
@@ -69,4 +73,9 @@ bool BooleanTest::executeTest()
     }
 
     return allTestsPassed;
+}
+
+BooleanTest::~BooleanTest()
+{
+    delete calculator;
 }

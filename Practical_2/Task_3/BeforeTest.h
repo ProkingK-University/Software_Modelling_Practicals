@@ -12,6 +12,8 @@ public:
     BeforeTest(Testable* internalTestBed, std::string output);
 
     bool runTest();
+
+    
 };
 
 #endif

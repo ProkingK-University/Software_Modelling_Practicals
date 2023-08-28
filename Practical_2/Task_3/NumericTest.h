@@ -13,6 +13,7 @@ class NumericTest : public Test
 public:
     NumericTest();
     bool executeTest();
+    ~NumericTest();
 };
 
 #endif

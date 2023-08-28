@@ -10,7 +10,9 @@
 class BooleanTest : public Test
 {
 public:
+    BooleanTest();
     bool executeTest();
+    ~BooleanTest();
 };
 
 #endif

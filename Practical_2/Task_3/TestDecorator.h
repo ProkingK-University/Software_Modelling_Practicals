@@ -16,6 +16,8 @@ public:
     virtual bool runTest();
     Testable* getInternalTestBed();
     void setInternalTestBed(Testable* internalTestBed);
+
+    ~TestDecorator();
 };
 
 #endif

@@ -207,4 +207,6 @@ void dynamicStateChanges()
     smartContract->complete();
     smartContract->accept();
     smartContract->complete();
+
+    delete smartContract;
 }

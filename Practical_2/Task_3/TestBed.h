@@ -14,6 +14,8 @@ public:
     Test* getTest();
     bool runTest();
     void setTest(Test* test);
+
+    ~TestBed();
 };
 
 #endif

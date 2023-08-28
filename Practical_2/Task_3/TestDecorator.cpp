@@ -19,3 +19,8 @@ bool TestDecorator::runTest()
 {
     return internalTestBed->runTest();
 }
+
+TestDecorator::~TestDecorator()
+{
+    delete internalTestBed;
+}

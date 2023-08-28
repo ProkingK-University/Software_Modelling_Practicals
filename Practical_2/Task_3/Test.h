@@ -10,6 +10,7 @@ protected:
 
 public:
    virtual bool executeTest() = 0;
+   virtual ~Test();
 };
 
 #endif

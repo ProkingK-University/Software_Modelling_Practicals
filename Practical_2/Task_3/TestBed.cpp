@@ -16,3 +16,8 @@ bool TestBed::runTest()
 {
     return test->executeTest();
 }
+
+TestBed::~TestBed()
+{
+    delete test;
+}

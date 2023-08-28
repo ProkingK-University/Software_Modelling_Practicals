@@ -54,3 +54,8 @@ bool NumericTest::executeTest()
 
     return allTestsPassed;
 }
+
+NumericTest::~NumericTest()
+{
+    delete calculator;
+}
