@@ -23,6 +23,9 @@ void booleanTest()
     TestBed* testBed = new TestBed(booleanTest);
     TestDecorator* testDecorator = new AfterTest(new BeforeTest(testBed, "Starting Boolean Test..."), "Boolean Test Finished!");
     testDecorator->runTest();
+
+    delete booleanTest;
+    delete testBed;
 }
 
 void numericTest()
@@ -33,4 +36,7 @@ void numericTest()
     TestBed* testBed = new TestBed(numericTest);
     TestDecorator* testDecorator = new AfterTest(new BeforeTest(testBed, "Starting Numeric Test..."), "Numeric Test Finished!");
     testDecorator->runTest();
+
+    delete numericTest;
+    delete testBed;
 }

@@ -18,7 +18,7 @@ void dynamicStateChanges();
 
 int main()
 {
-    //testingExceptions();
+    testingExceptions();
     dynamicStateChanges();
     return 0;
 }
