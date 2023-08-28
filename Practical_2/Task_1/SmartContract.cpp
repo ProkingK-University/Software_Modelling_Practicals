@@ -85,6 +85,11 @@ void SmartContract::reject(std::string reason)
     smartState->rejectContract();
 }
 
+/*void SmartContract::setState(SmartState *newState)
+{
+    smartState = newState;
+}*/
+
 void SmartContract::setState(SmartState *newState)
 {
     if (smartState->getName() == "Negotiation" && newState->getName() == "Completed")
