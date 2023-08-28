@@ -5,34 +5,35 @@
 #include "NumericTest.h"
 #include "TestBed.h"
 
+void booleanTest();
+void numericTest();
+
 int main() {
-    // Create a BooleanTest instance
-    BooleanTest booleanTest;
-
-    // Create BeforeTest and AfterTest decorators for the BooleanTest
-    BeforeTest beforeDecorator(booleanTest, "Starting Boolean Test...");
-    AfterTest afterDecorator(beforeDecorator, "Boolean Test Finished!");
-
-    // Create a TestBed with the decorator chain
-    TestBed booleanTestBed(afterDecorator);
-
-    // Run the BooleanTest with decorators
-    booleanTestBed.runTest();
-
-    std::cout << std::endl;
-
-    // Create a NumericTest instance
-    NumericTest numericTest;
-
-    // Create BeforeTest and AfterTest decorators for the NumericTest
-    BeforeTest beforeDecoratorNumeric(numericTest, "Starting Numeric Test...");
-    AfterTest afterDecoratorNumeric(beforeDecoratorNumeric, "Numeric Test Finished!");
-
-    // Create a TestBed with the decorator chain
-    TestBed numericTestBed(afterDecoratorNumeric);
-
-    // Run the NumericTest with decorators
-    numericTestBed.runTest();
-
+    booleanTest();
+    numericTest();
     return 0;
+}
+
+void booleanTest()
+{
+    std::cout << "======================= EVERTHING BOOLEAN =======================" << std::endl;
+    
+    Test* booleanTest = new BooleanTest();
+    TestBed context(*booleanTest);
+
+    TestDecorator* concreteDecoratorB_1 = new BeforeTest(context, "Starting Boolean Test...");
+    context.runTest();
+    TestDecorator* concreteDecoratorA_1 = new AfterTest(context, "Boolean Test Finished!");
+}
+
+void numericTest()
+{
+    std::cout << "======================= EVERTHING NUMERIC =======================" << std::endl;
+    
+    Test* numericTest = new NumericTest();
+    TestBed context(*numericTest);
+
+    TestDecorator* concreteDecoratorB_1 = new BeforeTest(context, "Starting Boolean Test...");
+    context.runTest();
+    TestDecorator* concreteDecoratorA_1 = new AfterTest(context, "Boolean Test Finished!");
 }

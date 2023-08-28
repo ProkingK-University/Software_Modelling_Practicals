@@ -50,6 +50,13 @@ double NumericCalculator::performCalculation()
             operators.push(c);
         }
     }
+    // Pop any remaining operators and apply them
+    while (!operators.empty()) {
+        applyOperator(operands, operators);
+    }
+
+    // The final result should be at the top of the operands stack
+    return operands.top();
 }
 
 bool NumericCalculator::isOperator(char c)
