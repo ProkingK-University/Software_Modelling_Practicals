@@ -10,11 +10,11 @@ public:
 
     std::string getName();
 
-    void addCondition();
     void rejectContract();
     void acceptContract();
-    void removeCondition();
     void completeContract();
+    void addCondition(std::string condition);
+    void removeCondition(std::string condition);
 };
 
 #endif

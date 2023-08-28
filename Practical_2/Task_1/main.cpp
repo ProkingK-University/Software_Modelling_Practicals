@@ -18,7 +18,7 @@ void dynamicStateChanges();
 
 int main()
 {
-    testingExceptions();
+    //testingExceptions();
     dynamicStateChanges();
     return 0;
 }
@@ -198,6 +198,9 @@ void dynamicStateChanges()
     smartContract->view();
 
     smartContract->accept();
+    
+    smartContract->view();
+
     smartContract->accept();
     smartContract->complete();
     smartContract->accept();

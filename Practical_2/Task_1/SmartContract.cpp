@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 
 #include "Negotiation.h"
 #include "SmartContract.h"
@@ -15,11 +14,6 @@ SmartContract::SmartContract(std::string name, std::vector<std::string> &conditi
     this->name = name;
     smartState = new Negotiation(*this);
     this->conditions = conditions;
-}
-
-SmartContract::~SmartContract()
-{
-    delete smartState;
 }
 
 std::string SmartContract::getName()
@@ -62,11 +56,6 @@ bool SmartContract::getAgreeingParties()
 std::vector<std::string> SmartContract::getConditions()
 {
     return conditions;
-}
-
-std::string getCondition(std::vector<std::string> conditions, int index)
-{
-    return conditions[index];
 }
 
 void SmartContract::view()
@@ -129,20 +118,12 @@ void SmartContract::setState(SmartState *newState)
 
 void SmartContract::addCondition(std::string condition)
 {
-    smartState->addCondition();
-    conditions.push_back(condition);
-
-    std::cout << "Added condition: " << condition << std::endl;
+    smartState->addCondition(condition);
 }
 
 void SmartContract::removeCondition(std::string condition)
 {
-    auto it = std::find(conditions.begin(), conditions.end(), condition);
-
-    conditions.erase(it);
-    smartState->removeCondition();
-
-    std::cout << "Removed condition: " << condition << std::endl;
+    smartState->removeCondition(condition);
 }
 
 std::string SmartContract::toString()
@@ -171,4 +152,9 @@ std::string SmartContract::toString()
     }
 
     return output;
+}
+
+SmartContract::~SmartContract()
+{
+    delete smartState;
 }

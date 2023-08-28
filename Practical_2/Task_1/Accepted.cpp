@@ -39,12 +39,12 @@ void Accepted::rejectContract()
     std::cout << "Error: Contract is already accepted" << std::endl;
 }
 
-void Accepted::addCondition()
+void Accepted::addCondition(std::string condition)
 {
     std::cout << "Error: Contract is already accepted" << std::endl;
 }
 
-void Accepted::removeCondition()
+void Accepted::removeCondition(std::string condition)
 {
     std::cout << "Error: Contract is already accepted" << std::endl;
 }

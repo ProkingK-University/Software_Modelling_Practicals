@@ -19,22 +19,23 @@ private:
 public:
     SmartContract(std::string name);
     SmartContract(std::string name, std::vector<std::string>& conditions);
-    virtual ~SmartContract();
 
     std::string getName();
     std::vector<bool> getVotes();
-    void clearVotes();
-    bool getAgreeingParties();
     std::vector<std::string> getConditions();
 
     void view();
     void accept();
     void complete();
+    void clearVotes();
     void vote(bool vote);
+    bool getAgreeingParties();
     void reject(std::string reason);
     void setState(SmartState* newState);
     void addCondition(std::string condition);
     void removeCondition(std::string condition);
+
+    virtual ~SmartContract();
 };
 
 #endif

@@ -4,8 +4,8 @@ SmartState::SmartState(SmartContract& smartContract) : smartContract(smartContra
 
 SmartState::~SmartState() {}
 
-void SmartState::addCondition() {}
 void SmartState::rejectContract() {}
 void SmartState::acceptContract() {}
-void SmartState::removeCondition() {}
 void SmartState::completeContract() {}
+void SmartState::addCondition(std::string condition) {}
+void SmartState::removeCondition(std::string condition) {}
