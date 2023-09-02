@@ -5,9 +5,11 @@
 #include <vector>
 #include <iostream>
 
+#include "Contract.h"
+
 class SmartState;
 
-class SmartContract
+class SmartContract : public Contract
 {
 private:
     std::string name;
@@ -25,11 +27,14 @@ public:
     std::vector<std::string> getConditions();
 
     void view();
+    void notify();
     void accept();
     void complete();
     void clearVotes();
     void vote(bool vote);
     bool getAgreeingParties();
+    void attach(Observer* observer);
+    void detach(Observer* observer);
     void reject(std::string reason);
     void add(std::string condition);
     void remove(std::string condition);

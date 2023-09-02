@@ -85,40 +85,9 @@ void SmartContract::reject(std::string reason)
     smartState->rejectContract();
 }
 
-/*void SmartContract::setState(SmartState *newState)
-{
-    smartState = newState;
-}*/
-
 void SmartContract::setState(SmartState *newState)
 {
-    if (smartState->getName() == "Negotiation" && newState->getName() == "Completed")
-    {
-        smartState->completeContract();
-        delete smartState;
-    }
-    else if (smartState->getName() == "Tentatively Accepted" && newState->getName() == "Completed")
-    {
-        smartState->completeContract();
-        delete smartState;
-    }
-    else if (smartState->getName() == "Accepted" && newState->getName() == "Accepted")
-    {
-        smartState->acceptContract();
-        delete smartState;
-    }
-    else if (smartState->getName() == "Accepted" && newState->getName() == "Rejected")
-    {
-        smartState->rejectContract();
-        delete smartState;
-    }
-    else
-    {
-        std::cout << "Contract has changed from " << smartState->getName() << " to ";
-        delete smartState; 
-        smartState = newState;
-        std::cout << smartState->getName() << std::endl;
-    }
+    smartState = newState;
 }
 
 void SmartContract::add(std::string condition)
@@ -141,6 +110,26 @@ void SmartContract::addCondition(std::string condition)
 void SmartContract::removeCondition(std::string condition)
 {
     smartState->removeCondition(condition);
+}
+
+void SmartContract::notify()
+{
+    for(Observer* observer : observerList)
+    {
+        observer->update();
+    }
+}
+
+void SmartContract::attach(Observer* observer)
+{
+    observerList.push_back(observer);
+}
+
+void SmartContract::detach(Observer* observer)
+{
+    auto it = std::find(observerList.begin(), observerList.end(), observer);
+
+    observerList.erase(it);
 }
 
 std::string SmartContract::toString()
