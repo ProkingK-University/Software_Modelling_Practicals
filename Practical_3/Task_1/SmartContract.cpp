@@ -85,6 +85,11 @@ void SmartContract::reject(std::string reason)
     smartState->rejectContract();
 }
 
+SmartState* SmartContract::getState()
+{
+    return smartState;
+}
+
 void SmartContract::setState(SmartState *newState)
 {
     smartState = newState;

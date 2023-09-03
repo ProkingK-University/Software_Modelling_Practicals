@@ -38,6 +38,7 @@ public:
     void reject(std::string reason);
     void add(std::string condition);
     void remove(std::string condition);
+    SmartState* getState();
     void setState(SmartState* newState);
     void addCondition(std::string condition);
     void removeCondition(std::string condition);
