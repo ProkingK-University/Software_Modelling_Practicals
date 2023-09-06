@@ -33,7 +33,7 @@ public:
     void clearVotes();
     void vote(bool vote);
     bool getAgreeingParties();
-    void attach(Observer* observer);
+    void attach(Observer* observer) override;
     void detach(Observer* observer);
     void reject(std::string reason);
     void add(std::string condition);

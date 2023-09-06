@@ -93,6 +93,7 @@ SmartState* SmartContract::getState()
 void SmartContract::setState(SmartState *newState)
 {
     smartState = newState;
+    notify();
 }
 
 void SmartContract::add(std::string condition)

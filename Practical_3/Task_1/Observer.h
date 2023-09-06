@@ -5,7 +5,7 @@
 
 class Observer
 {
-private:
+protected:
     std::string name;
 public:
     Observer(std::string name);

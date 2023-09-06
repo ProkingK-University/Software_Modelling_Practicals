@@ -1,10 +1,10 @@
-ofiles = Accepted.o Completed.o main.o Negotiation.o Rejected.o SmartContract.o SmartState.o Tentatively.o
+ofiles = Accepted.o Completed.o main.o Negotiation.o Rejected.o SmartContract.o SmartState.o Tentatively.o Observer.o SmartObserver.o
 flags = g++ -std=c++11 -c -g
 
 output: $(ofiles)
 	g++ -o output $(ofiles)
 
-$(ofiles): Accepted.h Completed.h Negotiation.h Rejected.h Rejected.h SmartContract.h SmartState.h Tentatively.h
+$(ofiles): Accepted.h Completed.h Negotiation.h Rejected.h Rejected.h SmartContract.h SmartState.h Tentatively.h SmartObserver.h Observer.h Contract.h
 
 Accepted.o: Accepted.cpp
 	$(flags) Accepted.cpp
@@ -29,6 +29,12 @@ SmartState.o: SmartState.cpp
 
 Tentatively.o: Tentatively.cpp
 	$(flags) Tentatively.cpp
+
+SmartObserver.o: SmartObserver.cpp
+	$(flags) SmartObserver.cpp
+
+Observer.o: Observer.cpp
+	$(flags) Observer.cpp
 
 make: run runv clean
 
