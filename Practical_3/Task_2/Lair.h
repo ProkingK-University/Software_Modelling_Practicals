@@ -1,6 +1,8 @@
 #ifndef LAIR_H
 #define LAIR_H
 
+#include <iostream>
+
 #include "Tile.h"
 #include "Collection.h"
 
@@ -12,10 +14,10 @@ private:
 public:
     Lair();
 
-    Iterator *createIterator();
     void addTile(int xCoord, int yCoord);
     Tile* getTile(int xCoord, int yCoord);
     void removeTile(int xCoord, int yCoord);
+    Iterator *createIterator(std::string type);
 
     ~Lair();
 };
