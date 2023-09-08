@@ -190,19 +190,34 @@ Iterator *Lair::createIterator(std::string type)
 {
     if (type == "BFS")
     {
-        return BFSIterator(root);
+        return new BFSIterator(root);
     }
     else if (type == "DFS")
     {
-        return DFSIterator(root);
+        return new DFSIterator(root);
     }
     else
     {
-        std::cout<< "Invalid Type" std::endl;
+        std::cout << "Invalid Type" << std::endl;
     }
 }
 
 Lair::~Lair()
 {
-    
+    deleteTiles(root);
+}
+
+void Lair::deleteTiles(Tile *tile)
+{
+    if (tile == nullptr)
+    {
+        return;
+    }
+
+    deleteTiles(tile->left);
+    deleteTiles(tile->right);
+    deleteTiles(tile->up);
+    deleteTiles(tile->down);
+
+    delete tile;
 }
