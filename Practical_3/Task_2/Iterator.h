@@ -5,15 +5,9 @@
 
 class Iterator
 {
-protected:
-    Tile* root;
-    Tile* current;
 public:
-    Iterator(Tile* root);
-
-    virtual bool done() = 0;
     virtual Tile* next() = 0;
-    virtual Tile* first() = 0;
+    virtual bool hasNext() = 0;
 };
 
 #endif

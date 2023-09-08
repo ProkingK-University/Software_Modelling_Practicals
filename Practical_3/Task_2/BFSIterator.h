@@ -1,17 +1,21 @@
 #ifndef BFSITERATOR_H
 #define BFSITERATOR_H
 
+#include <queue>
+
 #include "Tile.h"
 #include "Iterator.h"
 
 class BFSIterator : public Iterator
 {
-public:
-    BFSIterator(Tile* root);
+private:
+    std::queue<Tile *> queue;
 
-    bool done();
-    Tile* next();
-    Tile* first();
+public:
+    BFSIterator(Tile *root);
+
+    Tile *next();
+    bool hasNext();
 };
 
 #endif
