@@ -7,11 +7,7 @@
 class KillTrap : public Trap
 {
 public:
-    KillTrap();
-
-    void defend(Enemy enemies[]);
-
-    ~KillTrap();
+    void defend(std::vector<Enemy*> enemies);
 };
 
 #endif

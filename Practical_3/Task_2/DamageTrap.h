@@ -12,9 +12,7 @@ private:
 public:
     DamageTrap(int damage);
 
-    void defend(Enemy enemies[]);
-
-    ~DamageTrap();
+    void defend(std::vector<Enemy*> enemies);
 };
 
 #endif
