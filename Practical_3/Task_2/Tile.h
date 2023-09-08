@@ -12,7 +12,10 @@ public:
     
     Trap* trap;
 
-    Tile();
+    int xCoord;
+    int yCoord;
+
+    Tile(int xCoord, int yCoord);
 
     void defend();
 
