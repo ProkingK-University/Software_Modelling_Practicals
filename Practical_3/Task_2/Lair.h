@@ -5,17 +5,19 @@ class Tile;
 class Iterator;
 
 #include "Tile.h"
-#include "Iterator.h"
+#include "Collection.h"
 
-class Lair {
+class Lair : public Collection
+{
 private:
-    Tile* root;
+    Tile *root;
+
 public:
     Lair();
 
     void addTile();
     void removeTile();
-    Iterator* createIterator();
+    Iterator *createIterator();
 
     ~Lair();
 };

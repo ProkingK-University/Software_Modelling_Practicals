@@ -9,13 +9,10 @@ public:
     Tile* down;
     Tile* left;
     Tile* right;
-
+    
     Trap* trap;
 
-    int xCoordinate;
-    int yCoordinate;
-
-    Tile(int xCoord, int yCoord);
+    Tile();
 
     void defend();
 
