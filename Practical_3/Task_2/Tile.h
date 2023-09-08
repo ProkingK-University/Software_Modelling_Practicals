@@ -2,6 +2,7 @@
 #define TILE_H
 
 #include "Trap.h"
+#include "Bank.h"
 
 class Tile {
 public:
@@ -11,15 +12,14 @@ public:
     Tile* right;
     
     Trap* trap;
+    Bank* bank;
 
     int xCoord;
     int yCoord;
 
     Tile(int xCoord, int yCoord);
 
-    void defend();
-
-    ~Tile();
+    void defend(std::vector<Enemy*> enemies);
 };
 
 #endif

@@ -7,7 +7,7 @@ Enemy::Enemy()
 
 void Enemy::attack(Bank* bank)
 {
-    if (health > 0)
+    if (health > 0 && bank != nullptr)
     {
         bank->emptyBank();
     }

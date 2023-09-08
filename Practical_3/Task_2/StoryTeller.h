@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "Lair.h"
 #include "Enemy.h"
 
 class StoryTeller
@@ -12,9 +13,8 @@ private:
     std::vector<Enemy *> enemies;
 
 public:
-    StoryTeller();
-
-    void attack(std::string type);
+    void addEnemy(Enemy *enemy);
+    void attack(Lair *lair, std::string type);
 
     ~StoryTeller();
 };
