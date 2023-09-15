@@ -1,11 +1,11 @@
-#include "BFSIterator.h"
+#include "BreadthFirstIterator.h"
 
-BFSIterator::BFSIterator(Tile *root)
+BreadthFirstIterator::BreadthFirstIterator(Tile *root)
 {
     queue.push(root);
 }
 
-Tile *BFSIterator::next()
+Tile *BreadthFirstIterator::next()
 {
     Tile *current = queue.front();
 
@@ -34,7 +34,7 @@ Tile *BFSIterator::next()
     return current;
 }
 
-bool BFSIterator::hasNext()
+bool BreadthFirstIterator::hasNext()
 {
     return !queue.empty();
 }

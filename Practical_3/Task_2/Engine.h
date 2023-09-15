@@ -8,14 +8,12 @@
 class Engine
 {
 private:
-    std::vector<GameComponent> components;
+    std::vector<GameComponent*> components;
 
 public:
     Engine();
-
-    void notify(GameComponent *component);
-
     ~Engine();
+    virtual void notify(GameComponent* component) = 0;
 };
 
 #endif

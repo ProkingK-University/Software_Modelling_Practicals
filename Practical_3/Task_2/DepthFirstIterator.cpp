@@ -1,11 +1,11 @@
-#include "DFSIterator.h"
+#include "DepthFirstIterator.h"
 
-DFSIterator::DFSIterator(Tile *root)
+DepthFirstIterator::DepthFirstIterator(Tile *root)
 {
     stack.push(root);
 }
 
-Tile *DFSIterator::next()
+Tile *DepthFirstIterator::next()
 {
     Tile *current = stack.top();
 
@@ -34,7 +34,7 @@ Tile *DFSIterator::next()
     return current;
 }
 
-bool DFSIterator::hasNext()
+bool DepthFirstIterator::hasNext()
 {
     return !stack.empty();
 }

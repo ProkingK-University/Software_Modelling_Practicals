@@ -2,18 +2,8 @@
 
 Enemy::Enemy()
 {
-    health = 100;
 }
 
-void Enemy::attack(Bank* bank)
+Enemy::~Enemy()
 {
-    if (health > 0 && bank != nullptr)
-    {
-        bank->emptyBank();
-    }
-}
-
-void Enemy::takeDamage(int damage)
-{
-    health -= damage;
 }

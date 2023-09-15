@@ -6,19 +6,16 @@
 
 class Tile {
 public:
+    int xCoord;
+    int yCoord;
+    Trap* trap;
+    Bank* bank;
     Tile* up;
     Tile* down;
     Tile* left;
     Tile* right;
-    
-    Trap* trap;
-    Bank* bank;
-
-    int xCoord;
-    int yCoord;
-
     Tile(int xCoord, int yCoord);
-
+    ~Tile();
     void defend(std::vector<Enemy*> enemies);
 };
 

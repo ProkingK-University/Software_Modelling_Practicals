@@ -1,27 +1,26 @@
 #ifndef LAIR_H
 #define LAIR_H
 
-#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime> 
 
+#include "LairIterator.h"
 #include "Tile.h"
-#include "Collection.h"
 
-class Lair : public Collection
+class Lair
 {
-private:
-    Tile *root;
-
-    void deleteTiles(Tile *tile);
-
+friend class LairIterator;
 public:
     Lair();
-
-    void addTile(int xCoord, int yCoord);
-    Tile *getTile(int xCoord, int yCoord);
-    void removeTile(int xCoord, int yCoord);
-    Iterator *createIterator(std::string type);
-
-    ~Lair();
+    virtual ~Lair();
+    virtual LairIterator *createIterator(std::string type) = 0;
+    virtual void addTile(int xCoord, int yCoord) = 0;
+    virtual void removeTile(int xCoord, int yCoord) = 0;
+    virtual Tile* getTile(int xCoord, int yCoord) = 0;
+    virtual void deleteAllTiles(Tile* root) = 0;
+    virtual void randomlyGenerateLair() = 0;
+    virtual void displayLair() = 0;
 };
 
 #endif

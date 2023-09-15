@@ -8,6 +8,22 @@ Tile::Tile(int xCoord, int yCoord)
     this->yCoord = yCoord;
 }
 
+Tile::~Tile()
+{
+    delete trap;
+    trap = nullptr;
+    delete bank;
+    bank = nullptr;
+    delete up;
+    up = nullptr;
+    delete down;
+    down = nullptr;
+    delete left;
+    left = nullptr;
+    delete right;
+    right = nullptr;
+}
+
 void Tile::defend(std::vector<Enemy*> enemies)
 {
     if (trap != nullptr)

@@ -1,6 +1,6 @@
 #include "StoryTeller.h"
-#include "BFSIterator.h"
-#include "DFSIterator.h"
+#include "BreadthFirstIterator.h"
+#include "DepthFirstIterator.h"
 
 void StoryTeller::addEnemy(Enemy *enemy)
 {
@@ -9,7 +9,7 @@ void StoryTeller::addEnemy(Enemy *enemy)
 
 void StoryTeller::attack(Lair *lair, std::string type)
 {
-    Iterator *it = lair->createIterator(type);
+    LairIterator *it = lair->createIterator(type);
 
     while (it->hasNext())
     {

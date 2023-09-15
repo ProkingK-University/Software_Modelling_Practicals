@@ -6,12 +6,12 @@ private:
     int currentAmount;
 public:
     Bank(int initialAmount);
-
-    void payLab();
+    ~Bank(){}
     void emptyBank();
-    int getCurrentAmount() const;
-
-    ~Bank();
+    int getCurrentAmount();
+    void fundResearch();
+    void queryGameComponent();
+    void updateGameComponent();  
 };
 
 #endif
