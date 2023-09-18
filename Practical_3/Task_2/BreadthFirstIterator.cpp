@@ -1,8 +1,14 @@
 #include "BreadthFirstIterator.h"
 
-BreadthFirstIterator::BreadthFirstIterator(Tile *root)
+BreadthFirstIterator::BreadthFirstIterator(Tile *root) : LairIterator()
 {
     queue.push(root);
+}
+
+BreadthFirstIterator::~BreadthFirstIterator()
+{
+    delete currentTile;
+    currentTile = nullptr;
 }
 
 Tile *BreadthFirstIterator::next()

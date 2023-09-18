@@ -16,8 +16,8 @@ public:
     ~BreadthFirstIterator();
     bool hasNext();
     Tile *next();
-    Tile* getCurrentTile();
-    Enemy* getOccupyingEnemy();
-    Trap* getOccupyingTrap();
+    // Tile* getCurrentTile();
+    // Enemy* getOccupyingEnemy();
+    // Trap* getOccupyingTrap();
 };
 #endif

@@ -2,7 +2,6 @@
 
 LairPlayground::LairPlayground()
 {
-
     root = nullptr;
 }
 
@@ -11,7 +10,6 @@ void LairPlayground::addTile(int xCoord, int yCoord)
     if (root == nullptr)
     {
         root = new Tile(xCoord, yCoord);
-
         return;
     }
 
@@ -19,7 +17,7 @@ void LairPlayground::addTile(int xCoord, int yCoord)
 
     while (true)
     {
-        if (xCoord < current->xCoord)
+        if (xCoord <= current->xCoord)
         {
             if (current->left == nullptr)
             {
@@ -43,7 +41,7 @@ void LairPlayground::addTile(int xCoord, int yCoord)
                 current = current->right;
             }
         }
-        else if (yCoord < current->yCoord)
+        else if (yCoord <= current->yCoord)
         {
             if (current->up == nullptr)
             {
@@ -86,7 +84,7 @@ Tile *LairPlayground::getTile(int xCoord, int yCoord)
 
     while (true)
     {
-        if (xCoord < current->xCoord)
+        if (xCoord <= current->xCoord)
         {
             parent = current;
             current = current->left;
@@ -96,7 +94,7 @@ Tile *LairPlayground::getTile(int xCoord, int yCoord)
             parent = current;
             current = current->right;
         }
-        else if (yCoord < current->yCoord)
+        else if (yCoord <= current->yCoord)
         {
             parent = current;
             current = current->up;
@@ -225,26 +223,11 @@ void LairPlayground::deleteAllTiles(Tile *tile)
 
 void LairPlayground::randomlyGenerateLair()
 {
-    // Seed the random number generator with the current time
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
-
-    // Define the range of coordinates for random generation
-    int minX = 0;
-    int maxX = 10; // Adjust the maximum X coordinate as needed
-    int minY = 0;
-    int maxY = 10; // Adjust the maximum Y coordinate as needed
-
-    // Define the number of tiles to generate (you can adjust this as needed)
-    int numTilesToGenerate = 20;
-
-    for (int i = 0; i < numTilesToGenerate; i++)
+    for (int i = 0; i < 2; i++)
     {
-        // Generate random X and Y coordinates within the specified range
-        int xCoord = minX + (std::rand() % (maxX - minX + 1));
-        int yCoord = minY + (std::rand() % (maxY - minY + 1));
-
-        // Add the tile with the generated coordinates to the lair
-        addTile(xCoord, yCoord);
+        for (int j = 0; j < 2; j++) {
+            addTile(i, j);
+        }
     }
 }
 
@@ -258,9 +241,9 @@ void LairPlayground::displayLair()
 
     // Define the range of coordinates for the lair
     int minX = 0;
-    int maxX = 10; // Adjust as needed
+    int maxX = 2; // Adjust as needed
     int minY = 0;
-    int maxY = 10; // Adjust as needed
+    int maxY = 2; // Adjust as needed
 
     for (int y = minY; y <= maxY; y++)
     {

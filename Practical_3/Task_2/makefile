@@ -4,7 +4,7 @@ flags = g++ -std=c++11 -c -g
 output: $(ofiles)
 	g++ -o output $(ofiles)
 
-$(ofiles): BreadthFirstIterator.h DepthFirstIterator.h Enemy.h Lair.h LairIterator.h LairPlayground.h Tile.o
+$(ofiles): BreadthFirstIterator.h DepthFirstIterator.h Enemy.h Lair.h LairIterator.h LairPlayground.h Tile.h
 
 BreadthFirstIterator.o: BreadthFirstIterator.cpp
 	$(flags) BreadthFirstIterator.cpp

@@ -5,6 +5,12 @@ DepthFirstIterator::DepthFirstIterator(Tile *root)
     stack.push(root);
 }
 
+DepthFirstIterator::~DepthFirstIterator()
+{
+    delete currentTile;
+    currentTile = nullptr;
+}
+
 Tile *DepthFirstIterator::next()
 {
     Tile *current = stack.top();
