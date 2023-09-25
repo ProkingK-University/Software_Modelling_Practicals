@@ -2,18 +2,19 @@
 #define ENGINE_H
 
 #include <vector>
+#include <string>
 
 #include "GameComponent.h"
 
+class GameComponent;
+
 class Engine
 {
-private:
-    std::vector<GameComponent*> components;
-
 public:
-    Engine();
-    ~Engine();
-    virtual void notify(GameComponent* component) = 0;
+    virtual ~Engine() {}
+    virtual void notify(GameComponent* sender, std::string message) = 0;
+protected:
+    Engine() {}
 };
 
 #endif

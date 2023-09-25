@@ -2,18 +2,13 @@
 
 Tile::Tile(int xCoord, int yCoord)
 {
-    trap = nullptr;
-    bank = nullptr;
     this->xCoord = xCoord;
     this->yCoord = yCoord;
+    up = down = left = right = nullptr;
 }
 
 Tile::~Tile()
 {
-    delete trap;
-    trap = nullptr;
-    delete bank;
-    bank = nullptr;
     delete up;
     up = nullptr;
     delete down;
@@ -24,10 +19,62 @@ Tile::~Tile()
     right = nullptr;
 }
 
-void Tile::defend(std::vector<Enemy*> enemies)
+int Tile::getXCoord()
 {
-    if (trap != nullptr)
-    {
-        trap->defend(enemies);
-    }
+    return xCoord;
+}
+
+void Tile::setXCoord(int newXCoord)
+{
+    xCoord = newXCoord;
+}
+
+int Tile::getYCoord()
+{
+    return yCoord;
+}
+
+void Tile::setYCoord(int newYCoord)
+{
+    yCoord = newYCoord;
+}
+
+Tile* Tile::getUp()
+{
+    return up;
+}
+
+void Tile::setUp(Tile* newUp)
+{
+    up = newUp;
+}
+
+Tile* Tile::getDown()
+{
+    return down;
+}
+
+void Tile::setDown(Tile* newDown)
+{
+    down = newDown;
+}
+
+Tile* Tile::getLeft()
+{
+    return left;
+}
+
+void Tile::setLeft(Tile* newLeft)
+{
+    left = newLeft;
+}
+
+Tile* Tile::getRight()
+{
+    return right;
+}
+
+void Tile::setRight(Tile* newRight)
+{
+    right = newRight;
 }

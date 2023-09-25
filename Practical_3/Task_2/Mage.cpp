@@ -1,21 +1,21 @@
 #include "Mage.h"
 
-Mage::Mage(int health, int attackDamage)
+Mage::Mage(int health, int attackDamage) : Hero()
 {
     this->health = health;
     this->attackDamage = attackDamage;
     isAlive = true;
 }
 
-void Mage::queryGameComponent()
-{
+// void Mage::queryGameComponent()
+// {
 
-}
+// }
 
-void Mage::updateGameComponent()
-{
+// void Mage::updateGameComponent()
+// {
 
-}
+// }
 
 bool Mage::storyTellerDecision(bool DepthOrBreadthFirstDecision)
 {

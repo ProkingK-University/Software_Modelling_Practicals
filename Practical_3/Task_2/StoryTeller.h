@@ -5,18 +5,16 @@
 #include <vector>
 
 #include "Lair.h"
-#include "Enemy.h"
+#include "LairIterator.h"
 
 class StoryTeller
 {
-private:
-    std::vector<Enemy *> enemies;
-
 public:
-    void addEnemy(Enemy *enemy);
-    void attack(Lair *lair, std::string type);
-
+    StoryTeller(Lair* lairPlayground);
     ~StoryTeller();
+    void traversal(LairIterator* iterator);
+private:
+    Lair* lairPlayground;
 };
 
 #endif

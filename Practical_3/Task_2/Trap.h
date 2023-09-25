@@ -1,14 +1,38 @@
 #ifndef TRAP_H
 #define TRAP_H
 
-#include <vector>
+#include <chrono>
+#include <thread> 
 
-#include "Enemy.h"
+#include "Hero.h"
+#include "Lair.h"
+#include "Bank.h"
+#include "GameComponent.h"
 
-class Trap
+class Trap : public GameComponent
 {
 public:
-    virtual void defend(std::vector<Enemy*> enemies) = 0;
+    Trap(Engine* engine, Hero* hero, GameComponent* bank, int cost, int researchTime);
+    virtual ~Trap() {}
+    void activate();
+    void deactivate();
+    virtual void trigger() = 0;
+    virtual bool getStatus() = 0;
+    virtual void sendNotification() = 0;
+    virtual void receiveNotification(std::string message) = 0;
+    void placeTrap(int xCoord, int yCoord);
+    int getResearchCost();
+    int getResearchTime();
+    void initiateResearch(int researchTime);
+protected:
+    int xCoord;
+    int yCoord;
+    int cost;
+    int researchTime;
+    bool isResearchComplete;
+    bool isActive;
+    Hero* hero;
+    GameComponent* bank;
 };
 
 #endif

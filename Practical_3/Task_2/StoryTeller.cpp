@@ -1,33 +1,16 @@
 #include "StoryTeller.h"
-#include "BreadthFirstIterator.h"
-#include "DepthFirstIterator.h"
 
-void StoryTeller::addEnemy(Enemy *enemy)
+StoryTeller::StoryTeller(Lair* lairPlayground)
 {
-    enemies.push_back(enemy);
+    this->lairPlayground = lairPlayground;
 }
 
-void StoryTeller::attack(Lair *lair, std::string type)
+StoryTeller::~StoryTeller() {}
+
+void StoryTeller::traversal(LairIterator *iterator)
 {
-    LairIterator *it = lair->createIterator(type);
-
-    while (it->hasNext())
-    {
-        for (int i = 0; i < enemies.size(); i++)
-        {
-            Tile* currentTile = it->next();
-            currentTile->defend(enemies);
-            enemies[i]->attack(currentTile->bank);
-        }
+    while (iterator->hasNext()) {
+        Tile* tile = iterator->next();
+        std::cout << "Tile (" << tile->getXCoord() << ", " << tile->getYCoord() << ")" << std::endl;
     }
-}
-
-StoryTeller::~StoryTeller()
-{
-    for(Enemy* enemy : enemies)
-    {
-        delete enemy;
-    }
-
-    enemies.clear();
 }

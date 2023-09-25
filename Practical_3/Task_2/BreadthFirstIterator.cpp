@@ -1,46 +1,30 @@
 #include "BreadthFirstIterator.h"
+#include "Lair.h"
 
-BreadthFirstIterator::BreadthFirstIterator(Tile *root) : LairIterator()
+BreadthFirstIterator::BreadthFirstIterator(Lair* lair, Tile* startingTile) : LairIterator()
 {
-    queue.push(root);
+    if (lair->doesTileExist(startingTile)) {
+        this->lair = lair;
+        queue.push(startingTile);
+        visited.insert(startingTile);
+    }
 }
 
-BreadthFirstIterator::~BreadthFirstIterator()
-{
-    delete currentTile;
-    currentTile = nullptr;
+Tile* BreadthFirstIterator::next() {
+    if (hasNext()) {
+        Tile* next = queue.front();
+        queue.pop();
+        for (auto neighbour : lair->getNeighbours(next)) {
+            if (visited.count(neighbour) == 0) {
+                queue.push(neighbour);
+                visited.insert(neighbour);
+            }
+        }
+        return next;
+    }
+    return nullptr;
 }
 
-Tile *BreadthFirstIterator::next()
-{
-    Tile *current = queue.front();
-
-    queue.pop();
-
-    if (current->up != nullptr)
-    {
-        queue.push(current->up);
-    }
-
-    if (current->down != nullptr)
-    {
-        queue.push(current->down);
-    }
-
-    if (current->left != nullptr)
-    {
-        queue.push(current->left);
-    }
-
-    if (current->right != nullptr)
-    {
-        queue.push(current->right);
-    }
-
-    return current;
-}
-
-bool BreadthFirstIterator::hasNext()
-{
+bool BreadthFirstIterator::hasNext() const {
     return !queue.empty();
 }

@@ -1,17 +1,23 @@
 #ifndef BANK_H
 #define BANK_H
 
-class Bank {
-private:
-    int currentAmount;
+#include <iostream>
+
+#include "GameComponent.h"
+
+class Bank : public GameComponent
+{
 public:
-    Bank(int initialAmount);
+    Bank(Engine* engine, int initialAmount);
     ~Bank(){}
     void emptyBank();
+    void GameOver();
     int getCurrentAmount();
-    void fundResearch();
-    void queryGameComponent();
-    void updateGameComponent();  
+    void setCurrentAmount(int newAmount);
+    void fundResearch(int cost);
+    virtual void sendNotification();
+    virtual void receiveNotification(std::string message); 
+private:
+    int currentAmount;
 };
-
 #endif

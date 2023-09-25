@@ -1,270 +1,94 @@
 #include "LairPlayground.h"
 
-LairPlayground::LairPlayground()
+LairPlayground::LairPlayground() : Lair() {}
+
+LairPlayground::~LairPlayground() {}
+
+LairIterator* LairPlayground::createIterator(bool type, Tile* startingTile)
 {
-    root = nullptr;
-}
-
-void LairPlayground::addTile(int xCoord, int yCoord)
-{
-    if (root == nullptr)
+    if (type)
     {
-        root = new Tile(xCoord, yCoord);
-        return;
-    }
-
-    Tile *current = root;
-
-    while (true)
-    {
-        if (xCoord <= current->xCoord)
-        {
-            if (current->left == nullptr)
-            {
-                current->left = new Tile(xCoord, yCoord);
-                return;
-            }
-            else
-            {
-                current = current->left;
-            }
-        }
-        else if (xCoord > current->xCoord)
-        {
-            if (current->right == nullptr)
-            {
-                current->right = new Tile(xCoord, yCoord);
-                return;
-            }
-            else
-            {
-                current = current->right;
-            }
-        }
-        else if (yCoord <= current->yCoord)
-        {
-            if (current->up == nullptr)
-            {
-                current->up = new Tile(xCoord, yCoord);
-                return;
-            }
-            else
-            {
-                current = current->up;
-            }
-        }
-        else if (yCoord > current->yCoord)
-        {
-            if (current->down == nullptr)
-            {
-                current->down = new Tile(xCoord, yCoord);
-                return;
-            }
-            else
-            {
-                current = current->down;
-            }
-        }
-        else
-        {
-            return;
-        }
-    }
-}
-
-Tile *LairPlayground::getTile(int xCoord, int yCoord)
-{
-    if (root == nullptr)
-    {
-        return nullptr;
-    }
-
-    Tile *current = root;
-    Tile *parent = nullptr;
-
-    while (true)
-    {
-        if (xCoord <= current->xCoord)
-        {
-            parent = current;
-            current = current->left;
-        }
-        else if (xCoord > current->xCoord)
-        {
-            parent = current;
-            current = current->right;
-        }
-        else if (yCoord <= current->yCoord)
-        {
-            parent = current;
-            current = current->up;
-        }
-        else if (yCoord > current->yCoord)
-        {
-            parent = current;
-            current = current->down;
-        }
-        else
-        {
-            break;
-        }
-    }
-
-    return current;
-}
-
-void LairPlayground::removeTile(int xCoord, int yCoord)
-{
-    if (root == nullptr)
-    {
-        return;
-    }
-
-    Tile *current = root;
-    Tile *parent = nullptr;
-
-    while (true)
-    {
-        if (xCoord < current->xCoord)
-        {
-            parent = current;
-            current = current->left;
-        }
-        else if (xCoord > current->xCoord)
-        {
-            parent = current;
-            current = current->right;
-        }
-        else if (yCoord < current->yCoord)
-        {
-            parent = current;
-            current = current->up;
-        }
-        else if (yCoord > current->yCoord)
-        {
-            parent = current;
-            current = current->down;
-        }
-        else
-        {
-            break;
-        }
-
-        if (current == nullptr)
-        {
-            return;
-        }
-    }
-
-    if (parent == nullptr)
-    {
-        delete root;
-        root = nullptr;
-    }
-    else if (parent->left == current)
-    {
-        parent->left = nullptr;
-        delete current;
-    }
-    else if (parent->right == current)
-    {
-        parent->right = nullptr;
-        delete current;
-    }
-    else if (parent->up == current)
-    {
-        parent->up = nullptr;
-        delete current;
-    }
-    else if (parent->down == current)
-    {
-        parent->down = nullptr;
-        delete current;
-    }
-}
-
-LairIterator *LairPlayground::createIterator(std::string type)
-{
-    if (type == "BFS")
-    {
-        return new BreadthFirstIterator(root);
-    }
-    else if (type == "DFS")
-    {
-        return new DepthFirstIterator(root);
+        return new BreadthFirstIterator(this, startingTile);
     }
     else
     {
-        std::cout << "Invalid Type" << std::endl;
+        return new DepthFirstIterator(this, startingTile);
+    }
+}
+
+Lair& LairPlayground::addEdge(Tile* source, Tile* destination)
+{
+    if (source != nullptr) {
+        if (source != destination || (source->getXCoord() != destination->getXCoord() && source->getYCoord() != destination->getYCoord())) {
+            std::set<Tile*> destinations = map[source];
+            if (destinations.empty()) {
+                destinations = std::set<Tile*>();
+            }
+            if (destination != NULL) {
+                destinations.insert(destination);
+                std::set<Tile*> destinationsOfDestination = map[destination];
+                if (destinationsOfDestination.empty()) {
+                    map[destination] = std::set<Tile*>();
+                }
+            }
+            map[source] = destinations;
+        }
+    }
+    return *this;
+}
+
+std::set<Tile*> LairPlayground::getNeighbours(Tile* tile)
+{
+    std::set<Tile*> neighbours = this->map[tile];
+    if (neighbours.empty()) {
+        return std::set<Tile*>();
+    } else {
+        return neighbours;
+    }
+}
+
+bool LairPlayground::doesTileExist(Tile* tile)
+{
+    return map.count(tile) > 0;
+}
+
+Lair& LairPlayground::addTile(Tile* tile)
+{
+    if (tile != nullptr && !doesTileExist(tile)) {
+        map[tile] = std::set<Tile*>();
+    }
+    return *this;
+}
+
+Tile* LairPlayground::getTile(int xCoord, int yCoord)
+{
+    for (auto& entry : map)
+    {
+        Tile* tile = entry.first;
+        if (tile->getXCoord() == xCoord && tile->getYCoord() == yCoord)
+        {
+            return tile;
+        }
     }
     return nullptr;
-    //TODO: NEED TO FIX
 }
 
-LairPlayground::~LairPlayground()
+Lair& LairPlayground::removeTile(Tile* tile)
 {
-    deleteAllTiles(root);
-}
+    if (tile != nullptr) {
+        map.erase(tile);
 
-void LairPlayground::deleteAllTiles(Tile *tile)
-{
-    if (tile == nullptr)
-    {
-        return;
-    }
-
-    deleteAllTiles(tile->left);
-    deleteAllTiles(tile->right);
-    deleteAllTiles(tile->up);
-    deleteAllTiles(tile->down);
-
-    delete tile;
-}
-
-void LairPlayground::randomlyGenerateLair()
-{
-    for (int i = 0; i < 2; i++)
-    {
-        for (int j = 0; j < 2; j++) {
-            addTile(i, j);
+        for (auto& entry : map) {
+            entry.second.erase(tile);
         }
     }
+    return *this;
 }
 
-void LairPlayground::displayLair()
+void LairPlayground::placeTrapInTile(Tile* tile, Trap* trap)
 {
-    if (root == nullptr)
+    if (doesTileExist(tile))
     {
-        std::cout << "Lair is empty." << std::endl;
-        return;
-    }
-
-    // Define the range of coordinates for the lair
-    int minX = 0;
-    int maxX = 2; // Adjust as needed
-    int minY = 0;
-    int maxY = 2; // Adjust as needed
-
-    for (int y = minY; y <= maxY; y++)
-    {
-        for (int x = minX; x <= maxX; x++)
-        {
-            Tile *tile = getTile(x, y);
-
-            if (tile != nullptr)
-            {
-                std::cout << "X"; // Tile is present
-            }
-            else
-            {
-                std::cout << " "; // Empty space
-            }
-
-            // Add a space to separate tiles
-            std::cout << " ";
-        }
-
-        // Move to the next row
-        std::cout << std::endl;
+        trap->placeTrap(tile->getXCoord(), tile->getYCoord());
     }
 }

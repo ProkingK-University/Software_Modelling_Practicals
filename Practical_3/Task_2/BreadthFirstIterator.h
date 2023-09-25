@@ -1,23 +1,22 @@
-#ifndef BREADTHFIRSTITERATOR_H
-#define BREADTHFIRSTITERATOR_H
+#ifndef BREADTH_FIRST_ITERATOR_H
+#define BREADTH_FIRST_ITERATOR_H
 
+#include <set>
 #include <queue>
 
 #include "LairIterator.h"
 
 class BreadthFirstIterator : public LairIterator
 {
-private:
-    std::queue<Tile*> queue;
-    Tile* currentTile;
-
 public:
-    BreadthFirstIterator(Tile* root);
-    ~BreadthFirstIterator();
-    bool hasNext();
-    Tile *next();
-    // Tile* getCurrentTile();
-    // Enemy* getOccupyingEnemy();
-    // Trap* getOccupyingTrap();
+    BreadthFirstIterator(Lair* lair, Tile* startingVertex);
+    ~BreadthFirstIterator() {}
+    virtual Tile* next();
+    virtual bool hasNext() const;
+private:
+    std::set<Tile*> visited;
+    std::queue<Tile*> queue;
+    Lair* lair;
 };
+
 #endif

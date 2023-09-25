@@ -1,23 +1,22 @@
-#ifndef DEPTHFIRSTITERATOR_H
-#define DEPTHFIRSTITERATOR_H
+#ifndef DEPTH_FIRST_ITERATOR_H
+#define DEPTH_FIRST_ITERATOR_H
 
+#include <set>
 #include <stack>
 
 #include "LairIterator.h"
 
 class DepthFirstIterator : public LairIterator
 {
-private:
-    std::stack<Tile*> stack;
-    Tile* currentTile;
-
 public:
-    DepthFirstIterator(Tile* root);
-    ~DepthFirstIterator();
-    bool hasNext();
-    Tile *next();
-    // Tile* getCurrentTile();
-    // Enemy* getOccupyingEnemy();
-    // Trap* getOccupyingTrap();
+    DepthFirstIterator(Lair* lair, Tile* startingTile);
+    ~DepthFirstIterator() {}
+    virtual Tile* next();
+    virtual bool hasNext() const;
+private:
+    std::set<Tile*> visited;
+    std::stack<Tile*> stack;
+    Lair* lair;
 };
+
 #endif

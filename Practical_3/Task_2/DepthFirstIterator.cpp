@@ -1,46 +1,32 @@
 #include "DepthFirstIterator.h"
+#include "Lair.h"
 
-DepthFirstIterator::DepthFirstIterator(Tile *root)
+DepthFirstIterator::DepthFirstIterator(Lair* lair, Tile* startingTile) : LairIterator()
 {
-    stack.push(root);
+    if (lair->doesTileExist(startingTile)) {
+        this->lair = lair;
+        stack.push(startingTile);
+        visited.insert(startingTile);
+    }
 }
 
-DepthFirstIterator::~DepthFirstIterator()
+Tile* DepthFirstIterator::next()
 {
-    delete currentTile;
-    currentTile = nullptr;
+    if (hasNext()) {
+        Tile* next = stack.top();
+        stack.pop();
+        for (auto neighbour : lair->getNeighbours(next)) {
+            if (visited.count(neighbour) == 0) {
+                stack.push(neighbour);
+                visited.insert(neighbour);
+            }
+        }
+        return next;
+    }
+    return nullptr;
 }
 
-Tile *DepthFirstIterator::next()
-{
-    Tile *current = stack.top();
-
-    stack.pop();
-
-    if (current->up != nullptr)
-    {
-        stack.push(current->up);
-    }
-
-    if (current->down != nullptr)
-    {
-        stack.push(current->down);
-    }
-
-    if (current->left != nullptr)
-    {
-        stack.push(current->left);
-    }
-
-    if (current->right != nullptr)
-    {
-        stack.push(current->right);
-    }
-
-    return current;
-}
-
-bool DepthFirstIterator::hasNext()
+bool DepthFirstIterator::hasNext() const
 {
     return !stack.empty();
 }

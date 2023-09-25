@@ -1,30 +1,25 @@
-#ifndef LAIRPLAYGROUND_H
-#define LAIRPLAYGROUND_H
-
-#include <iostream>
-#include <vector>
+#ifndef LAIR_PLAYGROUND_H
+#define LAIR_PLAYGROUND_H
 
 #include "Lair.h"
-#include "DepthFirstIterator.h"
 #include "BreadthFirstIterator.h"
+#include "DepthFirstIterator.h"
 
 class LairPlayground : public Lair
 {
-friend class Lair;
-private:
-    std::vector<std::vector<Tile*>> lairPlayground;
-    Tile *root;
-
 public:
     LairPlayground();
     ~LairPlayground();
-    LairIterator *createIterator(std::string type);
-    void addTile(int xCoord, int yCoord);
-    void removeTile(int xCoord, int yCoord);
-    Tile *getTile(int xCoord, int yCoord);
-    void deleteAllTiles(Tile* root);
-    void randomlyGenerateLair();
-    void displayLair();
+    virtual LairIterator* createIterator(bool type, Tile* startingTile);
+    virtual Lair& addEdge(Tile* source, Tile* destination);
+    virtual std::set<Tile*> getNeighbours(Tile* tile);
+    virtual bool doesTileExist(Tile* tile);
+    virtual Lair& addTile(Tile* tile); //TODO: Need to use addEdge function when adding a new Tile
+    virtual Tile* getTile(int xCoord, int yCoord);
+    virtual Lair& removeTile(Tile* tile);
+    virtual void placeTrapInTile(Tile* tile, Trap* trap);
+private:
+    std::map<Tile*, std::set<Tile*>> map;
 };
 
 #endif

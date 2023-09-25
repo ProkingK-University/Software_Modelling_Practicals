@@ -1,22 +1,30 @@
 #ifndef TILE_H
 #define TILE_H
 
-#include "Trap.h"
-#include "Bank.h"
 
 class Tile {
-public:
+private:
     int xCoord;
     int yCoord;
-    Trap* trap;
-    Bank* bank;
     Tile* up;
     Tile* down;
     Tile* left;
     Tile* right;
+public:
     Tile(int xCoord, int yCoord);
     ~Tile();
-    void defend(std::vector<Enemy*> enemies);
+    int getXCoord();
+    void setXCoord(int newXCoord);
+    int getYCoord();
+    void setYCoord(int newYCoord);
+    Tile* getUp();
+    void setUp(Tile* newUp);
+    Tile* getDown();
+    void setDown(Tile* newDown);
+    Tile* getLeft();
+    void setLeft(Tile* newLeft);
+    Tile* getRight();
+    void setRight(Tile* newRight);
 };
 
 #endif
