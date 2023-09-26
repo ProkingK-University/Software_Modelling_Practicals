@@ -20,9 +20,8 @@ void testingCommandAndMediatorPattern();
 
 int main() 
 {
-    // testingIteratorPattern();
+    testingIteratorPattern();
     testingCommandAndMediatorPattern();
-    // testingMediatorPattern();
     return 0;
 }
 

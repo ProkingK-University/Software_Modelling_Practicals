@@ -16,7 +16,7 @@ private:
     Tile* left;
     Tile* right;
 public:
-    Trap* trap; // This guy is the problem :(
+    Trap* trap; 
     Bank* bank;
 
     Tile(int xCoord, int yCoord);
