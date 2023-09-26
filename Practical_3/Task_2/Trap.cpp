@@ -40,3 +40,8 @@ void Trap::initiateResearch(int researchTime)
     isResearchComplete = true;
 
 }
+
+void Trap::setHero(Hero* hero)
+{
+    this->hero = hero;
+}

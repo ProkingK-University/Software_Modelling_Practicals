@@ -24,6 +24,7 @@ public:
     int getResearchCost();
     int getResearchTime();
     void initiateResearch(int researchTime);
+    void setHero(Hero* hero);
 protected:
     int xCoord;
     int yCoord;

@@ -78,3 +78,26 @@ void Tile::setRight(Tile* newRight)
 {
     right = newRight;
 }
+
+void Tile::setBank(Bank* bank)
+{
+    this->bank = bank;
+}
+
+void Tile::defend(std::vector<Hero*> heroes)
+{
+    if (trap != nullptr)
+    {
+        for (int i = 0; i < heroes.size(); i++)
+        {
+            trap->setHero(heroes[i]);
+            trap->trigger();
+        }
+    }
+
+    if (bank != nullptr)
+    {
+        bank->emptyBank();
+        bank->GameOver();
+    }
+}

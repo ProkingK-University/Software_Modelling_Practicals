@@ -15,6 +15,7 @@ public:
     void traversal(LairIterator* iterator);
 private:
     Lair* lairPlayground;
+    std::vector<Hero*> heroes;
 };
 
 #endif
