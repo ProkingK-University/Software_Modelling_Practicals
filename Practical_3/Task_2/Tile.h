@@ -1,8 +1,12 @@
 #ifndef TILE_H
 #define TILE_H
 
-#include "Trap.h"
+#include <vector>
 
+#include "Hero.h"
+
+class Trap;
+class Bank;
 class Tile {
 private:
     int xCoord;

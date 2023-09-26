@@ -1,4 +1,6 @@
 #include "Tile.h"
+#include "Trap.h"
+#include "Bank.h"
 
 Tile::Tile(int xCoord, int yCoord)
 {
