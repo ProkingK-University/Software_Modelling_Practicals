@@ -38,7 +38,6 @@ void Trap::initiateResearch(int researchTime)
 {
     std::this_thread::sleep_for(std::chrono::seconds(researchTime));
     isResearchComplete = true;
-
 }
 
 void Trap::setHero(Hero* hero)
