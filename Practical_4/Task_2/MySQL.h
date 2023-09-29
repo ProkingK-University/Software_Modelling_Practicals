@@ -1,10 +1,11 @@
 #ifndef MYSQL_H
 #define MYSQL_H
 
-class MySQL 
+#include <string>
+class MySQL
 {
 public:
-    void specifiedRequest();
+    virtual std::string query(std::string colnum, std::string table);
 };
 
 #endif

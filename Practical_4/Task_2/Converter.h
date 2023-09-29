@@ -1,15 +1,17 @@
 #ifndef CONVERTER_H
 #define CONVERTER_H
 
-#include "SQL.h"
 #include "MySQL.h"
+#include "YourSQL.h"
 
-class Converter : public SQL
+class Converter : public MySQL
 {
 private:
-    MySQL* adapter;
+    YourSQL *adaptee;
+
 public:
-    virtual void request();
+    Converter(YourSQL *adaptee);
+    std::string query(std::string colnum, std::string table);
 };
 
 #endif
