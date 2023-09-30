@@ -5,7 +5,10 @@
 
 class Validate : public Handler
 {
-    virtual void handleRequest();
+public:
+    void handleRequest();
+    Validate(Handler* authorized, User* user) : Handler(authorized, user) {}
+private:
 };
 
 #endif

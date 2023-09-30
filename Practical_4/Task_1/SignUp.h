@@ -7,6 +7,10 @@ class SignUp : public Handler
 {
 public:
     virtual void handleRequest();
+    std::string generateNonce();
+    SignUp(Handler* signIn, User* user, bool requestingNonce) : Handler(signIn, user) {this->requestingNonce = requestingNonce;}
+private:
+    bool requestingNonce;
 };
 
 #endif
