@@ -2,10 +2,10 @@
 
 void SignIn::handleRequest()
 {
-    if (validatingSignInNonce) 
+    if (validatingSignInNonce)
     {
         std::string nonce = user->getNonce();
-        if (nonceDatabase.find(nonce) != nonceDatabase.end()) 
+        if (nonceDatabase.find(nonce) != nonceDatabase.end())
         {
             user->setToken(generateToken());
             tokenDatabase[user->getUserId()] = user->getToken();

@@ -1,7 +1,7 @@
 #ifndef VALIDATE_H
 #define VALIDATE_H
 
-#include "Handler.h";
+#include "Handler.h"
 
 /**
  * @brief The Validate class for validating requests.

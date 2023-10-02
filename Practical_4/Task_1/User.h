@@ -14,7 +14,7 @@ public:
      *
      * @param userId The user's ID.
      */
-    User(std::string userId) {this->userId = userId; token = nullptr; nonce = nullptr;}
+    User(std::string userId) {this->userId = userId; token = ""; nonce = "";}
 
     /**
      * @brief Get the user's ID.
