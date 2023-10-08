@@ -14,42 +14,42 @@ public:
      *
      * @param userId The user's ID.
      */
-    User(const std::string& userId) : userId(userId), token(""), nonce("") {}
+    User(const std::string userId) {this->userId = userId, token = "", nonce = "";}
 
     /**
      * @brief Get the user's ID.
      *
      * @return The user's ID.
      */
-    const std::string& getUserId() const { return userId; }
+    const std::string getUserId() const {return userId;}
 
     /**
      * @brief Get the user's security token.
      *
      * @return The user's security token.
      */
-    const std::string& getToken() const { return token; }
+    const std::string getToken() const {return token;}
 
     /**
      * @brief Set the user's security token.
      *
      * @param newToken The new security token to set.
      */
-    void setToken(const std::string& newToken) { token = newToken; }
+    void setToken(const std::string newToken) {token = newToken;}
 
     /**
      * @brief Get the user's nonce.
      *
      * @return The user's nonce.
      */
-    const std::string& getNonce() const { return nonce; }
+    const std::string getNonce() const {return nonce;}
 
     /**
      * @brief Set the user's nonce.
      *
      * @param newNonce The new nonce to set.
      */
-    void setNonce(const std::string& newNonce) { nonce = newNonce; }
+    void setNonce(const std::string newNonce) {nonce = newNonce;}
 
 private:
     std::string userId;
