@@ -18,6 +18,7 @@ int main()
     signIn(user);
     authorize(user);
 
+    delete user;
     return 0;
 }
 
@@ -35,7 +36,6 @@ void signUp(User *user)
     headHandler->handleRequest();
 
     delete headHandler;
-    delete user;
 }
 
 void signIn(User *user)
@@ -52,7 +52,6 @@ void signIn(User *user)
     headHandler->handleRequest();
 
     delete headHandler;
-    delete user;
 }
 
 void authorize(User *user)
@@ -69,5 +68,4 @@ void authorize(User *user)
     headHandler->handleRequest();
 
     delete headHandler;
-    delete user;
 }
