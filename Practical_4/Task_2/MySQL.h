@@ -5,6 +5,8 @@
 class MySQL
 {
 public:
+    MySQL() {}
+    virtual ~MySQL() {}
     virtual std::string query(std::string colnum, std::string table);
 };
 

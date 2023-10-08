@@ -11,6 +11,7 @@ private:
 
 public:
     Converter(YourSQL *adaptee);
+    ~Converter();
     std::string query(std::string colnum, std::string table);
 };
 
