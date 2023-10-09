@@ -12,7 +12,7 @@ public:
     /**
      * @brief Handle the authorized request.
      */
-    virtual void handleRequest() {std::cout << "Processing the request...\n";}
+    virtual void handleRequest(const std::string& nonce, const std::string& token) {std::cout << "Processing the request...\n";}
     
     /**
      * @brief Constructor for Authorized class.

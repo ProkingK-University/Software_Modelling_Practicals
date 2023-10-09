@@ -14,12 +14,12 @@ int main()
 {
     User *user = new User("#42069");
 
-    signIn(user);
     signUp(user);
-    
+    signIn(user);
     authorize(user);
 
     delete user;
+
     return 0;
 }
 
@@ -27,15 +27,14 @@ void signUp(User *user)
 {
     std::cout << "Signing up...\n";
 
-    Handler *authorizedHandler = new Authorized(&user);
-    Handler *validateHandler = new Validate(authorizedHandler, &user);
-    Handler *signInHandler = new SignIn(validateHandler, &user, false);
-    Handler *signUpHandler = new SignUp(signInHandler, &user, true);
+    Handler *authorizedHandler = new Authorized(user);
+    Handler *validateHandler = new Validate(authorizedHandler, user);
+    Handler *signInHandler = new SignIn(validateHandler, user, false);
+    Handler *signUpHandler = new SignUp(signInHandler, user, true);
 
     Handler *headHandler = signUpHandler;
 
-    headHandler->handleRequest();
-
+    headHandler->handleRequest("", "");
 }
 
 void signIn(User *user)
@@ -49,8 +48,7 @@ void signIn(User *user)
 
     Handler *headHandler = signUpHandler;
 
-    headHandler->handleRequest();
-
+    headHandler->handleRequest(user->getNonce(), "");
 }
 
 void authorize(User *user)
@@ -59,11 +57,10 @@ void authorize(User *user)
 
     Handler *authorizedHandler = new Authorized(user);
     Handler *validateHandler = new Validate(authorizedHandler, user);
-    Handler *signInHandler = new SignIn(validateHandler, user, false);
+    Handler *signInHandler = new SignIn(validateHandler, user, true);
     Handler *signUpHandler = new SignUp(signInHandler, user, false);
 
     Handler *headHandler = signUpHandler;
 
-    headHandler->handleRequest();
-
+    headHandler->handleRequest(user->getNonce(), user->getToken());
 }
