@@ -24,6 +24,11 @@ public:
      * @brief Destructor for the Handler class.
      */
     virtual ~Handler() {delete successor; successor = nullptr;}
+
+    /**
+     * @brief setHandler to set the Handler for the Handler class.
+     */
+    void setHandler(Handler* successor) {this->successor = successor;}
 protected:
     /**
      * @brief Constructor for the Handler class.
