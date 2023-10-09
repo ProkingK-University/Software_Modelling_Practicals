@@ -1,17 +1,16 @@
 #include "SignUp.h"
 
-void SignUp::handleRequest()
+void SignUp::handleRequest(const std::string& nonce, const std::string& token)
 {
     if (requestingNonce)
     {
         user->setNonce(generateNonce());
-        nonceDatabase[user->getNonce()] = user->getUserId();
-        std::cout << "Generated and persisted nonce: " << user->getNonce() << "\n";
+        std::cout << "Generated nonce: " << user->getNonce() << "\n";
     }
     else
     {
-        Handler::handleRequest();
-    }  
+        Handler::handleRequest(nonce, token);
+    }
 }
 
 std::string SignUp::generateNonce()

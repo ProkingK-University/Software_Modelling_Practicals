@@ -14,8 +14,9 @@ int main()
 {
     User *user = new User("#42069");
 
-    signUp(user);
     signIn(user);
+    signUp(user);
+    
     authorize(user);
 
     delete user;
@@ -26,16 +27,15 @@ void signUp(User *user)
 {
     std::cout << "Signing up...\n";
 
-    Handler *authorizedHandler = new Authorized(user);
-    Handler *validateHandler = new Validate(authorizedHandler, user);
-    Handler *signInHandler = new SignIn(validateHandler, user, false);
-    Handler *signUpHandler = new SignUp(signInHandler, user, true);
+    Handler *authorizedHandler = new Authorized(&user);
+    Handler *validateHandler = new Validate(authorizedHandler, &user);
+    Handler *signInHandler = new SignIn(validateHandler, &user, false);
+    Handler *signUpHandler = new SignUp(signInHandler, &user, true);
 
     Handler *headHandler = signUpHandler;
 
     headHandler->handleRequest();
 
-    delete headHandler;
 }
 
 void signIn(User *user)
@@ -51,7 +51,6 @@ void signIn(User *user)
 
     headHandler->handleRequest();
 
-    delete headHandler;
 }
 
 void authorize(User *user)
@@ -67,5 +66,4 @@ void authorize(User *user)
 
     headHandler->handleRequest();
 
-    delete headHandler;
 }

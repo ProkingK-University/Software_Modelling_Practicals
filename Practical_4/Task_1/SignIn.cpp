@@ -1,14 +1,13 @@
 #include "SignIn.h"
 
-void SignIn::handleRequest()
+void SignIn::handleRequest(const std::string& nonce, const std::string& token)
 {
     if (validatingSignInNonce)
     {
-        std::string nonce = user->getNonce();
-        if (nonceDatabase.find(nonce) != nonceDatabase.end())
+        std::string userNonce = user->getNonce();
+        if (userNonce == nonce)
         {
             user->setToken(generateToken());
-            tokenDatabase[user->getUserId()] = user->getToken();
             std::cout << "Verified sign-in nonce and generated token: " << user->getToken() << "\n";
         }
         else
@@ -18,9 +17,10 @@ void SignIn::handleRequest()
     }
     else
     {
-        Handler::handleRequest();
+        Handler::handleRequest(nonce, token);
     }
 }
+
 
 std::string SignIn::generateToken()
 {

@@ -12,7 +12,7 @@ public:
     /**
      * @brief Handle the request validation.
      */
-    void handleRequest();
+    void handleRequest(const std::string& nonce, const std::string& token) override;
 
     /**
      * @brief Constructor for Validate class.

@@ -18,7 +18,7 @@ public:
     /**
      * @brief Virtual function to handle the request.
      */
-    virtual void handleRequest();
+    virtual void handleRequest(const std::string& nonce, const std::string& token) = 0;
     
     /**
      * @brief Destructor for the Handler class.
@@ -37,8 +37,6 @@ protected:
      * @param user User associated with the request.
      */
     Handler(Handler* successor, User* user) {this->successor = successor; this->user = user;}
-    std::unordered_map<std::string, std::string> nonceDatabase;
-    std::unordered_map<std::string, std::string> tokenDatabase;
     User* user;
 private:
     Handler* successor;

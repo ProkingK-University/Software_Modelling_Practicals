@@ -12,15 +12,15 @@ public:
     /**
      * @brief Handle the sign-up request.
      */
-    virtual void handleRequest();
+    virtual void handleRequest(const std::string& nonce, const std::string& token);
 
     /**
      * @brief Generate a nonce for sign-up.
      *
      * @return The generated nonce.
      */
-    
     std::string generateNonce();
+
     /**
      * @brief Constructor for SignUp class.
      *
@@ -28,7 +28,9 @@ public:
      * @param user User associated with the request.
      * @param requestingNonce Flag to request a nonce.
      */
-    SignUp(Handler* signIn, User* user, bool requestingNonce) : Handler(signIn, user) {this->requestingNonce = requestingNonce;}
+    SignUp(Handler* signIn, User* user, bool requestingNonce)
+        : Handler(signIn, user), requestingNonce(requestingNonce) {}
+
 private:
     bool requestingNonce;
 };

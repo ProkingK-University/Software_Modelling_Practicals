@@ -13,7 +13,7 @@ public:
     /**
      * @brief Handle the sign-in request.
      */
-    virtual void handleRequest();
+    virtual void handleRequest(const std::string& nonce, const std::string& token);
 
     /**
      * @brief Constructor for SignIn class.
