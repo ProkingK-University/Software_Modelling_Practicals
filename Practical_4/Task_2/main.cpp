@@ -24,8 +24,5 @@ int main()
     delete adaptee;
     adaptee = nullptr;
     
-    delete adapter;
-    adapter = nullptr;
-    
     return 0;
 }

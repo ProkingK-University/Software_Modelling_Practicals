@@ -13,7 +13,7 @@ SRCS := $(wildcard *.cpp)
 OBJS := $(SRCS:.cpp=.o)
 
 # Executable name
-EXEC := main
+EXEC := hello
 
 # Build target
 all: $(EXEC)
