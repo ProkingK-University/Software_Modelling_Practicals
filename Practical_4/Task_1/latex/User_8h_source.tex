@@ -1,0 +1,32 @@
+\hypertarget{User_8h_source}{}\doxysection{User.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef USER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define USER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classUser}{User}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{classUser_a483ea565af44b98fb0c713777322216c}{User}}(\textcolor{keyword}{const} std::string userId) \{this-\/>userId = userId, token = \textcolor{stringliteral}{"{}"{}}, nonce = \textcolor{stringliteral}{"{}"{}};\}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{24     \textcolor{keyword}{const} std::string \mbox{\hyperlink{classUser_a08c992ede55db17af97048f5f5415fcd}{getUserId}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} userId;\}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{31     \textcolor{keyword}{const} std::string \mbox{\hyperlink{classUser_a4894c2bfdbf06e84da1e74a13b59ec99}{getToken}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} token;\}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_a50bc6edd6d54533247c09d0bcbfb91a6}{setToken}}(\textcolor{keyword}{const} std::string newToken) \{token = newToken;\}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{45     \textcolor{keyword}{const} std::string \mbox{\hyperlink{classUser_a8f82159d831d96aa8b5c7881aa329172}{getNonce}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} nonce;\}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_a82adf4501a871d668cc702af0c6aec54}{setNonce}}(\textcolor{keyword}{const} std::string newNonce) \{nonce = newNonce;\}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keyword}{private}:}
+\DoxyCodeLine{55     std::string userId;}
+\DoxyCodeLine{56     std::string token;}
+\DoxyCodeLine{57     std::string nonce;}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

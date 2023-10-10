@@ -1,0 +1,87 @@
+\hypertarget{classHandler}{}\doxysection{Handler Class Reference}
+\label{classHandler}\index{Handler@{Handler}}
+
+
+The \mbox{\hyperlink{classHandler}{Handler}} class for handling requests.  
+
+
+
+
+{\ttfamily \#include $<$Handler.\+h$>$}
+
+
+
+Inheritance diagram for Handler\+:
+% FIG 0
+
+
+Collaboration diagram for Handler\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classHandler_a520a766c77bb851201f49278fa582626}{handle\+Request}} (const std\+::string \&nonce, const std\+::string \&token)=0
+\begin{DoxyCompactList}\small\item\em Virtual function to handle the request. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHandler_aa0eb1d454ce3dbb5de2d99b57fcc0039}\label{classHandler_aa0eb1d454ce3dbb5de2d99b57fcc0039}} 
+virtual {\bfseries $\sim$\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classHandler}{Handler}} class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHandler_a0666ecded8241f8324565304ad261677}\label{classHandler_a0666ecded8241f8324565304ad261677}} 
+void {\bfseries set\+Handler} (\mbox{\hyperlink{classHandler}{Handler}} $\ast$successor)
+\begin{DoxyCompactList}\small\item\em set\+Handler to set the \mbox{\hyperlink{classHandler}{Handler}} for the \mbox{\hyperlink{classHandler}{Handler}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classHandler_a282f05b25c7bc8a99434d742757ddcd4}{Handler}} (\mbox{\hyperlink{classHandler}{Handler}} $\ast$successor, \mbox{\hyperlink{classUser}{User}} $\ast$user)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classHandler}{Handler}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHandler_a3f018344a90f5f9c26c7a0ecff11f910}\label{classHandler_a3f018344a90f5f9c26c7a0ecff11f910}} 
+\mbox{\hyperlink{classUser}{User}} $\ast$ {\bfseries user}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classHandler}{Handler}} class for handling requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHandler_a282f05b25c7bc8a99434d742757ddcd4}\label{classHandler_a282f05b25c7bc8a99434d742757ddcd4}} 
+\index{Handler@{Handler}!Handler@{Handler}}
+\index{Handler@{Handler}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{Handler()}{Handler()}}
+{\footnotesize\ttfamily Handler\+::\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHandler}{Handler}} $\ast$}]{successor,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Constructor for the \mbox{\hyperlink{classHandler}{Handler}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em successor} & The next handler in the chain. \\
+\hline
+{\em user} & \mbox{\hyperlink{classUser}{User}} associated with the request. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHandler_a520a766c77bb851201f49278fa582626}\label{classHandler_a520a766c77bb851201f49278fa582626}} 
+\index{Handler@{Handler}!handleRequest@{handleRequest}}
+\index{handleRequest@{handleRequest}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{handleRequest()}{handleRequest()}}
+{\footnotesize\ttfamily void Handler\+::handle\+Request (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nonce,  }\item[{const std\+::string \&}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Virtual function to handle the request. 
+
+
+
+Implemented in \mbox{\hyperlink{classAuthorized_a2d0e56d19b8eed53d4eef287e9aea2cc}{Authorized}}, \mbox{\hyperlink{classSignIn_a65b1b335b76ec082b80619d2774cdbce}{Sign\+In}}, \mbox{\hyperlink{classSignUp_a2b950ba9983a92fb237223eaeb24af2f}{Sign\+Up}}, and \mbox{\hyperlink{classValidate_a1e4e2a1fceaa86a3cb91b52d68968ff0}{Validate}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Handler.\+h\item 
+Handler.\+cpp\end{DoxyCompactItemize}

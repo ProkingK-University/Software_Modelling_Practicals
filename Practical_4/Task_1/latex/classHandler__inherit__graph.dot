@@ -1,0 +1,15 @@
+digraph "Handler"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Handler",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="The Handler class for handling requests."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Authorized",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAuthorized.html",tooltip="The Authorized class for handling authorized requests."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="SignIn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSignIn.html",tooltip="The SignIn class for handling sign-in requests."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="SignUp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSignUp.html",tooltip="The SignUp class for handling sign-up requests."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Validate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classValidate.html",tooltip="The Validate class for validating requests."];
+}

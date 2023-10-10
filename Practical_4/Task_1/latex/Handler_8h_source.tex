@@ -1,0 +1,32 @@
+\hypertarget{Handler_8h_source}{}\doxysection{Handler.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef HANDLER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define HANDLER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}User.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classHandler}{Handler}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classHandler_a520a766c77bb851201f49278fa582626}{handleRequest}}(\textcolor{keyword}{const} std::string\& nonce, \textcolor{keyword}{const} std::string\& token) = 0;}
+\DoxyCodeLine{22     }
+\DoxyCodeLine{26     \textcolor{keyword}{virtual} \mbox{\hyperlink{classHandler_aa0eb1d454ce3dbb5de2d99b57fcc0039}{\string~Handler}}() \{\textcolor{keyword}{delete} successor; successor = \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHandler_a0666ecded8241f8324565304ad261677}{setHandler}}(\mbox{\hyperlink{classHandler}{Handler}}* successor) \{this-\/>successor = successor;\}}
+\DoxyCodeLine{32 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{39     \mbox{\hyperlink{classHandler_a282f05b25c7bc8a99434d742757ddcd4}{Handler}}(\mbox{\hyperlink{classHandler}{Handler}}* successor, \mbox{\hyperlink{classUser}{User}}* user) \{this-\/>successor = successor; this-\/>user = user;\}}
+\DoxyCodeLine{40     \mbox{\hyperlink{classUser}{User}}* user;}
+\DoxyCodeLine{41 \textcolor{keyword}{private}:}
+\DoxyCodeLine{42     \mbox{\hyperlink{classHandler}{Handler}}* successor;}
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

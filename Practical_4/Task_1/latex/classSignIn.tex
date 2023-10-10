@@ -1,0 +1,90 @@
+\hypertarget{classSignIn}{}\doxysection{Sign\+In Class Reference}
+\label{classSignIn}\index{SignIn@{SignIn}}
+
+
+The \mbox{\hyperlink{classSignIn}{Sign\+In}} class for handling sign-\/in requests.  
+
+
+
+
+{\ttfamily \#include $<$Sign\+In.\+h$>$}
+
+
+
+Inheritance diagram for Sign\+In\+:
+% FIG 0
+
+
+Collaboration diagram for Sign\+In\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classSignIn_a65b1b335b76ec082b80619d2774cdbce}{handle\+Request}} (const std\+::string \&nonce, const std\+::string \&token)
+\begin{DoxyCompactList}\small\item\em Handle the sign-\/in request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSignIn_a9f01a7210e373dbf82bc143e18fbcdcb}{Sign\+In}} (\mbox{\hyperlink{classHandler}{Handler}} $\ast$validate, \mbox{\hyperlink{classUser}{User}} $\ast$user, bool validating\+Sign\+In\+Nonce)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classSignIn}{Sign\+In}} class. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSignIn_a1c68226f1bdaa3ae828f3752fa770b4d}{generate\+Token}} ()
+\begin{DoxyCompactList}\small\item\em Generate a security token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classSignIn}{Sign\+In}} class for handling sign-\/in requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSignIn_a9f01a7210e373dbf82bc143e18fbcdcb}\label{classSignIn_a9f01a7210e373dbf82bc143e18fbcdcb}} 
+\index{SignIn@{SignIn}!SignIn@{SignIn}}
+\index{SignIn@{SignIn}!SignIn@{SignIn}}
+\doxysubsubsection{\texorpdfstring{SignIn()}{SignIn()}}
+{\footnotesize\ttfamily Sign\+In\+::\+Sign\+In (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHandler}{Handler}} $\ast$}]{validate,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{bool}]{validating\+Sign\+In\+Nonce }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \mbox{\hyperlink{classSignIn}{Sign\+In}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em validate} & The next handler for validation. \\
+\hline
+{\em user} & \mbox{\hyperlink{classUser}{User}} associated with the request. \\
+\hline
+{\em validating\+Sign\+In\+Nonce} & Flag to validate sign-\/in nonce. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSignIn_a1c68226f1bdaa3ae828f3752fa770b4d}\label{classSignIn_a1c68226f1bdaa3ae828f3752fa770b4d}} 
+\index{SignIn@{SignIn}!generateToken@{generateToken}}
+\index{generateToken@{generateToken}!SignIn@{SignIn}}
+\doxysubsubsection{\texorpdfstring{generateToken()}{generateToken()}}
+{\footnotesize\ttfamily std\+::string Sign\+In\+::generate\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generate a security token. 
+
+\begin{DoxyReturn}{Returns}
+The generated security token. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSignIn_a65b1b335b76ec082b80619d2774cdbce}\label{classSignIn_a65b1b335b76ec082b80619d2774cdbce}} 
+\index{SignIn@{SignIn}!handleRequest@{handleRequest}}
+\index{handleRequest@{handleRequest}!SignIn@{SignIn}}
+\doxysubsubsection{\texorpdfstring{handleRequest()}{handleRequest()}}
+{\footnotesize\ttfamily void Sign\+In\+::handle\+Request (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nonce,  }\item[{const std\+::string \&}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle the sign-\/in request. 
+
+
+
+Implements \mbox{\hyperlink{classHandler_a520a766c77bb851201f49278fa582626}{Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sign\+In.\+h\item 
+Sign\+In.\+cpp\end{DoxyCompactItemize}

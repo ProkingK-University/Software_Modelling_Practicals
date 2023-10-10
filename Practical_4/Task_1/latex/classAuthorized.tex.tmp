@@ -1,0 +1,70 @@
+\hypertarget{classAuthorized}{}\doxysection{Authorized Class Reference}
+\label{classAuthorized}\index{Authorized@{Authorized}}
+
+
+The \mbox{\hyperlink{classAuthorized}{Authorized}} class for handling authorized requests.  
+
+
+
+
+{\ttfamily \#include $<$Authorized.\+h$>$}
+
+
+
+Inheritance diagram for Authorized\+:
+% FIG 0
+
+
+Collaboration diagram for Authorized\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classAuthorized_a2d0e56d19b8eed53d4eef287e9aea2cc}{handle\+Request}} (const std\+::string \&nonce, const std\+::string \&token)
+\begin{DoxyCompactList}\small\item\em Handle the authorized request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAuthorized_a8606f152e0da5f35bfbb5de05ab4eee2}{Authorized}} (\mbox{\hyperlink{classUser}{User}} $\ast$user)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classAuthorized}{Authorized}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classAuthorized}{Authorized}} class for handling authorized requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAuthorized_a8606f152e0da5f35bfbb5de05ab4eee2}\label{classAuthorized_a8606f152e0da5f35bfbb5de05ab4eee2}} 
+\index{Authorized@{Authorized}!Authorized@{Authorized}}
+\index{Authorized@{Authorized}!Authorized@{Authorized}}
+\doxysubsubsection{\texorpdfstring{Authorized()}{Authorized()}}
+{\footnotesize\ttfamily Authorized\+::\+Authorized (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \mbox{\hyperlink{classAuthorized}{Authorized}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \mbox{\hyperlink{classUser}{User}} associated with the request. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAuthorized_a2d0e56d19b8eed53d4eef287e9aea2cc}\label{classAuthorized_a2d0e56d19b8eed53d4eef287e9aea2cc}} 
+\index{Authorized@{Authorized}!handleRequest@{handleRequest}}
+\index{handleRequest@{handleRequest}!Authorized@{Authorized}}
+\doxysubsubsection{\texorpdfstring{handleRequest()}{handleRequest()}}
+{\footnotesize\ttfamily virtual void Authorized\+::handle\+Request (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nonce,  }\item[{const std\+::string \&}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Handle the authorized request. 
+
+
+
+Implements \mbox{\hyperlink{classHandler_a520a766c77bb851201f49278fa582626}{Handler}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Authorized.\+h\end{DoxyCompactItemize}

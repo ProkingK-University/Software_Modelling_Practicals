@@ -1,0 +1,73 @@
+\hypertarget{classValidate}{}\doxysection{Validate Class Reference}
+\label{classValidate}\index{Validate@{Validate}}
+
+
+The \mbox{\hyperlink{classValidate}{Validate}} class for validating requests.  
+
+
+
+
+{\ttfamily \#include $<$Validate.\+h$>$}
+
+
+
+Inheritance diagram for Validate\+:
+% FIG 0
+
+
+Collaboration diagram for Validate\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classValidate_a1e4e2a1fceaa86a3cb91b52d68968ff0}{handle\+Request}} (const std\+::string \&nonce, const std\+::string \&token) override
+\begin{DoxyCompactList}\small\item\em Handle the request validation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classValidate_a61c3d15bd1c266c58f1510897064b54d}{Validate}} (\mbox{\hyperlink{classHandler}{Handler}} $\ast$authorized, \mbox{\hyperlink{classUser}{User}} $\ast$user)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classValidate}{Validate}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classValidate}{Validate}} class for validating requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classValidate_a61c3d15bd1c266c58f1510897064b54d}\label{classValidate_a61c3d15bd1c266c58f1510897064b54d}} 
+\index{Validate@{Validate}!Validate@{Validate}}
+\index{Validate@{Validate}!Validate@{Validate}}
+\doxysubsubsection{\texorpdfstring{Validate()}{Validate()}}
+{\footnotesize\ttfamily Validate\+::\+Validate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHandler}{Handler}} $\ast$}]{authorized,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \mbox{\hyperlink{classValidate}{Validate}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em authorized} & The next handler for authorized requests. \\
+\hline
+{\em user} & \mbox{\hyperlink{classUser}{User}} associated with the request. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classValidate_a1e4e2a1fceaa86a3cb91b52d68968ff0}\label{classValidate_a1e4e2a1fceaa86a3cb91b52d68968ff0}} 
+\index{Validate@{Validate}!handleRequest@{handleRequest}}
+\index{handleRequest@{handleRequest}!Validate@{Validate}}
+\doxysubsubsection{\texorpdfstring{handleRequest()}{handleRequest()}}
+{\footnotesize\ttfamily void Validate\+::handle\+Request (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nonce,  }\item[{const std\+::string \&}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle the request validation. 
+
+
+
+Implements \mbox{\hyperlink{classHandler_a520a766c77bb851201f49278fa582626}{Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Validate.\+h\item 
+Validate.\+cpp\end{DoxyCompactItemize}

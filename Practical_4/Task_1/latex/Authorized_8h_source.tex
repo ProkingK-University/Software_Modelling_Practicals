@@ -1,0 +1,19 @@
+\hypertarget{Authorized_8h_source}{}\doxysection{Authorized.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef AUTHORIZED\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define AUTHORIZED\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Handler.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classAuthorized}{Authorized}} : \textcolor{keyword}{public} \mbox{\hyperlink{classHandler}{Handler}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAuthorized_a2d0e56d19b8eed53d4eef287e9aea2cc}{handleRequest}}(\textcolor{keyword}{const} std::string\& nonce, \textcolor{keyword}{const} std::string\& token) \{std::cout << \textcolor{stringliteral}{"{}Processing the request...\(\backslash\)n"{}};\}}
+\DoxyCodeLine{16     }
+\DoxyCodeLine{22     \mbox{\hyperlink{classAuthorized_a8606f152e0da5f35bfbb5de05ab4eee2}{Authorized}}(\mbox{\hyperlink{classUser}{User}}* user) : \mbox{\hyperlink{classHandler}{Handler}}(nullptr, user) \{\}}
+\DoxyCodeLine{23 \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

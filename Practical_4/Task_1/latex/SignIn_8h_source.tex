@@ -1,0 +1,24 @@
+\hypertarget{SignIn_8h_source}{}\doxysection{Sign\+In.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SIGNIN\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SIGNIN\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Handler.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classSignIn}{SignIn}} : \textcolor{keyword}{public} \mbox{\hyperlink{classHandler}{Handler}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classSignIn_a65b1b335b76ec082b80619d2774cdbce}{handleRequest}}(\textcolor{keyword}{const} std::string\& nonce, \textcolor{keyword}{const} std::string\& token);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{25     \mbox{\hyperlink{classSignIn_a9f01a7210e373dbf82bc143e18fbcdcb}{SignIn}}(\mbox{\hyperlink{classHandler}{Handler}}* validate, \mbox{\hyperlink{classUser}{User}}* user, \textcolor{keywordtype}{bool} validatingSignInNonce) : \mbox{\hyperlink{classHandler}{Handler}}(validate, user) \{this-\/>validatingSignInNonce = validatingSignInNonce;\}}
+\DoxyCodeLine{26     }
+\DoxyCodeLine{32     std::string \mbox{\hyperlink{classSignIn_a1c68226f1bdaa3ae828f3752fa770b4d}{generateToken}}();}
+\DoxyCodeLine{33 \textcolor{keyword}{private}:}
+\DoxyCodeLine{34     \textcolor{keywordtype}{bool} validatingSignInNonce;}
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
